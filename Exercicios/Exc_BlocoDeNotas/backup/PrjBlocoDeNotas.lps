@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="12"/>
+    <BuildModes Active="Default"/>
+    <Units>
+      <Unit>
+        <Filename Value="PrjBlocoDeNotas.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="2"/>
+        <CursorPos X="42" Y="22"/>
+        <UsageCount Value="26"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="blocodenotasu.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="BlocoDeNotas"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="BlocoDeNotasU"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="140"/>
+        <CursorPos X="7" Y="160"/>
+        <UsageCount Value="26"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit>
+    </Units>
+    <JumpHistory HistoryIndex="26">
+      <Position>
+        <Filename Value="blocodenotasu.pas"/>
+        <Caret Line="103" Column="55" TopLine="90"/>
+      </Position>
+      <Position>
+        <Filename Value="blocodenotasu.pas"/>
+        <Caret Line="102" Column="55" TopLine="89"/>
+      </Position>
+      <Position>
+        <Filename Value="blocodenotasu.pas"/>
+        <Caret Line="103" Column="55" TopLine="90"/>
+      </Position>
+      <Position>
+        <Filename Value="blocodenotasu.pas"/>
+        <Caret Line="104" Column="55" TopLine="91"/>
+      </Position>
+      <Position>
+        <Filename Value="blocodenotasu.pas"/>
+        <Caret Line="103" Column="55" TopLine="90"/>
+      </Position>
+      <Position>
+        <Filename Value="blocodenotasu.pas"/>
+        <Caret Line="102" Column="55" TopLine="89"/>
+      </Position>
+      <Position>
+        <Filename Value="blocodenotasu.pas"/>
+        <Caret Line="107" Column="55" TopLine="94"/>
+      </Position>
+      <Position>
+        <Filename Value="blocodenotasu.pas"/>
+        <Caret Line="83" Column="57" TopLine="82"/>
+      </Position>
+      <Position>
+        <Filename Value="blocodenotasu.pas"/>
+        <Caret Line="89" Column="27" TopLine="75"/>
+      </Position>
+      <Position>
+        <Filename Value="blocodenotasu.pas"/>
+        <Caret Line="74" Column="15" TopLine="62"/>
+      </Position>
+      <Position>
+        <Filename Value="blocodenotasu.pas"/>
+        <Caret Line="89" Column="43" TopLine="76"/>
+      </Position>
+      <Position>
+        <Filename Value="blocodenotasu.pas"/>
+        <Caret Line="90" Column="40" TopLine="79"/>
+      </Position>
+      <Position>
+        <Filename Value="blocodenotasu.pas"/>
+        <Caret Line="126" TopLine="123"/>
+      </Position>
+      <Position>
+        <Filename Value="blocodenotasu.pas"/>
+        <Caret Line="74" Column="27" TopLine="67"/>
+      </Position>
+      <Position>
+        <Filename Value="blocodenotasu.pas"/>
+        <Caret Line="75" Column="16" TopLine="63"/>
+      </Position>
+      <Position>
+        <Filename Value="blocodenotasu.pas"/>
+        <Caret Line="130" Column="2" TopLine="114"/>
+      </Position>
+      <Position>
+        <Filename Value="blocodenotasu.pas"/>
+        <Caret Line="125" Column="35" TopLine="115"/>
+      </Position>
+      <Position>
+        <Filename Value="blocodenotasu.pas"/>
+        <Caret Line="82" Column="9" TopLine="70"/>
+      </Position>
+      <Position>
+        <Filename Value="blocodenotasu.pas"/>
+        <Caret Line="137" Column="76" TopLine="125"/>
+      </Position>
+      <Position>
+        <Filename Value="blocodenotasu.pas"/>
+        <Caret Line="132" Column="24" TopLine="121"/>
+      </Position>
+      <Position>
+        <Filename Value="blocodenotasu.pas"/>
+        <Caret Line="140" Column="42" TopLine="129"/>
+      </Position>
+      <Position>
+        <Filename Value="blocodenotasu.pas"/>
+        <Caret Line="138" Column="40" TopLine="129"/>
+      </Position>
+      <Position>
+        <Filename Value="blocodenotasu.pas"/>
+        <Caret Line="136" Column="24" TopLine="121"/>
+      </Position>
+      <Position>
+        <Filename Value="blocodenotasu.pas"/>
+        <Caret Line="156" Column="32" TopLine="145"/>
+      </Position>
+      <Position>
+        <Filename Value="blocodenotasu.pas"/>
+        <Caret Line="155" Column="39" TopLine="145"/>
+      </Position>
+      <Position>
+        <Filename Value="blocodenotasu.pas"/>
+        <Caret Line="150" Column="39" TopLine="145"/>
+      </Position>
+      <Position>
+        <Filename Value="blocodenotasu.pas"/>
+        <Caret Line="105" Column="11" TopLine="101"/>
+      </Position>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes ActiveMode=""/>
+    </RunParams>
+  </ProjectSession>
+</CONFIG>

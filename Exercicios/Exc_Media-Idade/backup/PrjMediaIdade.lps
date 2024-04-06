@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="12"/>
+    <BuildModes Active="Default"/>
+    <Units>
+      <Unit>
+        <Filename Value="PrjMediaIdade.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="-1"/>
+        <TopLine Value="-1"/>
+        <CursorPos X="-1" Y="-1"/>
+        <UsageCount Value="20"/>
+      </Unit>
+      <Unit>
+        <Filename Value="mediaidadeu.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="CalculaMediaF"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="MediaIdadeU"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="36"/>
+        <CursorPos X="5" Y="56"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit>
+    </Units>
+    <JumpHistory HistoryIndex="9">
+      <Position>
+        <Filename Value="mediaidadeu.pas"/>
+        <Caret Line="45" Column="28" TopLine="33"/>
+      </Position>
+      <Position>
+        <Filename Value="mediaidadeu.pas"/>
+        <Caret Line="46" TopLine="33"/>
+      </Position>
+      <Position>
+        <Filename Value="mediaidadeu.pas"/>
+        <Caret Line="45" Column="32" TopLine="38"/>
+      </Position>
+      <Position>
+        <Filename Value="mediaidadeu.pas"/>
+        <Caret Line="51" Column="33" TopLine="36"/>
+      </Position>
+      <Position>
+        <Filename Value="mediaidadeu.pas"/>
+        <Caret Line="58" TopLine="43"/>
+      </Position>
+      <Position>
+        <Filename Value="mediaidadeu.pas"/>
+        <Caret Line="60" Column="34" TopLine="43"/>
+      </Position>
+      <Position>
+        <Filename Value="mediaidadeu.pas"/>
+        <Caret Line="45" Column="20" TopLine="43"/>
+      </Position>
+      <Position>
+        <Filename Value="mediaidadeu.pas"/>
+        <Caret Line="43" Column="46" TopLine="31"/>
+      </Position>
+      <Position>
+        <Filename Value="mediaidadeu.pas"/>
+        <Caret Line="46" Column="15" TopLine="40"/>
+      </Position>
+      <Position>
+        <Filename Value="mediaidadeu.pas"/>
+        <Caret Line="55" Column="28" TopLine="38"/>
+      </Position>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes ActiveMode=""/>
+    </RunParams>
+  </ProjectSession>
+</CONFIG>

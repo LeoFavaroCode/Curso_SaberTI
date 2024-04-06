@@ -1,0 +1,21 @@
+object CadUsuarioF: TCadUsuarioF
+  Left = 523
+  Height = 513
+  Top = 240
+  Width = 982
+  Caption = 'Cadastro de Usuário'
+  ClientHeight = 513
+  ClientWidth = 982
+  DesignTimePPI = 120
+  OnClose = FormClose
+  LCLVersion = '3.2.0.0'
+  object BtnFechar: TButton
+    Left = 408
+    Height = 31
+    Top = 224
+    Width = 94
+    Caption = 'Fechar'
+    TabOrder = 0
+    OnClick = BtnFecharClick
+  end
+end

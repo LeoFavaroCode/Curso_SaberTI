@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="12"/>
+    <BuildModes Active="Default"/>
+    <Units>
+      <Unit>
+        <Filename Value="PrjCadastro.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="20" Y="13"/>
+        <UsageCount Value="20"/>
+      </Unit>
+      <Unit>
+        <Filename Value="cadastro.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="PrincipalF"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="Cadastro"/>
+        <CursorPos X="19" Y="44"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="cadcliente.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="CadClienteF"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="CadCliente"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="19"/>
+        <CursorPos X="80" Y="45"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="cadusuario.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="CadUsuarioF"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="CadUsuario"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="22"/>
+        <CursorPos X="9" Y="41"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit>
+    </Units>
+    <JumpHistory HistoryIndex="15">
+      <Position>
+        <Filename Value="cadastro.pas"/>
+        <Caret Line="20"/>
+      </Position>
+      <Position>
+        <Filename Value="cadcliente.pas"/>
+        <Caret Line="8" Column="56"/>
+      </Position>
+      <Position>
+        <Filename Value="cadastro.pas"/>
+        <Caret Line="27" Column="30" TopLine="19"/>
+      </Position>
+      <Position>
+        <Filename Value="cadcliente.pas"/>
+        <Caret Line="35" Column="8" TopLine="21"/>
+      </Position>
+      <Position>
+        <Filename Value="cadcliente.pas"/>
+        <Caret Line="41" Column="8" TopLine="22"/>
+      </Position>
+      <Position>
+        <Filename Value="cadastro.pas"/>
+        <Caret Line="35" TopLine="19"/>
+      </Position>
+      <Position>
+        <Filename Value="cadcliente.pas"/>
+        <Caret Line="8" Column="56"/>
+      </Position>
+      <Position>
+        <Filename Value="cadcliente.pas"/>
+        <Caret Line="35" Column="3" TopLine="25"/>
+      </Position>
+      <Position>
+        <Filename Value="cadcliente.pas"/>
+        <Caret Line="8" Column="56"/>
+      </Position>
+      <Position>
+        <Filename Value="cadastro.pas"/>
+        <Caret Line="37" Column="3" TopLine="19"/>
+      </Position>
+      <Position>
+        <Filename Value="cadastro.pas"/>
+        <Caret Line="38" Column="3" TopLine="19"/>
+      </Position>
+      <Position>
+        <Filename Value="cadcliente.pas"/>
+        <Caret Line="8" Column="66"/>
+      </Position>
+      <Position>
+        <Filename Value="cadastro.pas"/>
+        <Caret Line="8" Column="87" TopLine="19"/>
+      </Position>
+      <Position>
+        <Filename Value="cadusuario.pas"/>
+        <Caret TopLine="3"/>
+      </Position>
+      <Position>
+        <Filename Value="cadusuario.pas"/>
+        <Caret Line="34" Column="24" TopLine="15"/>
+      </Position>
+      <Position>
+        <Filename Value="cadusuario.pas"/>
+        <Caret Line="36" Column="24" TopLine="15"/>
+      </Position>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes ActiveMode=""/>
+    </RunParams>
+  </ProjectSession>
+</CONFIG>

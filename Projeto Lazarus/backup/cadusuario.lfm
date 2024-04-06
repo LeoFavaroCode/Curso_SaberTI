@@ -1,0 +1,107 @@
+inherited CadUsuarioF: TCadUsuarioF
+  Caption = 'Cadastro de Usuário'
+  inherited PageControl1: TPageControl
+    inherited tbPesquisa: TTabSheet
+      inherited Panel1: TPanel
+        inherited BtnBusca: TBitBtn
+          Left = 496
+          Top = 24
+        end
+        inherited EdtModelo: TEdit
+          Left = 224
+          Top = 24
+          Width = 264
+        end
+        object Label1: TLabel[4]
+          Left = 160
+          Height = 20
+          Top = 28
+          Width = 41
+          Caption = 'Nome'
+        end
+      end
+      inherited DBGrid2: TDBGrid
+        Columns = <        
+          item
+            PickList.Strings = (            )
+            Title.Caption = 'ID'
+            Width = 80
+            FieldName = 'id'
+          end        
+          item
+            PickList.Strings = (            )
+            Title.Caption = 'Usuário'
+            Width = 180
+            FieldName = 'usuario'
+          end        
+          item
+            PickList.Strings = (            )
+            Title.Caption = 'Nome Completo'
+            Width = 400
+            FieldName = 'nome_completo'
+          end        
+          item
+            PickList.Strings = (            )
+            Title.Caption = 'Senha'
+            Width = 200
+            FieldName = 'senha'
+          end>
+        DataSource = dsCadUsuario
+      end
+    end
+  end
+  object dsCadUsuario: TDataSource[1]
+    DataSet = qryCadUsuario
+    Left = 1224
+    Top = 264
+  end
+  object qryCadUsuario: TZQuery[2]
+    Connection = dmF.ZConnection1
+    Active = True
+    SQL.Strings = (
+      'select * from usuarios;'
+    )
+    Params = <>
+    Left = 1224
+    Top = 157
+    object qryCadUsuarioid: TLongintField
+      FieldKind = fkData
+      FieldName = 'id'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qryCadUsuariousuario: TStringField
+      FieldKind = fkData
+      FieldName = 'usuario'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 30
+    end
+    object qryCadUsuarionome_completo: TStringField
+      FieldKind = fkData
+      FieldName = 'nome_completo'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 60
+    end
+    object qryCadUsuariosenha: TStringField
+      FieldKind = fkData
+      FieldName = 'senha'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 50
+    end
+  end
+end

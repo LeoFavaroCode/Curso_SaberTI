@@ -1,0 +1,162 @@
+inherited CadClientesF: TCadClientesF
+  Left = 521
+  Height = 521
+  Top = 235
+  Width = 948
+  Caption = 'Cadastro de Clientes'
+  ClientHeight = 521
+  ClientWidth = 948
+  Position = poDesktopCenter
+  inherited PainelModelo: TPanel
+    Top = 415
+    Width = 948
+    ClientWidth = 948
+    TabOrder = 10
+    inherited BtnSair: TButton
+      Left = 806
+    end
+  end
+  object Label1: TLabel[1]
+    Left = 32
+    Height = 20
+    Top = 32
+    Width = 68
+    Caption = 'ID Cliente:'
+  end
+  object EdtID: TEdit[2]
+    Left = 112
+    Height = 28
+    Top = 29
+    Width = 100
+    ReadOnly = True
+    TabOrder = 0
+    Text = '123'
+  end
+  object Label2: TLabel[3]
+    Left = 256
+    Height = 20
+    Top = 32
+    Width = 66
+    Caption = 'CPF/CPNJ:'
+  end
+  object EdtID1: TEdit[4]
+    Left = 336
+    Height = 28
+    Top = 29
+    Width = 184
+    TabOrder = 1
+  end
+  object Label3: TLabel[5]
+    Left = 32
+    Height = 20
+    Top = 91
+    Width = 101
+    Caption = 'Nome Fantasia:'
+  end
+  object Edit1: TEdit[6]
+    Left = 144
+    Height = 28
+    Top = 91
+    Width = 372
+    TabOrder = 3
+  end
+  object Label4: TLabel[7]
+    Left = 32
+    Height = 20
+    Top = 139
+    Width = 88
+    Caption = 'Razão Social:'
+  end
+  object Edit2: TEdit[8]
+    Left = 131
+    Height = 28
+    Top = 136
+    Width = 372
+    TabOrder = 4
+  end
+  object Label5: TLabel[9]
+    Left = 32
+    Height = 20
+    Top = 187
+    Width = 46
+    Caption = 'E-mail:'
+  end
+  object Edit3: TEdit[10]
+    Left = 96
+    Height = 28
+    Top = 187
+    Width = 296
+    TabOrder = 5
+  end
+  object Label6: TLabel[11]
+    Left = 560
+    Height = 20
+    Top = 32
+    Width = 64
+    Caption = 'Telefone: '
+    OnClick = Label6Click
+  end
+  object EdtID2: TEdit[12]
+    Left = 640
+    Height = 28
+    Top = 29
+    Width = 136
+    TabOrder = 2
+  end
+  object Label7: TLabel[13]
+    Left = 32
+    Height = 20
+    Top = 241
+    Width = 81
+    Caption = 'Logradouro:'
+  end
+  object Edit4: TEdit[14]
+    Left = 131
+    Height = 28
+    Top = 240
+    Width = 413
+    TabOrder = 6
+  end
+  object Label8: TLabel[15]
+    Left = 344
+    Height = 20
+    Top = 297
+    Width = 43
+    Caption = 'Bairro:'
+  end
+  object Edit5: TEdit[16]
+    Left = 408
+    Height = 28
+    Top = 296
+    Width = 336
+    TabOrder = 9
+  end
+  object Label9: TLabel[17]
+    Left = 32
+    Height = 20
+    Top = 298
+    Width = 28
+    Caption = 'CEP:'
+  end
+  object Edit6: TEdit[18]
+    Left = 80
+    Height = 28
+    Top = 296
+    Width = 176
+    TabOrder = 8
+  end
+  object Label10: TLabel[19]
+    Left = 584
+    Height = 20
+    Top = 243
+    Width = 57
+    Caption = 'Número:'
+  end
+  object Edit7: TEdit[20]
+    Left = 656
+    Height = 28
+    Top = 241
+    Width = 104
+    TabOrder = 7
+  end
+end

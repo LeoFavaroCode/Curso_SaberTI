@@ -1,0 +1,139 @@
+object CardapioF: TCardapioF
+  Left = 348
+  Height = 685
+  Top = 152
+  Width = 1474
+  Caption = 'Cardápio'
+  ClientHeight = 685
+  ClientWidth = 1474
+  DesignTimePPI = 120
+  OnCreate = FormCreate
+  LCLVersion = '3.2.0.0'
+  object GCardapio: TStringGrid
+    Left = 592
+    Height = 200
+    Top = 152
+    Width = 232
+    Anchors = [akTop, akLeft, akRight]
+    BorderSpacing.Around = 100
+    ColCount = 2
+    Columns = <    
+      item
+        ReadOnly = True
+        Title.Caption = 'Especificação'
+        Width = 140
+      end    
+      item
+        Title.Caption = 'Preço'
+        Width = 80
+      end>
+    FixedCols = 0
+    GridLineStyle = psPattern
+    Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goEditing, goSmoothScroll]
+    RowCount = 7
+    TabOrder = 0
+    ColWidths = (
+      140
+      80
+    )
+  end
+  object C1: TCheckBox
+    Left = 568
+    Height = 20
+    Top = 184
+    Width = 21
+    TabOrder = 1
+  end
+  object C2: TCheckBox
+    Left = 568
+    Height = 20
+    Top = 211
+    Width = 21
+    TabOrder = 2
+  end
+  object C3: TCheckBox
+    Left = 568
+    Height = 20
+    Top = 240
+    Width = 21
+    TabOrder = 3
+  end
+  object C4: TCheckBox
+    Left = 568
+    Height = 20
+    Top = 269
+    Width = 21
+    TabOrder = 4
+  end
+  object C5: TCheckBox
+    Left = 568
+    Height = 20
+    Top = 295
+    Width = 21
+    TabOrder = 5
+  end
+  object C6: TCheckBox
+    Left = 568
+    Height = 20
+    Top = 321
+    Width = 21
+    TabOrder = 6
+  end
+  object Label1: TLabel
+    Left = 528
+    Height = 20
+    Top = 384
+    Width = 368
+    Caption = 'Deseja que entregue ou irá buscar no estabelecimento?'
+  end
+  object Rentrega: TRadioButton
+    Left = 592
+    Height = 24
+    Top = 424
+    Width = 72
+    Caption = 'Entrega'
+    TabOrder = 7
+  end
+  object Rbusca: TRadioButton
+    Left = 744
+    Height = 24
+    Top = 424
+    Width = 89
+    Caption = 'Irei buscar'
+    TabOrder = 8
+  end
+  object Edtvalor: TEdit
+    Left = 656
+    Height = 28
+    Top = 520
+    Width = 88
+    TabOrder = 9
+  end
+  object Btncalculo: TButton
+    Left = 640
+    Height = 31
+    Top = 472
+    Width = 126
+    Caption = 'Calcular Valor'
+    TabOrder = 10
+    OnClick = BtncalculoClick
+  end
+  object BtnHint: TButton
+    Left = 544
+    Height = 24
+    Hint = 'Será cobrado um valor adicional de R$04,00'
+    Top = 424
+    Width = 32
+    Caption = '...'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 11
+  end
+  object Label2: TLabel
+    Left = 600
+    Height = 20
+    Top = 528
+    Width = 37
+    Caption = 'Valor:'
+  end
+end

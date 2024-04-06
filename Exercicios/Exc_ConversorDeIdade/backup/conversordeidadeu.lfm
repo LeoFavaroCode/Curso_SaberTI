@@ -1,0 +1,90 @@
+object ConversorDeIdadeF: TConversorDeIdadeF
+  Left = 354
+  Height = 659
+  Top = 150
+  Width = 1416
+  Caption = 'Conversor de Idade'
+  ClientHeight = 659
+  ClientWidth = 1416
+  DesignTimePPI = 120
+  LCLVersion = '3.2.0.0'
+  object Label1: TLabel
+    Left = 456
+    Height = 20
+    Top = 232
+    Width = 172
+    Caption = 'Digite sua idade em dias: '
+  end
+  object Button1: TButton
+    Left = 480
+    Height = 40
+    Top = 272
+    Width = 238
+    Caption = 'Formatar Idade'
+    TabOrder = 0
+    OnClick = Button1Click
+  end
+  object EdtIdade: TEdit
+    Left = 640
+    Height = 28
+    Top = 224
+    Width = 101
+    TabOrder = 1
+  end
+  object EdtDataNasc: TEdit
+    Left = 621
+    Height = 28
+    Top = 328
+    Width = 120
+    TabOrder = 2
+  end
+  object Label2: TLabel
+    Left = 470
+    Height = 20
+    Top = 336
+    Width = 139
+    Caption = 'Data de Nascimento:'
+  end
+  object Label3: TLabel
+    Left = 579
+    Height = 20
+    Top = 384
+    Width = 30
+    Caption = 'Dia: '
+  end
+  object EdtDia: TEdit
+    Left = 621
+    Height = 28
+    Top = 376
+    Width = 118
+    TabOrder = 3
+  end
+  object Label4: TLabel
+    Left = 579
+    Height = 20
+    Top = 432
+    Width = 30
+    Caption = 'Mês:'
+  end
+  object EdtMes: TEdit
+    Left = 621
+    Height = 28
+    Top = 424
+    Width = 118
+    TabOrder = 4
+  end
+  object Label5: TLabel
+    Left = 575
+    Height = 20
+    Top = 480
+    Width = 34
+    Caption = 'Ano: '
+  end
+  object EdtAno: TEdit
+    Left = 623
+    Height = 28
+    Top = 472
+    Width = 118
+    TabOrder = 5
+  end
+end

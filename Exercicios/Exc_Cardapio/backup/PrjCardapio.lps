@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="12"/>
+    <BuildModes Active="Default"/>
+    <Units>
+      <Unit>
+        <Filename Value="PrjCardapio.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="-1"/>
+        <TopLine Value="-1"/>
+        <CursorPos X="-1" Y="-1"/>
+        <UsageCount Value="21"/>
+      </Unit>
+      <Unit>
+        <Filename Value="cardapiou.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="CardapioF"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="CardapioU"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="82"/>
+        <CursorPos X="3" Y="69"/>
+        <UsageCount Value="21"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit>
+    </Units>
+    <JumpHistory HistoryIndex="29">
+      <Position>
+        <Filename Value="cardapiou.pas"/>
+        <Caret Line="36" Column="22" TopLine="21"/>
+      </Position>
+      <Position>
+        <Filename Value="cardapiou.pas"/>
+        <Caret Line="37" Column="22" TopLine="22"/>
+      </Position>
+      <Position>
+        <Filename Value="cardapiou.pas"/>
+        <Caret Line="36" Column="22" TopLine="21"/>
+      </Position>
+      <Position>
+        <Filename Value="cardapiou.pas"/>
+        <Caret Line="37" Column="22" TopLine="22"/>
+      </Position>
+      <Position>
+        <Filename Value="cardapiou.pas"/>
+        <Caret Line="39" Column="22" TopLine="24"/>
+      </Position>
+      <Position>
+        <Filename Value="cardapiou.pas"/>
+        <Caret Line="49" Column="22" TopLine="26"/>
+      </Position>
+      <Position>
+        <Filename Value="cardapiou.pas"/>
+        <Caret Line="18" Column="28" TopLine="7"/>
+      </Position>
+      <Position>
+        <Filename Value="cardapiou.pas"/>
+        <Caret Line="17" Column="28" TopLine="7"/>
+      </Position>
+      <Position>
+        <Filename Value="cardapiou.pas"/>
+        <Caret Line="16" Column="28" TopLine="7"/>
+      </Position>
+      <Position>
+        <Filename Value="cardapiou.pas"/>
+        <Caret Line="17" Column="28" TopLine="7"/>
+      </Position>
+      <Position>
+        <Filename Value="cardapiou.pas"/>
+        <Caret Line="19" Column="5"/>
+      </Position>
+      <Position>
+        <Filename Value="cardapiou.pas"/>
+        <Caret Line="18" TopLine="6"/>
+      </Position>
+      <Position>
+        <Filename Value="cardapiou.pas"/>
+        <Caret Line="17" TopLine="6"/>
+      </Position>
+      <Position>
+        <Filename Value="cardapiou.pas"/>
+        <Caret Line="18" TopLine="6"/>
+      </Position>
+      <Position>
+        <Filename Value="cardapiou.pas"/>
+        <Caret Line="19" TopLine="6"/>
+      </Position>
+      <Position>
+        <Filename Value="cardapiou.pas"/>
+        <Caret Line="20" TopLine="6"/>
+      </Position>
+      <Position>
+        <Filename Value="cardapiou.pas"/>
+        <Caret Line="21" TopLine="6"/>
+      </Position>
+      <Position>
+        <Filename Value="cardapiou.pas"/>
+        <Caret Line="22" TopLine="6"/>
+      </Position>
+      <Position>
+        <Filename Value="cardapiou.pas"/>
+        <Caret Line="23" TopLine="33"/>
+      </Position>
+      <Position>
+        <Filename Value="cardapiou.pas"/>
+        <Caret Line="24" TopLine="24"/>
+      </Position>
+      <Position>
+        <Filename Value="cardapiou.pas"/>
+        <Caret Line="25" TopLine="25"/>
+      </Position>
+      <Position>
+        <Filename Value="cardapiou.pas"/>
+        <Caret Line="26" TopLine="37"/>
+      </Position>
+      <Position>
+        <Filename Value="cardapiou.pas"/>
+        <Caret Line="27" TopLine="27"/>
+      </Position>
+      <Position>
+        <Filename Value="cardapiou.pas"/>
+        <Caret Line="28" TopLine="28"/>
+      </Position>
+      <Position>
+        <Filename Value="cardapiou.pas"/>
+        <Caret Line="29" TopLine="29"/>
+      </Position>
+      <Position>
+        <Filename Value="cardapiou.pas"/>
+        <Caret Line="28" TopLine="28"/>
+      </Position>
+      <Position>
+        <Filename Value="cardapiou.pas"/>
+        <Caret Line="29" TopLine="29"/>
+      </Position>
+      <Position>
+        <Filename Value="cardapiou.pas"/>
+        <Caret Line="28" TopLine="28"/>
+      </Position>
+      <Position>
+        <Filename Value="cardapiou.pas"/>
+        <Caret Line="29" TopLine="29"/>
+      </Position>
+      <Position>
+        <Filename Value="cardapiou.pas"/>
+        <Caret Line="31" Column="5" TopLine="30"/>
+      </Position>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes ActiveMode=""/>
+    </RunParams>
+  </ProjectSession>
+</CONFIG>

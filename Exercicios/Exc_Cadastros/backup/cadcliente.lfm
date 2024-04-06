@@ -1,0 +1,12 @@
+object CadClienteF: TCadClienteF
+  Left = 515
+  Height = 524
+  Top = 258
+  Width = 968
+  Caption = 'Cadastro de Cliente'
+  DesignTimePPI = 120
+  OnClick = FormClick
+  OnClose = FormClose
+  OnCreate = FormCreate
+  LCLVersion = '3.2.0.0'
+end

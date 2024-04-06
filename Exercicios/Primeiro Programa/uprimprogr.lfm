@@ -1,0 +1,21 @@
+object frmPrimProg: TfrmPrimProg
+  Left = 296
+  Height = 710
+  Top = 177
+  Width = 1589
+  Caption = 'Primeiro Programa'
+  ClientHeight = 710
+  ClientWidth = 1589
+  DesignTimePPI = 120
+  LCLVersion = '3.2.0.0'
+  object btnMensagem: TButton
+    Left = 704
+    Height = 31
+    Top = 336
+    Width = 180
+    Caption = 'Meu primeiro programa'
+    TabOrder = 0
+    OnClick = btnMensagemClick
+    OnEnter = btnMensagemClick
+  end
+end

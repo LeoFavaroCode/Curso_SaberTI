@@ -1,0 +1,60 @@
+/* Dados de produto com status Ativo */
+
+select * 
+from produto 
+where status_produto = 'ATIVO';  
+
+/* Descrição do produto + descrição da categoria do produto */
+
+select p.ds_produto, cp.ds_categoria_produto
+from produto p 
+inner join categoria_produto cp on p.categoriaprodutoid = cp.categoriaprodutoid;
+
+/* Dados de produtos onde o valor de venda é maior do que 50,00. */
+
+select * 
+from produto p 
+where vl_venda_produto > 50.00;
+
+/* Dados de orçamento + nome do cliente */
+
+select c.clienteid, nome_cliente, qt_produto, vl_unitario, vl_total, o.vl_total_orcamento, dt_orcamento, dt_validade_orcamento 
+from orcamento_item oi 
+inner join orcamento o on oi.orcamentoitemid = o.orcamentoid 
+inner join cliente c on c.clienteid = o.clienteid; 
+
+/* Dados de item do orçamento + nome do produto + nomedacategoria */
+
+select ds_produto, ds_categoria_produto, qt_produto, vl_unitario, vl_total 
+from produto p 
+inner join categoria_produto cp on p.categoriaprodutoid = cp.categoriaprodutoid 
+inner join orcamento_item oi on oi.produtoid = p.produtoid;
+
+/* Orçamentos feitos entre 01/02/2022 e 18/02/2022 */
+
+select ds_produto, qt_produto, vl_unitario , vl_total, vl_total_orcamento, dt_validade_orcamento, dt_orcamento
+from produto p 
+inner join orcamento_item oi on p.produtoid = oi.orcamentoid 
+inner join orcamento o on o.orcamentoid = oi.orcamentoid 
+where dt_orcamento >= '01/02/2022' and dt_orcamento <= '18/02/2022'; 
+
+/* Orçamentos vencidos (utilizando data atual CURRENT_DATE).*/
+
+select  vl_unitario , vl_total, vl_total_orcamento, dt_validade_orcamento, dt_orcamento 
+from orcamento o 
+inner join orcamento_item oi on o.orcamentoid = oi.orcamentoid 
+where dt_validade_orcamento < current_date;
+
+/* Maior valor de item orçamento (por produto). */
+
+SELECT ds_produto, MAX(vl_unitario)
+FROM produto p 
+inner join orcamento_item oi on p.produtoid = oi.produtoid 
+GROUP BY ds_produto
+order by max(vl_unitario) desc;
+
+
+select p.ds_produto, max(vl_total) 
+from produto p
+inner join orcamento_item oi on p.produtoid = oi.produtoid
+where oi.vl_total = (select max(vl_total) from orcamento_item);

@@ -1,0 +1,456 @@
+object CalculoSalarioF: TCalculoSalarioF
+  Left = 330
+  Height = 752
+  Top = 150
+  Width = 1519
+  Caption = 'Cálculo do Salário dos Funcionários'
+  ClientHeight = 752
+  ClientWidth = 1519
+  DesignTimePPI = 120
+  OnCreate = FormCreate
+  LCLVersion = '3.2.0.0'
+  object EdtJaneiro_bruto: TEdit
+    Left = 551
+    Height = 28
+    Top = 40
+    Width = 123
+    TabOrder = 0
+    Text = '00,00'
+  end
+  object EdtJaneiro_desc: TEdit
+    Left = 719
+    Height = 28
+    Top = 40
+    Width = 123
+    TabOrder = 1
+    Text = '00,00'
+  end
+  object EdtJaneiro_liq: TEdit
+    Left = 885
+    Height = 28
+    Top = 40
+    Width = 123
+    TabOrder = 2
+    Text = '00,00'
+  end
+  object EdtFevereiro_bruto: TEdit
+    Left = 551
+    Height = 28
+    Top = 91
+    Width = 123
+    TabOrder = 3
+    Text = '00,00'
+  end
+  object EdtFevereiro_desc: TEdit
+    Left = 719
+    Height = 28
+    Top = 91
+    Width = 123
+    TabOrder = 4
+    Text = '00,00'
+  end
+  object EdtFevereiro_liq: TEdit
+    Left = 885
+    Height = 28
+    Top = 91
+    Width = 123
+    TabOrder = 5
+    Text = '00,00'
+  end
+  object EdtMarco_bruto: TEdit
+    Left = 551
+    Height = 28
+    Top = 139
+    Width = 123
+    TabOrder = 6
+    Text = '00,00'
+  end
+  object EdtMarco_desc: TEdit
+    Left = 719
+    Height = 28
+    Top = 139
+    Width = 123
+    TabOrder = 7
+    Text = '00,00'
+  end
+  object EdtMarco_liq: TEdit
+    Left = 885
+    Height = 28
+    Top = 139
+    Width = 123
+    TabOrder = 8
+    Text = '00,00'
+  end
+  object EdtAbril_bruto: TEdit
+    Left = 551
+    Height = 28
+    Top = 190
+    Width = 123
+    TabOrder = 9
+    Text = '00,00'
+  end
+  object EdtAbril_desc: TEdit
+    Left = 719
+    Height = 28
+    Top = 190
+    Width = 123
+    TabOrder = 10
+    Text = '00,00'
+  end
+  object EdtAbril_liq: TEdit
+    Left = 885
+    Height = 28
+    Top = 190
+    Width = 123
+    TabOrder = 11
+    Text = '00,00'
+  end
+  object EdtMaio_bruto: TEdit
+    Left = 551
+    Height = 28
+    Top = 243
+    Width = 123
+    TabOrder = 12
+    Text = '00,00'
+  end
+  object EdtMaio_desc: TEdit
+    Left = 719
+    Height = 28
+    Top = 243
+    Width = 123
+    TabOrder = 13
+    Text = '00,00'
+  end
+  object EdtMaio_liq: TEdit
+    Left = 885
+    Height = 28
+    Top = 243
+    Width = 123
+    TabOrder = 14
+    Text = '00,00'
+  end
+  object EdtJunho_bruto: TEdit
+    Left = 552
+    Height = 28
+    Top = 294
+    Width = 123
+    TabOrder = 15
+    Text = '00,00'
+  end
+  object EdtJunho_desc: TEdit
+    Left = 719
+    Height = 28
+    Top = 294
+    Width = 123
+    TabOrder = 16
+    Text = '00,00'
+  end
+  object EdtJunho_liq: TEdit
+    Left = 885
+    Height = 28
+    Top = 294
+    Width = 123
+    TabOrder = 17
+    Text = '00,00'
+  end
+  object EdtJulho_bruto: TEdit
+    Left = 551
+    Height = 28
+    Top = 347
+    Width = 123
+    TabOrder = 18
+    Text = '00,00'
+  end
+  object EdtJulho_desc: TEdit
+    Left = 719
+    Height = 28
+    Top = 347
+    Width = 123
+    TabOrder = 19
+    Text = '00,00'
+  end
+  object EdtJulho_liq: TEdit
+    Left = 885
+    Height = 28
+    Top = 347
+    Width = 123
+    TabOrder = 20
+    Text = '00,00'
+  end
+  object EdtAgosto_bruto: TEdit
+    Left = 552
+    Height = 28
+    Top = 398
+    Width = 123
+    TabOrder = 21
+    Text = '00,00'
+  end
+  object EdtAgosto_desc: TEdit
+    Left = 719
+    Height = 28
+    Top = 398
+    Width = 123
+    TabOrder = 22
+    Text = '00,00'
+  end
+  object EdtAgosto_liq: TEdit
+    Left = 885
+    Height = 28
+    Top = 398
+    Width = 123
+    TabOrder = 23
+    Text = '00,00'
+  end
+  object Label1: TLabel
+    Left = 472
+    Height = 20
+    Top = 48
+    Width = 47
+    Caption = 'Janeiro'
+  end
+  object Label2: TLabel
+    Left = 472
+    Height = 20
+    Top = 99
+    Width = 61
+    Caption = 'Fevereiro'
+  end
+  object Label3: TLabel
+    Left = 472
+    Height = 20
+    Top = 147
+    Width = 42
+    Caption = 'Março'
+  end
+  object Label4: TLabel
+    Left = 472
+    Height = 20
+    Top = 198
+    Width = 32
+    Caption = 'Abril'
+  end
+  object Label5: TLabel
+    Left = 472
+    Height = 20
+    Top = 251
+    Width = 34
+    Caption = 'Maio'
+  end
+  object Label6: TLabel
+    Left = 472
+    Height = 20
+    Top = 302
+    Width = 38
+    Caption = 'Junho'
+  end
+  object Label7: TLabel
+    Left = 472
+    Height = 20
+    Top = 355
+    Width = 34
+    Caption = 'Julho'
+  end
+  object Label8: TLabel
+    Left = 472
+    Height = 20
+    Top = 403
+    Width = 48
+    Caption = 'Agosto'
+  end
+  object EdtSetembro_bruto: TEdit
+    Left = 552
+    Height = 28
+    Top = 448
+    Width = 123
+    TabOrder = 24
+    Text = '00,00'
+  end
+  object EdtSetembro_desc: TEdit
+    Left = 719
+    Height = 28
+    Top = 448
+    Width = 123
+    TabOrder = 25
+    Text = '00,00'
+  end
+  object EdtSetembro_liq: TEdit
+    Left = 885
+    Height = 28
+    Top = 448
+    Width = 123
+    TabOrder = 26
+    Text = '00,00'
+  end
+  object EdtOutubro_bruto: TEdit
+    Left = 551
+    Height = 28
+    Top = 499
+    Width = 123
+    TabOrder = 27
+    Text = '00,00'
+  end
+  object EdtOutubro_desc: TEdit
+    Left = 719
+    Height = 28
+    Top = 499
+    Width = 123
+    TabOrder = 28
+    Text = '00,00'
+  end
+  object EdtOutubro_liq: TEdit
+    Left = 885
+    Height = 28
+    Top = 499
+    Width = 123
+    TabOrder = 29
+    Text = '00,00'
+  end
+  object EdtNovembro_bruto: TEdit
+    Left = 551
+    Height = 28
+    Top = 552
+    Width = 123
+    TabOrder = 30
+    Text = '00,00'
+  end
+  object EdtNovembro_desc: TEdit
+    Left = 719
+    Height = 28
+    Top = 552
+    Width = 123
+    TabOrder = 31
+    Text = '00,00'
+  end
+  object EdtNovembro_liq: TEdit
+    Left = 885
+    Height = 28
+    Top = 552
+    Width = 123
+    TabOrder = 32
+    Text = '00,00'
+  end
+  object EdtDezembro_bruto: TEdit
+    Left = 551
+    Height = 28
+    Top = 603
+    Width = 123
+    TabOrder = 33
+    Text = '00,00'
+  end
+  object EdtDezembro_desc: TEdit
+    Left = 719
+    Height = 28
+    Top = 603
+    Width = 123
+    TabOrder = 34
+    Text = '00,00'
+  end
+  object EdtDezembro_liq: TEdit
+    Left = 885
+    Height = 28
+    Top = 603
+    Width = 123
+    TabOrder = 35
+    Text = '00,00'
+  end
+  object Label9: TLabel
+    Left = 472
+    Height = 20
+    Top = 456
+    Width = 65
+    Caption = 'Setembro'
+  end
+  object Label10: TLabel
+    Left = 472
+    Height = 20
+    Top = 507
+    Width = 55
+    Caption = 'Outubro'
+  end
+  object Label11: TLabel
+    Left = 472
+    Height = 20
+    Top = 560
+    Width = 71
+    Caption = 'Novembro'
+  end
+  object Label12: TLabel
+    Left = 472
+    Height = 40
+    Top = 608
+    Width = 70
+    Caption = 'Dezembro'#13#10
+  end
+  object Label13: TLabel
+    Left = 568
+    Height = 20
+    Top = 8
+    Width = 86
+    Caption = 'Salário Bruto'
+  end
+  object Label14: TLabel
+    Left = 720
+    Height = 20
+    Top = 8
+    Width = 116
+    Caption = 'Perc. de desconto'
+  end
+  object Label15: TLabel
+    Left = 896
+    Height = 20
+    Top = 8
+    Width = 100
+    Caption = 'Salário Liquído'
+  end
+  object EdtTotal_bruto: TEdit
+    Left = 592
+    Height = 28
+    Top = 657
+    Width = 123
+    TabOrder = 36
+  end
+  object EdtTotal_liq: TEdit
+    Left = 885
+    Height = 28
+    Top = 656
+    Width = 123
+    TabOrder = 37
+  end
+  object Label16: TLabel
+    Left = 464
+    Height = 24
+    Top = 661
+    Width = 113
+    Caption = 'Total Bruto:'
+    Font.CharSet = ANSI_CHARSET
+    Font.Height = -20
+    Font.Name = 'Arial'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label17: TLabel
+    Left = 744
+    Height = 24
+    Top = 660
+    Width = 131
+    Caption = 'Total Líquido:'
+    Font.CharSet = ANSI_CHARSET
+    Font.Height = -20
+    Font.Name = 'Arial'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Btn_calcular: TButton
+    Left = 1096
+    Height = 31
+    Top = 344
+    Width = 94
+    Caption = 'Calcular'
+    TabOrder = 38
+    OnClick = Btn_calcularClick
+  end
+end

@@ -1,0 +1,79 @@
+object dmF: TdmF
+  OldCreateOrder = False
+  Height = 418
+  HorizontalOffset = 530
+  VerticalOffset = 194
+  Width = 369
+  PPI = 120
+  object ZConnection1: TZConnection
+    ControlsCodePage = cCP_UTF8
+    AutoEncodeStrings = True
+    Properties.Strings = (
+      'AutoEncodeStrings=True'
+      'controls_cp=CP_UTF8'
+    )
+    Connected = True
+    HostName = 'localhost'
+    Port = 5432
+    Database = 'postgres'
+    User = 'postgres'
+    Password = '1234'
+    Protocol = 'postgresql'
+    Left = 70
+    Top = 50
+  end
+  object qryCliente: TZQuery
+    Connection = ZConnection1
+    Active = True
+    SQL.Strings = (
+      'select clienteid, nome_cliente, cpf_cnpj_cliente, tipo_cliente from cliente;'
+    )
+    Params = <>
+    MasterSource = CadClienteF.DsCadCliente
+    Left = 72
+    Top = 140
+    object qryClienteclienteid: TLongintField
+      FieldKind = fkData
+      FieldName = 'clienteid'
+      Index = 0
+      LookupCache = False
+      LookupDataSet = qryCliente
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qryClientenome_cliente: TStringField
+      FieldKind = fkData
+      FieldName = 'nome_cliente'
+      Index = 1
+      LookupCache = False
+      LookupDataSet = qryCliente
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 100
+    end
+    object qryClientecpf_cnpj_cliente: TStringField
+      FieldKind = fkData
+      FieldName = 'cpf_cnpj_cliente'
+      Index = 2
+      LookupCache = False
+      LookupDataSet = qryCliente
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 18
+    end
+    object qryClientetipo_cliente: TStringField
+      FieldKind = fkData
+      FieldName = 'tipo_cliente'
+      Index = 3
+      LookupCache = False
+      LookupDataSet = qryCliente
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 1
+    end
+  end
+end

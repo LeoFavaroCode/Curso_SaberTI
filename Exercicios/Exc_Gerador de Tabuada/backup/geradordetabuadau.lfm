@@ -1,0 +1,39 @@
+object GerarTabuadaF: TGerarTabuadaF
+  Left = 354
+  Height = 668
+  Top = 150
+  Width = 1435
+  Caption = 'Gerador de Tabuada'
+  ClientHeight = 668
+  ClientWidth = 1435
+  DesignTimePPI = 120
+  LCLVersion = '3.2.0.0'
+  object EdtValor: TEdit
+    Left = 352
+    Height = 28
+    Top = 144
+    Width = 188
+    TabOrder = 0
+  end
+  object MResposta: TMemo
+    Left = 344
+    Height = 288
+    Top = 184
+    Width = 188
+    Lines.Strings = (
+      'Teste'
+    )
+    ReadOnly = True
+    TabOrder = 1
+    OnChange = MRespostaChange
+  end
+  object BtnGerarValores: TButton
+    Left = 600
+    Height = 31
+    Top = 336
+    Width = 126
+    Caption = 'Gerar Tabuada'
+    TabOrder = 2
+    OnClick = BtnGerarValoresClick
+  end
+end

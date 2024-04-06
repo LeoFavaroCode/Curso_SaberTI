@@ -1,0 +1,17 @@
+inherited CadVendedoresF: TCadVendedoresF
+  Caption = 'Cadastro de Vendedores'
+  inherited PainelModelo: TPanel
+    inherited BtnExcluir: TButton
+      TabOrder = 3
+    end
+    inherited BtnGravar: TButton
+      TabOrder = 2
+    end
+    inherited BtnEditar: TButton
+      TabOrder = 1
+    end
+    inherited BtnNovo: TButton
+      TabOrder = 0
+    end
+  end
+end

@@ -1,0 +1,9 @@
+object CadUsuarioF: TCadUsuarioF
+  Left = 523
+  Height = 513
+  Top = 240
+  Width = 982
+  Caption = 'Cadastro de Usuário'
+  DesignTimePPI = 120
+  LCLVersion = '3.2.0.0'
+end

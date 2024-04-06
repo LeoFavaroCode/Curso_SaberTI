@@ -1,0 +1,26 @@
+object PrincipalF: TPrincipalF
+  Left = 401
+  Height = 647
+  Top = 150
+  Width = 1369
+  Align = alClient
+  Caption = 'Principal'
+  DesignTimePPI = 120
+  Menu = MainMenu1
+  LCLVersion = '3.2.0.0'
+  object MainMenu1: TMainMenu
+    Left = 64
+    Top = 40
+    object Cadastros: TMenuItem
+      Caption = 'Cadastros'
+      object MenuItem1: TMenuItem
+        Caption = 'Cadastro de Cliente'
+        OnClick = MenuItem1Click
+      end
+      object MenuItem2: TMenuItem
+        Caption = 'Cadastro de Usuário'
+        OnClick = MenuItem2Click
+      end
+    end
+  end
+end

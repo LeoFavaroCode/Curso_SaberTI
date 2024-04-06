@@ -1,0 +1,50 @@
+object MenuPrincipalF: TMenuPrincipalF
+  Left = 370
+  Height = 669
+  Top = 157
+  Width = 1464
+  Caption = 'Menu Principal'
+  DesignTimePPI = 120
+  Menu = MainMenu1
+  OnClose = FormClose
+  LCLVersion = '3.2.0.0'
+  WindowState = wsMaximized
+  object MainMenu1: TMainMenu
+    Left = 104
+    Top = 48
+    object Cadastro: TMenuItem
+      Caption = 'Cadastro'
+      object CadProduto: TMenuItem
+        Caption = 'Cadastro de Produtos'
+        OnClick = CadProdutoClick
+      end
+      object CadCliente: TMenuItem
+        Caption = 'Cadastro de Clientes'
+        OnClick = CadClienteClick
+      end
+      object CadUsuario: TMenuItem
+        Caption = 'Cadastro de Usuários'
+        OnClick = CadUsuarioClick
+      end
+      object CadFornecedor: TMenuItem
+        Caption = 'Cadastro de Fornecedores'
+        OnClick = CadFornecedorClick
+      end
+      object CadVendedor: TMenuItem
+        Caption = 'Cadastro de Vendedores'
+        OnClick = CadVendedorClick
+      end
+    end
+    object Manut: TMenuItem
+      Caption = 'Manutenção'
+    end
+    object Sobre: TMenuItem
+      Caption = 'Sobre'
+      OnClick = SobreClick
+    end
+    object Sair: TMenuItem
+      Caption = 'Sair'
+      OnClick = SairClick
+    end
+  end
+end

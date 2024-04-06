@@ -1,0 +1,114 @@
+inherited CadProdutosF: TCadProdutosF
+  Left = 463
+  Height = 466
+  Top = 232
+  Width = 1085
+  Caption = 'Cadastro de Produtos'
+  ClientHeight = 466
+  ClientWidth = 1085
+  OnCreate = FormCreate
+  Position = poDesktopCenter
+  inherited PainelModelo: TPanel
+    Top = 360
+    Width = 1085
+    ClientWidth = 1085
+    TabOrder = 5
+    inherited BtnExcluir: TButton
+      TabOrder = 3
+    end
+    inherited BtnGravar: TButton
+      TabOrder = 2
+    end
+    inherited BtnEditar: TButton
+      TabOrder = 1
+    end
+    inherited BtnNovo: TButton
+      TabOrder = 0
+    end
+    inherited BtnSair: TButton
+      Left = 945
+    end
+  end
+  object ComboBox1: TComboBox[1]
+    Left = 176
+    Height = 28
+    Top = 282
+    Width = 264
+    ItemHeight = 20
+    Items.Strings = (
+      'Alimenticio'
+      'Varejo'
+      'Atacado'
+      'Mecânica'
+      'Tecnologia'
+    )
+    ReadOnly = True
+    TabOrder = 4
+    Text = 'Produto'
+  end
+  object EdtID: TEdit[2]
+    Left = 112
+    Height = 28
+    Top = 24
+    Width = 100
+    ReadOnly = True
+    TabOrder = 0
+    Text = '123'
+  end
+  object Label1: TLabel[3]
+    Left = 24
+    Height = 20
+    Top = 28
+    Width = 75
+    Caption = 'ID Produto:'
+  end
+  object Label2: TLabel[4]
+    Left = 24
+    Height = 20
+    Top = 128
+    Width = 141
+    Caption = 'Descrição Completa: '
+  end
+  object Memo1: TMemo[5]
+    Left = 176
+    Height = 113
+    Top = 120
+    Width = 696
+    TabOrder = 3
+  end
+  object Label3: TLabel[6]
+    Left = 576
+    Height = 20
+    Top = 24
+    Width = 128
+    Caption = 'Descrição Simples: '
+  end
+  object Memo2: TMemo[7]
+    Left = 728
+    Height = 72
+    Top = 24
+    Width = 328
+    TabOrder = 2
+  end
+  object Edit1: TEdit[8]
+    Left = 400
+    Height = 28
+    Top = 24
+    Width = 120
+    TabOrder = 1
+  end
+  object Label4: TLabel[9]
+    Left = 279
+    Height = 20
+    Top = 28
+    Width = 103
+    Caption = 'Valor de Venda:'
+  end
+  object Label5: TLabel[10]
+    Left = 54
+    Height = 20
+    Top = 282
+    Width = 111
+    Caption = 'Tipo de Produto:'
+  end
+end

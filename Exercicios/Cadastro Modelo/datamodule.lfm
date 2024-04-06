@@ -1,0 +1,31 @@
+object DmF: TDmF
+  OldCreateOrder = False
+  Height = 455
+  HorizontalOffset = 530
+  VerticalOffset = 194
+  Width = 456
+  PPI = 120
+  object ZConnection1: TZConnection
+    ControlsCodePage = cCP_UTF8
+    AutoEncodeStrings = True
+    Properties.Strings = (
+      'AutoEncodeStrings=True'
+      'controls_cp=CP_UTF8'
+    )
+    Connected = True
+    HostName = 'localhost'
+    Port = 5432
+    Database = 'postgres'
+    User = 'postgres'
+    Password = '1234'
+    Protocol = 'postgresql'
+    Left = 80
+    Top = 56
+  end
+  object qryGenerica: TZQuery
+    Connection = ZConnection1
+    Params = <>
+    Left = 88
+    Top = 168
+  end
+end

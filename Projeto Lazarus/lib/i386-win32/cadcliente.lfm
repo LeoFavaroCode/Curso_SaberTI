@@ -1,0 +1,116 @@
+inherited CadClienteF: TCadClienteF
+  Left = 419
+  Top = 149
+  Caption = 'Cadastro de Cliente'
+  inherited PageControl1: TPageControl
+    inherited tbPesquisa: TTabSheet
+      inherited Panel1: TPanel
+        inherited BtnBusca: TBitBtn
+          Left = 648
+          Top = 24
+        end
+        object Label1: TLabel[3]
+          Left = 160
+          Height = 20
+          Top = 28
+          Width = 197
+          Caption = 'Razão Social / Nome Fantasia'
+        end
+        object EdtBuscaCliente: TEdit[4]
+          Left = 376
+          Height = 28
+          Top = 24
+          Width = 256
+          TabOrder = 3
+        end
+      end
+      inherited DBGrid2: TDBGrid
+        Columns = <        
+          item
+            PickList.Strings = (            )
+            Title.Caption = 'ID'
+            Width = 80
+            FieldName = 'clienteid'
+          end        
+          item
+            PickList.Strings = (            )
+            Title.Caption = 'Nome - Razão Social'
+            Width = 650
+            FieldName = 'nome_cliente'
+          end        
+          item
+            PickList.Strings = (            )
+            Title.Caption = 'CPF - CNPJ'
+            Width = 180
+            FieldName = 'cpf_cnpj_cliente'
+          end        
+          item
+            PickList.Strings = (            )
+            Title.Caption = 'Tipo (F- J)'
+            Width = 85
+            FieldName = 'tipo_cliente'
+          end>
+        DataSource = DsCadCliente
+      end
+    end
+  end
+  object DsCadCliente: TDataSource[1]
+    DataSet = qryCliente
+    Left = 1264
+    Top = 148
+  end
+  object qryCliente: TZQuery[2]
+    Connection = dmF.ZConnection1
+    Active = True
+    SQL.Strings = (
+      'select clienteid, nome_cliente, cpf_cnpj_cliente, tipo_cliente from cliente;'
+    )
+    Params = <>
+    MasterSource = DsCadCliente
+    Left = 1264
+    Top = 240
+    object qryClienteclienteid: TLongintField
+      FieldKind = fkData
+      FieldName = 'clienteid'
+      Index = 0
+      LookupCache = False
+      LookupDataSet = qryCliente
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qryClientenome_cliente: TStringField
+      FieldKind = fkData
+      FieldName = 'nome_cliente'
+      Index = 1
+      LookupCache = False
+      LookupDataSet = qryCliente
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 100
+    end
+    object qryClientecpf_cnpj_cliente: TStringField
+      FieldKind = fkData
+      FieldName = 'cpf_cnpj_cliente'
+      Index = 2
+      LookupCache = False
+      LookupDataSet = qryCliente
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 18
+    end
+    object qryClientetipo_cliente: TStringField
+      FieldKind = fkData
+      FieldName = 'tipo_cliente'
+      Index = 3
+      LookupCache = False
+      LookupDataSet = qryCliente
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 1
+    end
+  end
+end

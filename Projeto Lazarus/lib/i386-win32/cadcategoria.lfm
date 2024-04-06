@@ -1,0 +1,77 @@
+inherited CadCategoriaF: TCadCategoriaF
+  Caption = 'Cadastro de Categoria'
+  inherited PageControl1: TPageControl
+    inherited tbPesquisa: TTabSheet
+      inherited Panel1: TPanel
+        inherited BtnBusca: TBitBtn
+          Left = 520
+          Top = 24
+        end
+        object EdtBuscaCat: TEdit[3]
+          Left = 232
+          Height = 28
+          Top = 24
+          Width = 272
+          TabOrder = 3
+        end
+        object Label1: TLabel[4]
+          Left = 160
+          Height = 20
+          Top = 29
+          Width = 41
+          Caption = 'Nome'
+        end
+      end
+      inherited DBGrid2: TDBGrid
+        Columns = <        
+          item
+            PickList.Strings = (            )
+            Title.Caption = 'ID'
+            Width = 80
+            FieldName = 'categoriaprodutoid'
+          end        
+          item
+            PickList.Strings = (            )
+            Title.Caption = 'Descrição'
+            Width = 190
+            FieldName = 'ds_categoria_produto'
+          end>
+        DataSource = DsCatProd
+      end
+    end
+  end
+  object DsCatProd: TDataSource[1]
+    DataSet = qryCatProd
+    Left = 1253
+    Top = 224
+  end
+  object qryCatProd: TZQuery[2]
+    Connection = dmF.ZConnection1
+    Active = True
+    SQL.Strings = (
+      'select * from categoria_produto;'
+    )
+    Params = <>
+    Left = 1253
+    Top = 144
+    object qryCatProdcategoriaprodutoid: TLongintField
+      FieldKind = fkData
+      FieldName = 'categoriaprodutoid'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qryCatProdds_categoria_produto: TStringField
+      FieldKind = fkData
+      FieldName = 'ds_categoria_produto'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 50
+    end
+  end
+end

@@ -1,0 +1,104 @@
+object BlocoDeNotas: TBlocoDeNotas
+  Left = 401
+  Height = 630
+  Top = 150
+  Width = 1442
+  Caption = 'Bloco de Notas'
+  ClientHeight = 630
+  ClientWidth = 1442
+  DesignTimePPI = 120
+  Menu = MainMenu1
+  OnCreate = FormCreate
+  LCLVersion = '3.2.0.0'
+  object MBlocoDeNotas: TTIMemo
+    Left = 0
+    Height = 630
+    Top = 0
+    Width = 1442
+    Align = alClient
+  end
+  object MainMenu1: TMainMenu
+    Left = 40
+    Top = 24
+    object Arquivo: TMenuItem
+      Caption = 'Arquivo'
+      object Novo: TMenuItem
+        Caption = 'Novo'
+        OnClick = NovoClick
+      end
+      object Abrir: TMenuItem
+        Caption = 'Abrir'
+        OnClick = AbrirClick
+      end
+      object Salvar: TMenuItem
+        Caption = 'Salvar'
+        OnClick = SalvarClick
+      end
+      object Imprimir: TMenuItem
+        Caption = 'Imprimir'
+        OnClick = ImprimirClick
+      end
+    end
+    object Editar: TMenuItem
+      Caption = 'Editar'
+      object Localizar: TMenuItem
+        Caption = 'Localizar'
+        OnClick = LocalizarClick
+      end
+      object Substituir: TMenuItem
+        Caption = 'Substituir'
+        OnClick = SubstituirClick
+      end
+    end
+    object Formatar: TMenuItem
+      Caption = 'Formatar'
+      object Fonte: TMenuItem
+        Caption = 'Fonte'
+        OnClick = FonteClick
+      end
+    end
+    object Exibir: TMenuItem
+      Caption = 'Exibir'
+    end
+    object Ajuda: TMenuItem
+      Caption = 'Ajuda'
+    end
+  end
+  object FontDialog1: TFontDialog
+    MinFontSize = 0
+    MaxFontSize = 0
+    Left = 40
+    Top = 352
+  end
+  object SaveDialog1: TSaveDialog
+    DefaultExt = '.txt'
+    Filter = 'Documento de texto|.txt'
+    Left = 232
+    Top = 136
+  end
+  object FindDialog1: TFindDialog
+    Options = [frDown, frFindNext, frMatchCase, frWholeWord]
+    Left = 40
+    Top = 240
+  end
+  object ReplaceDialog1: TReplaceDialog
+    Options = [frDown, frReplace, frReplaceAll, frHidePromptOnReplace]
+    Left = 144
+    Top = 240
+  end
+  object OpenDialog1: TOpenDialog
+    DefaultExt = '.txt'
+    Filter = 'Documento de texto|.txt'
+    Left = 128
+    Top = 136
+  end
+  object PrintDialog1: TPrintDialog
+    Left = 472
+    Top = 136
+  end
+  object PageSetupDialog1: TPageSetupDialog
+    Units = pmMillimeters
+    Left = 352
+    Top = 136
+  end
+end
