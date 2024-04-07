@@ -1,11 +1,19 @@
 inherited CadUsuarioF: TCadUsuarioF
-  Left = 458
-  Top = 227
+  Left = 645
+  Top = 234
+  Width = 677
   Caption = 'Cadastro de Usuário'
+  ClientWidth = 677
   OnShow = FormShow
   inherited PageControl1: TPageControl
+    Width = 677
+    ActivePage = tbCadastro
+    TabIndex = 1
     inherited tbPesquisa: TTabSheet
+      ClientWidth = 669
       inherited Panel1: TPanel
+        Width = 669
+        ClientWidth = 669
         inherited BtnBusca: TBitBtn
           Left = 496
           Top = 24
@@ -26,8 +34,10 @@ inherited CadUsuarioF: TCadUsuarioF
         end
       end
       inherited Panel3: TPanel
+        Width = 669
+        ClientWidth = 669
         inherited BtnSair: TBitBtn
-          Left = 1008
+          Left = 530
           Top = 23
         end
         inherited BtnEditar: TBitBtn
@@ -35,6 +45,7 @@ inherited CadUsuarioF: TCadUsuarioF
         end
       end
       inherited DBGrid2: TDBGrid
+        Width = 669
         Columns = <        
           item
             PickList.Strings = (            )
@@ -63,20 +74,100 @@ inherited CadUsuarioF: TCadUsuarioF
         DataSource = dsCadUsuario
       end
     end
+    inherited tbCadastro: TTabSheet
+      ClientWidth = 669
+      inherited Panel2: TPanel
+        Width = 669
+        ClientWidth = 669
+        inherited BtnCancelar: TBitBtn
+          Left = 516
+        end
+      end
+      object Label2: TLabel[1]
+        Left = 24
+        Height = 20
+        Top = 24
+        Width = 18
+        Caption = 'ID:'
+      end
+      object DBEdit1: TDBEdit[2]
+        Left = 56
+        Height = 28
+        Top = 21
+        Width = 60
+        DataField = 'id'
+        DataSource = dsCadUsuario
+        Alignment = taRightJustify
+        MaxLength = 0
+        TabOrder = 1
+      end
+      object Label3: TLabel[3]
+        Left = 168
+        Height = 20
+        Top = 24
+        Width = 53
+        Caption = 'Usuário:'
+      end
+      object DBEdit2: TDBEdit[4]
+        Left = 232
+        Height = 28
+        Top = 21
+        Width = 160
+        DataField = 'usuario'
+        DataSource = dsCadUsuario
+        MaxLength = 30
+        TabOrder = 2
+      end
+      object Label4: TLabel[5]
+        Left = 24
+        Height = 20
+        Top = 84
+        Width = 118
+        Caption = 'Nome Completo: '
+      end
+      object DBEdit3: TDBEdit[6]
+        Left = 152
+        Height = 28
+        Top = 80
+        Width = 264
+        DataField = 'nome_completo'
+        DataSource = dsCadUsuario
+        MaxLength = 60
+        TabOrder = 3
+      end
+      object DBEdit4: TDBEdit[7]
+        Left = 496
+        Height = 28
+        Top = 21
+        Width = 140
+        DataField = 'senha'
+        DataSource = dsCadUsuario
+        MaxLength = 50
+        TabOrder = 4
+      end
+      object Label5: TLabel[8]
+        Left = 440
+        Height = 20
+        Top = 23
+        Width = 43
+        Caption = 'Senha:'
+      end
+    end
   end
   object dsCadUsuario: TDataSource[1]
     DataSet = qryCadUsuario
-    Left = 848
-    Top = 48
+    Left = 256
+    Top = 368
   end
   object qryCadUsuario: TZQuery[2]
     Connection = dmF.ZConnection1
+    Active = True
     SQL.Strings = (
       'select * from usuarios;'
     )
     Params = <>
-    Left = 736
-    Top = 48
+    Left = 144
+    Top = 368
     object qryCadUsuarioid: TLongintField
       FieldKind = fkData
       FieldName = 'id'

@@ -34,6 +34,9 @@ inherited CadCategoriaF: TCadCategoriaF
       inherited Panel3: TPanel
         Width = 1148
         ClientWidth = 1148
+        inherited BtnSair: TBitBtn
+          OnClick = BtnSairClick
+        end
         inherited BtnNovo: TBitBtn
           Left = 40
           OnClick = BtnNovoClick

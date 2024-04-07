@@ -28,6 +28,7 @@ type
     procedure BtnExcluirClick(Sender: TObject);
     procedure BtnGravarClick(Sender: TObject);
     procedure BtnNovoClick(Sender: TObject);
+    procedure BtnSairClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
   private
 
@@ -84,6 +85,11 @@ begin
   inherited;
   qryCatProd.insert;
   EdtDesc.ReadOnly := False;
+end;
+
+procedure TCadCategoriaF.BtnSairClick(Sender: TObject);
+begin
+  inherited;
 end;
 
 end.

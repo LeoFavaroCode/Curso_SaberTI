@@ -26,6 +26,10 @@ inherited CadUsuarioF: TCadUsuarioF
         end
       end
       inherited Panel3: TPanel
+        inherited BtnSair: TBitBtn
+          Left = 1008
+          Top = 23
+        end
         inherited BtnEditar: TBitBtn
           OnClick = nil
         end

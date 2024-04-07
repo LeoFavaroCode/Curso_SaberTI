@@ -42,7 +42,13 @@ inherited CadProdF: TCadProdF
         Width = 1177
         ClientWidth = 1177
         inherited BtnSair: TBitBtn
-          Left = 1264
+          Left = 1025
+        end
+        inherited BtnNovo: TBitBtn
+          OnClick = BtnNovoClick
+        end
+        inherited BtnEditar: TBitBtn
+          OnClick = BtnEditarClick
         end
       end
       inherited DBGrid2: TDBGrid
@@ -102,8 +108,15 @@ inherited CadProdF: TCadProdF
         Top = 478
         Width = 1177
         ClientWidth = 1177
+        inherited BtnGravar: TBitBtn
+          OnClick = BtnGravarClick
+        end
+        inherited BtnExcluir: TBitBtn
+          OnClick = BtnExcluirClick
+        end
         inherited BtnCancelar: TBitBtn
           Left = 1024
+          OnClick = BtnCancelarClick
         end
       end
       object Label2: TLabel[1]
@@ -182,8 +195,14 @@ inherited CadProdF: TCadProdF
         Top = 141
         Width = 173
         DataField = 'ds_categoria_produto'
-        DataSource = dsCadProd
+        DataSource = CadCategoriaF.DsCatProd
         ItemHeight = 20
+        Items.Strings = (
+          'BASIC'
+          'PREMIUM'
+          'PLATINUM'
+          'ELITE'
+        )
         MaxLength = 0
         TabOrder = 3
       end
@@ -198,7 +217,7 @@ inherited CadProdF: TCadProdF
         MaxLength = 0
         TabOrder = 4
       end
-      object DBDateEdit1: TDBDateEdit[12]
+      object DbData: TDBDateEdit[12]
         Left = 616
         Height = 28
         Top = 24

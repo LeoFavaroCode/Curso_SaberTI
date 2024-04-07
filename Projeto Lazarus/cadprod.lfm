@@ -10,6 +10,8 @@ inherited CadProdF: TCadProdF
   inherited PageControl1: TPageControl
     Height = 591
     Width = 1185
+    ActivePage = tbCadastro
+    TabIndex = 1
     inherited tbPesquisa: TTabSheet
       ClientHeight = 558
       ClientWidth = 1177
@@ -40,7 +42,13 @@ inherited CadProdF: TCadProdF
         Width = 1177
         ClientWidth = 1177
         inherited BtnSair: TBitBtn
-          Left = 1264
+          Left = 1025
+        end
+        inherited BtnNovo: TBitBtn
+          OnClick = BtnNovoClick
+        end
+        inherited BtnEditar: TBitBtn
+          OnClick = BtnEditarClick
         end
       end
       inherited DBGrid2: TDBGrid
@@ -100,8 +108,15 @@ inherited CadProdF: TCadProdF
         Top = 478
         Width = 1177
         ClientWidth = 1177
+        inherited BtnGravar: TBitBtn
+          OnClick = BtnGravarClick
+        end
+        inherited BtnExcluir: TBitBtn
+          OnClick = BtnExcluirClick
+        end
         inherited BtnCancelar: TBitBtn
           Left = 1024
+          OnClick = BtnCancelarClick
         end
       end
       object Label2: TLabel[1]
@@ -160,21 +175,23 @@ inherited CadProdF: TCadProdF
         Width = 56
         DataField = 'produtoid'
         DataSource = dsCadProd
+        ReadOnly = True
         Alignment = taRightJustify
         MaxLength = 0
         TabOrder = 1
       end
-      object DBEdit2: TDBEdit[9]
+      object EdtDesc: TDBEdit[9]
         Left = 101
         Height = 28
         Top = 80
         Width = 408
         DataField = 'ds_produto'
         DataSource = dsCadProd
+        ReadOnly = True
         MaxLength = 50
         TabOrder = 2
       end
-      object DBComboBox1: TDBComboBox[10]
+      object EdtCat: TDBComboBox[10]
         Left = 101
         Height = 28
         Top = 141
@@ -182,21 +199,29 @@ inherited CadProdF: TCadProdF
         DataField = 'ds_categoria_produto'
         DataSource = dsCadProd
         ItemHeight = 20
+        Items.Strings = (
+          'BASIC'
+          'PREMIUM'
+          'PLATINUM'
+          'ELITE'
+        )
         MaxLength = 0
+        ReadOnly = True
         TabOrder = 3
       end
-      object DBEdit3: TDBEdit[11]
+      object EdtValor: TDBEdit[11]
         Left = 335
         Height = 28
         Top = 24
         Width = 88
         DataField = 'vl_venda_produto'
         DataSource = dsCadProd
+        ReadOnly = True
         Alignment = taRightJustify
         MaxLength = 0
         TabOrder = 4
       end
-      object DBDateEdit1: TDBDateEdit[12]
+      object DbData: TDBDateEdit[12]
         Left = 616
         Height = 28
         Top = 24
@@ -212,17 +237,18 @@ inherited CadProdF: TCadProdF
         DataField = 'dt_cadastro_produto'
         DataSource = dsCadProd
       end
-      object DBEdit4: TDBEdit[13]
+      object EdtObs: TDBEdit[13]
         Left = 432
         Height = 28
         Top = 141
         Width = 304
         DataField = 'obs_produto'
         DataSource = dsCadProd
+        ReadOnly = True
         MaxLength = 300
         TabOrder = 6
       end
-      object DBComboBox2: TDBComboBox[14]
+      object EdtStatus: TDBComboBox[14]
         Left = 664
         Height = 28
         Top = 83
@@ -235,6 +261,7 @@ inherited CadProdF: TCadProdF
           'INATIVO'
         )
         MaxLength = 0
+        ReadOnly = True
         TabOrder = 7
       end
     end

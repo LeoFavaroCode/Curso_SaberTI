@@ -15,7 +15,7 @@ type
   TCadProdF = class(TCadModeloF)
     DBComboBox1: TDBComboBox;
     DBComboBox2: TDBComboBox;
-    DBDateEdit1: TDBDateEdit;
+    DbData: TDBDateEdit;
     DBEdit1: TDBEdit;
     DBEdit2: TDBEdit;
     DBEdit3: TDBEdit;
@@ -38,6 +38,11 @@ type
     qryCadProdprodutoid: TLongintField;
     qryCadProdstatus_produto: TStringField;
     qryCadProdvl_venda_produto: TFloatField;
+    procedure BtnCancelarClick(Sender: TObject);
+    procedure BtnEditarClick(Sender: TObject);
+    procedure BtnExcluirClick(Sender: TObject);
+    procedure BtnGravarClick(Sender: TObject);
+    procedure BtnNovoClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure qryCadProdvl_venda_produtoGetText(Sender: TField;
       var aText: string; DisplayText: Boolean);
@@ -60,6 +65,37 @@ procedure TCadProdF.FormShow(Sender: TObject);
 begin
   inherited;
   qryCadProd.Active := True;
+end;
+
+procedure TCadProdF.BtnEditarClick(Sender: TObject);
+begin
+  qryCadProd.Edit;
+  inherited;
+end;
+
+procedure TCadProdF.BtnCancelarClick(Sender: TObject);
+begin
+  qryCadProd.Delete;
+  inherited;
+end;
+
+procedure TCadProdF.BtnExcluirClick(Sender: TObject);
+begin
+  qryCadProd.Delete;
+  inherited;
+end;
+
+procedure TCadProdF.BtnGravarClick(Sender: TObject);
+begin
+  qryCadProd.Post;
+  inherited;
+end;
+
+procedure TCadProdF.BtnNovoClick(Sender: TObject);
+begin
+  qryCadProd.Insert;
+  DbData.Text := DateToStr(Date);
+  inherited;
 end;
 
 procedure TCadProdF.qryCadProdvl_venda_produtoGetText(Sender: TField;
