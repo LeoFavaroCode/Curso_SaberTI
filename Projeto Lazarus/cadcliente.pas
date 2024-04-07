@@ -14,10 +14,10 @@ type
 
   TCadClienteF = class(TCadModeloF)
     dsCadCliente: TDataSource;
-    DBComboBox1: TDBComboBox;
+    EdtTipo: TDBComboBox;
     DBEdit1: TDBEdit;
     EdtNome: TDBEdit;
-    DBEdit3: TDBEdit;
+    EdtCPF: TDBEdit;
     EdtBuscaCliente: TEdit;
     Label1: TLabel;
     Label2: TLabel;
@@ -54,6 +54,8 @@ procedure TCadClienteF.BtnGravarClick(Sender: TObject);
 begin
   qryCadCliente.Post;
   EdtNome.ReadOnly := True;
+  EdtCPF.ReadOnly := True;
+  EdtTipo.ReadOnly := True;
   qryCadCliente.Refresh;
   inherited;
 end;
@@ -62,6 +64,8 @@ procedure TCadClienteF.BtnNovoClick(Sender: TObject);
 begin
   inherited;
   EdtNome.ReadOnly := False;
+  EdtCPF.ReadOnly := False;
+  EdtTipo.ReadOnly := False;
   qryCadCliente.Insert;
   If EdtNome.CanFocus then
      EdtNome.SetFocus;
@@ -71,6 +75,8 @@ procedure TCadClienteF.BtnEditarClick(Sender: TObject);
 begin
   qryCadCliente.edit;
   EdtNome.ReadOnly := False;
+  EdtCPF.ReadOnly := False;
+  EdtTipo.ReadOnly := False;
   inherited;
   EdtNome.SetFocus;
 end;
@@ -78,6 +84,9 @@ end;
 procedure TCadClienteF.BtnExcluirClick(Sender: TObject);
 begin
   qryCadCliente.Delete;
+  EdtNome.ReadOnly := True;
+  EdtCPF.ReadOnly := True;
+  EdtTipo.ReadOnly := True;
   inherited;
 end;
 
@@ -86,6 +95,8 @@ begin
   inherited;
   qryCadCliente.Cancel;
   EdtNome.ReadOnly := True;
+  EdtCPF.ReadOnly := True;
+  EdtTipo.ReadOnly := True;
 end;
 
 procedure TCadClienteF.FormShow(Sender: TObject);

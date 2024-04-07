@@ -1,11 +1,19 @@
 inherited CadClienteF: TCadClienteF
   Left = 468
   Top = 205
+  Width = 949
   Caption = 'Cadastro de Cliente'
+  ClientWidth = 949
   OnShow = FormShow
   inherited PageControl1: TPageControl
+    Width = 949
+    ActivePage = tbCadastro
+    TabIndex = 1
     inherited tbPesquisa: TTabSheet
+      ClientWidth = 941
       inherited Panel1: TPanel
+        Width = 941
+        ClientWidth = 941
         inherited BtnBusca: TBitBtn
           Cursor = crDefault
           Left = 648
@@ -21,21 +29,23 @@ inherited CadClienteF: TCadClienteF
           Left = 160
           Height = 20
           Top = 28
-          Width = 197
-          Caption = 'Razão Social / Nome Fantasia'
+          Width = 140
+          Caption = 'Nome / Razão Social'
         end
         object EdtBuscaCliente: TEdit[4]
-          Left = 376
+          Left = 320
           Height = 28
           Top = 24
-          Width = 256
+          Width = 312
           TabOrder = 3
         end
       end
       inherited Panel3: TPanel
+        Width = 941
+        ClientWidth = 941
         inherited BtnSair: TBitBtn
           Cursor = crDefault
-          Left = 1008
+          Left = 802
         end
         inherited BtnNovo: TBitBtn
           Cursor = crDefault
@@ -47,6 +57,7 @@ inherited CadClienteF: TCadClienteF
       end
       inherited DBGrid2: TDBGrid
         Cursor = crHandPoint
+        Width = 941
         Columns = <        
           item
             PickList.Strings = (            )
@@ -77,7 +88,10 @@ inherited CadClienteF: TCadClienteF
       end
     end
     inherited tbCadastro: TTabSheet
+      ClientWidth = 941
       inherited Panel2: TPanel
+        Width = 941
+        ClientWidth = 941
         inherited BtnGravar: TBitBtn
           Cursor = crDefault
           OnClick = BtnGravarClick
@@ -88,6 +102,7 @@ inherited CadClienteF: TCadClienteF
         end
         inherited BtnCancelar: TBitBtn
           Cursor = crDefault
+          Left = 788
           OnClick = BtnCancelarClick
         end
       end
@@ -95,9 +110,10 @@ inherited CadClienteF: TCadClienteF
         Left = 56
         Height = 28
         Top = 32
-        Width = 64
+        Width = 56
         DataField = 'clienteid'
         DataSource = dsCadCliente
+        ReadOnly = True
         Alignment = taRightJustify
         MaxLength = 0
         TabOrder = 1
@@ -128,14 +144,14 @@ inherited CadClienteF: TCadClienteF
         Caption = 'Nome / Razão Social:'
       end
       object Label4: TLabel[5]
-        Left = 192
+        Left = 184
         Height = 20
         Top = 36
         Width = 74
         Caption = 'CPF / CPNJ:'
       end
-      object DBEdit3: TDBEdit[6]
-        Left = 280
+      object EdtCPF: TDBEdit[6]
+        Left = 272
         Height = 28
         Top = 32
         Width = 256
@@ -145,14 +161,14 @@ inherited CadClienteF: TCadClienteF
         TabOrder = 3
       end
       object Label5: TLabel[7]
-        Left = 608
+        Left = 600
         Height = 20
         Top = 34
         Width = 33
         Caption = 'Tipo:'
       end
-      object DBComboBox1: TDBComboBox[8]
-        Left = 656
+      object EdtTipo: TDBComboBox[8]
+        Left = 648
         Height = 28
         Top = 32
         Width = 125
@@ -170,8 +186,8 @@ inherited CadClienteF: TCadClienteF
   end
   object dsCadCliente: TDataSource[1]
     DataSet = qryCadCliente
-    Left = 1024
-    Top = 216
+    Left = 832
+    Top = 224
   end
   object qryCadCliente: TZQuery[2]
     Connection = dmF.ZConnection1
@@ -180,8 +196,8 @@ inherited CadClienteF: TCadClienteF
       'select * from cliente order by clienteid;'
     )
     Params = <>
-    Left = 1024
-    Top = 136
+    Left = 832
+    Top = 144
     object qryCadClienteclienteid: TLongintField
       FieldKind = fkData
       FieldName = 'clienteid'

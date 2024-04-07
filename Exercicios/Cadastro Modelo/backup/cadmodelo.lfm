@@ -405,13 +405,13 @@ object CadModeloF: TCadModeloF
   end
   object dsCatProd: TDataSource
     DataSet = qryCatProd
+    OnDataChange = dsCatProdDataChange
     Left = 1256
     Top = 184
   end
   object qryCatProd: TZQuery
     Connection = DmF.ZConnection1
     OnNewRecord = qryCatProdNewRecord
-    Active = True
     SQL.Strings = (
       'select * from categoria_produto order by categoriaprodutoid ;'
     )

@@ -175,27 +175,29 @@ inherited CadProdF: TCadProdF
         Width = 56
         DataField = 'produtoid'
         DataSource = dsCadProd
+        ReadOnly = True
         Alignment = taRightJustify
         MaxLength = 0
         TabOrder = 1
       end
-      object DBEdit2: TDBEdit[9]
+      object EdtDesc: TDBEdit[9]
         Left = 101
         Height = 28
         Top = 80
         Width = 408
         DataField = 'ds_produto'
         DataSource = dsCadProd
+        ReadOnly = True
         MaxLength = 50
         TabOrder = 2
       end
-      object DBComboBox1: TDBComboBox[10]
+      object EdtCat: TDBComboBox[10]
         Left = 101
         Height = 28
         Top = 141
         Width = 173
         DataField = 'ds_categoria_produto'
-        DataSource = CadCategoriaF.DsCatProd
+        DataSource = dsCadProd
         ItemHeight = 20
         Items.Strings = (
           'BASIC'
@@ -204,15 +206,17 @@ inherited CadProdF: TCadProdF
           'ELITE'
         )
         MaxLength = 0
+        ReadOnly = True
         TabOrder = 3
       end
-      object DBEdit3: TDBEdit[11]
+      object EdtValor: TDBEdit[11]
         Left = 335
         Height = 28
         Top = 24
         Width = 88
         DataField = 'vl_venda_produto'
         DataSource = dsCadProd
+        ReadOnly = True
         Alignment = taRightJustify
         MaxLength = 0
         TabOrder = 4
@@ -233,17 +237,18 @@ inherited CadProdF: TCadProdF
         DataField = 'dt_cadastro_produto'
         DataSource = dsCadProd
       end
-      object DBEdit4: TDBEdit[13]
+      object EdtObs: TDBEdit[13]
         Left = 432
         Height = 28
         Top = 141
         Width = 304
         DataField = 'obs_produto'
         DataSource = dsCadProd
+        ReadOnly = True
         MaxLength = 300
         TabOrder = 6
       end
-      object DBComboBox2: TDBComboBox[14]
+      object EdtStatus: TDBComboBox[14]
         Left = 664
         Height = 28
         Top = 83
@@ -256,6 +261,7 @@ inherited CadProdF: TCadProdF
           'INATIVO'
         )
         MaxLength = 0
+        ReadOnly = True
         TabOrder = 7
       end
     end

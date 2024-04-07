@@ -405,6 +405,7 @@ object CadModeloF: TCadModeloF
   end
   object dsCatProd: TDataSource
     DataSet = qryCatProd
+    OnDataChange = dsCatProdDataChange
     Left = 1256
     Top = 184
   end

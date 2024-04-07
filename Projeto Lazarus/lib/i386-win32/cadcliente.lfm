@@ -4,6 +4,8 @@ inherited CadClienteF: TCadClienteF
   Caption = 'Cadastro de Cliente'
   OnShow = FormShow
   inherited PageControl1: TPageControl
+    ActivePage = tbCadastro
+    TabIndex = 1
     inherited tbPesquisa: TTabSheet
       inherited Panel1: TPanel
         inherited BtnBusca: TBitBtn
@@ -21,14 +23,14 @@ inherited CadClienteF: TCadClienteF
           Left = 160
           Height = 20
           Top = 28
-          Width = 197
-          Caption = 'Razão Social / Nome Fantasia'
+          Width = 140
+          Caption = 'Nome / Razão Social'
         end
         object EdtBuscaCliente: TEdit[4]
-          Left = 376
+          Left = 320
           Height = 28
           Top = 24
-          Width = 256
+          Width = 312
           TabOrder = 3
         end
       end
@@ -98,6 +100,7 @@ inherited CadClienteF: TCadClienteF
         Width = 64
         DataField = 'clienteid'
         DataSource = dsCadCliente
+        ReadOnly = True
         Alignment = taRightJustify
         MaxLength = 0
         TabOrder = 1
@@ -134,7 +137,7 @@ inherited CadClienteF: TCadClienteF
         Width = 74
         Caption = 'CPF / CPNJ:'
       end
-      object DBEdit3: TDBEdit[6]
+      object EdtCPF: TDBEdit[6]
         Left = 280
         Height = 28
         Top = 32
@@ -151,7 +154,7 @@ inherited CadClienteF: TCadClienteF
         Width = 33
         Caption = 'Tipo:'
       end
-      object DBComboBox1: TDBComboBox[8]
+      object EdtTipo: TDBComboBox[8]
         Left = 656
         Height = 28
         Top = 32

@@ -124,7 +124,6 @@ inherited CadCategoriaF: TCadCategoriaF
   end
   object qryCatProd: TZQuery[2]
     Connection = dmF.ZConnection1
-    Active = True
     SQL.Strings = (
       'select * from categoria_produto order by categoriaprodutoid;'
     )

@@ -13,13 +13,13 @@ type
   { TCadProdF }
 
   TCadProdF = class(TCadModeloF)
-    DBComboBox1: TDBComboBox;
-    DBComboBox2: TDBComboBox;
+    EdtCat: TDBComboBox;
+    EdtStatus: TDBComboBox;
     DbData: TDBDateEdit;
     DBEdit1: TDBEdit;
-    DBEdit2: TDBEdit;
-    DBEdit3: TDBEdit;
-    DBEdit4: TDBEdit;
+    EdtDesc: TDBEdit;
+    EdtValor: TDBEdit;
+    EdtObs: TDBEdit;
     dsCadProd: TDataSource;
     EdtBuscaProd: TEdit;
     Label1: TLabel;
@@ -71,17 +71,32 @@ procedure TCadProdF.BtnEditarClick(Sender: TObject);
 begin
   qryCadProd.Edit;
   inherited;
+  EdtValor.ReadOnly := False;
+  EdtObs.ReadOnly := False;
+  EdtDesc.ReadOnly := False;
+  EdtCat.ReadOnly := False;
+  EdtStatus.ReadOnly := False;
 end;
 
 procedure TCadProdF.BtnCancelarClick(Sender: TObject);
 begin
-  qryCadProd.Delete;
+  qryCadProd.Cancel;
+  EdtValor.ReadOnly := True;
+  EdtObs.ReadOnly := True;
+  EdtDesc.ReadOnly := True;
+  EdtCat.ReadOnly := True;
+  EdtStatus.ReadOnly := True;
   inherited;
 end;
 
 procedure TCadProdF.BtnExcluirClick(Sender: TObject);
 begin
   qryCadProd.Delete;
+  EdtValor.ReadOnly := True;
+  EdtObs.ReadOnly := True;
+  EdtDesc.ReadOnly := True;
+  EdtCat.ReadOnly := True;
+  EdtStatus.ReadOnly := True;
   inherited;
 end;
 
@@ -89,12 +104,22 @@ procedure TCadProdF.BtnGravarClick(Sender: TObject);
 begin
   qryCadProd.Post;
   inherited;
+  EdtValor.ReadOnly := True;
+  EdtObs.ReadOnly := True;
+  EdtDesc.ReadOnly := True;
+  EdtCat.ReadOnly := True;
+  EdtStatus.ReadOnly := True;
 end;
 
 procedure TCadProdF.BtnNovoClick(Sender: TObject);
 begin
   qryCadProd.Insert;
   DbData.Text := DateToStr(Date);
+  EdtValor.ReadOnly := False;
+  EdtObs.ReadOnly := False;
+  EdtDesc.ReadOnly := False;
+  EdtCat.ReadOnly := False;
+  EdtStatus.ReadOnly := False;
   inherited;
 end;
 

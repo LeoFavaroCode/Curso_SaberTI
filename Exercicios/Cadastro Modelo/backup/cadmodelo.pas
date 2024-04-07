@@ -52,6 +52,7 @@ type
     procedure BtnSairClick(Sender: TObject);
     procedure BtnUltClick(Sender: TObject);
     procedure DBGrid1DblClick(Sender: TObject);
+    procedure dsCatProdDataChange(Sender: TObject; Field: TField);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormShow(Sender: TObject);
     procedure qryCatProdNewRecord(DataSet: TDataSet);
@@ -139,6 +140,11 @@ end;
 procedure TCadModeloF.DBGrid1DblClick(Sender: TObject);
 begin
     PageControl1.ActivePage := tbCadastro;
+end;
+
+procedure TCadModeloF.dsCatProdDataChange(Sender: TObject; Field: TField);
+begin
+
 end;
 
 procedure TCadModeloF.FormClose(Sender: TObject; var CloseAction: TCloseAction);

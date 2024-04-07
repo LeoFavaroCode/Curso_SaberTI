@@ -97,6 +97,7 @@ inherited CadUsuarioF: TCadUsuarioF
         Width = 60
         DataField = 'id'
         DataSource = dsCadUsuario
+        ReadOnly = True
         Alignment = taRightJustify
         MaxLength = 0
         TabOrder = 1

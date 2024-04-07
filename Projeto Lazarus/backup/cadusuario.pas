@@ -5,17 +5,25 @@ unit CadUsuario;
 interface
 
 uses
-  Classes, SysUtils, DB, Forms, Controls, Graphics, Dialogs, StdCtrls, ZDataset,
-  CadModelo;
+  Classes, SysUtils, DB, Forms, Controls, Graphics, Dialogs, StdCtrls, DBCtrls,
+  ZDataset, CadModelo;
 
 type
 
   { TCadUsuarioF }
 
   TCadUsuarioF = class(TCadModeloF)
+    DBEdit1: TDBEdit;
+    DBEdit2: TDBEdit;
+    DBEdit3: TDBEdit;
+    DBEdit4: TDBEdit;
     dsCadUsuario: TDataSource;
     EdtCadU: TEdit;
     Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
     qryCadUsuario: TZQuery;
     qryCadUsuarioid: TLongintField;
     qryCadUsuarionome_completo: TStringField;
