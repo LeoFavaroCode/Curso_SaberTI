@@ -1,5 +1,8 @@
 inherited CadUsuarioF: TCadUsuarioF
+  Left = 458
+  Top = 227
   Caption = 'Cadastro de Usuário'
+  OnShow = FormShow
   inherited PageControl1: TPageControl
     inherited tbPesquisa: TTabSheet
       inherited Panel1: TPanel
@@ -7,17 +10,24 @@ inherited CadUsuarioF: TCadUsuarioF
           Left = 496
           Top = 24
         end
-        inherited EdtModelo: TEdit
-          Left = 224
-          Top = 24
-          Width = 264
-        end
-        object Label1: TLabel[4]
+        object Label1: TLabel[3]
           Left = 160
           Height = 20
           Top = 28
           Width = 41
           Caption = 'Nome'
+        end
+        object EdtCadU: TEdit[4]
+          Left = 216
+          Height = 28
+          Top = 24
+          Width = 267
+          TabOrder = 3
+        end
+      end
+      inherited Panel3: TPanel
+        inherited BtnEditar: TBitBtn
+          OnClick = nil
         end
       end
       inherited DBGrid2: TDBGrid
@@ -52,18 +62,17 @@ inherited CadUsuarioF: TCadUsuarioF
   end
   object dsCadUsuario: TDataSource[1]
     DataSet = qryCadUsuario
-    Left = 1224
-    Top = 264
+    Left = 848
+    Top = 48
   end
   object qryCadUsuario: TZQuery[2]
     Connection = dmF.ZConnection1
-    Active = True
     SQL.Strings = (
       'select * from usuarios;'
     )
     Params = <>
-    Left = 1224
-    Top = 157
+    Left = 736
+    Top = 48
     object qryCadUsuarioid: TLongintField
       FieldKind = fkData
       FieldName = 'id'

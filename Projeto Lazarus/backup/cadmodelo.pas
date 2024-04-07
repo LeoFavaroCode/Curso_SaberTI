@@ -54,7 +54,7 @@ implementation
 
 procedure TCadModeloF.BtnSairClick(Sender: TObject);
 begin
-  CadModeloF.Close;
+  Close;
 end;
 
 procedure TCadModeloF.BtnGravarClick(Sender: TObject);
@@ -65,9 +65,6 @@ end;
 procedure TCadModeloF.BtnNovoClick(Sender: TObject);
 begin
    PageControl1.ActivePage := tbCadastro;
-
-  //if EdtDesc.CanFocus then
-     //EdtDesc.SetFocus;
 end;
 
 procedure TCadModeloF.BtnCancelarClick(Sender: TObject);
@@ -77,7 +74,7 @@ end;
 
 procedure TCadModeloF.BtnEditarClick(Sender: TObject);
 begin
-
+  PageControl1.ActivePage := tbCadastro;
 end;
 
 procedure TCadModeloF.BtnExcluirClick(Sender: TObject);

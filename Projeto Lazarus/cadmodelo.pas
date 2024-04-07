@@ -35,6 +35,7 @@ type
     procedure BtnGravarClick(Sender: TObject);
     procedure BtnNovoClick(Sender: TObject);
     procedure BtnSairClick(Sender: TObject);
+    procedure DBGrid2DblClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormShow(Sender: TObject);
   private
@@ -57,6 +58,11 @@ begin
   Close;
 end;
 
+procedure TCadModeloF.DBGrid2DblClick(Sender: TObject);
+begin
+  PageControl1.ActivePage := tbCadastro;
+end;
+
 procedure TCadModeloF.BtnGravarClick(Sender: TObject);
 begin
     PageControl1.ActivePage := tbPesquisa;
@@ -65,9 +71,6 @@ end;
 procedure TCadModeloF.BtnNovoClick(Sender: TObject);
 begin
    PageControl1.ActivePage := tbCadastro;
-
-  //if EdtDesc.CanFocus then
-     //EdtDesc.SetFocus;
 end;
 
 procedure TCadModeloF.BtnCancelarClick(Sender: TObject);
@@ -77,7 +80,7 @@ end;
 
 procedure TCadModeloF.BtnEditarClick(Sender: TObject);
 begin
-
+  PageControl1.ActivePage := tbCadastro;
 end;
 
 procedure TCadModeloF.BtnExcluirClick(Sender: TObject);

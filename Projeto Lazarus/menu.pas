@@ -31,6 +31,7 @@ type
     procedure MenuCategoriaClick(Sender: TObject);
     procedure MenuClienteClick(Sender: TObject);
     procedure MenuProdutoClick(Sender: TObject);
+    procedure MenuSairClick(Sender: TObject);
     procedure MenuUsuaruioClick(Sender: TObject);
   private
 
@@ -57,6 +58,11 @@ procedure TMenuF.MenuProdutoClick(Sender: TObject);
 begin
   CadProdF := TCadProdF.Create(Self);
   CadProdF.ShowModal;
+end;
+
+procedure TMenuF.MenuSairClick(Sender: TObject);
+begin
+     Close;
 end;
 
 procedure TMenuF.MenuUsuaruioClick(Sender: TObject);

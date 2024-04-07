@@ -14,12 +14,14 @@ type
 
   TCadUsuarioF = class(TCadModeloF)
     dsCadUsuario: TDataSource;
+    EdtCadU: TEdit;
     Label1: TLabel;
     qryCadUsuario: TZQuery;
     qryCadUsuarioid: TLongintField;
     qryCadUsuarionome_completo: TStringField;
     qryCadUsuariosenha: TStringField;
     qryCadUsuariousuario: TStringField;
+    procedure FormShow(Sender: TObject);
   private
 
   public
@@ -32,6 +34,14 @@ var
 implementation
 
 {$R *.lfm}
+
+{ TCadUsuarioF }
+
+procedure TCadUsuarioF.FormShow(Sender: TObject);
+begin
+  inherited;
+  CadUsuarioF.qryCadUsuario.Active := True;
+end;
 
 end.
 

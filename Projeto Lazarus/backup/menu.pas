@@ -28,9 +28,11 @@ type
     MenuProduto: TMenuItem;
     MenuUsuaruio: TMenuItem;
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
+    procedure FormShow(Sender: TObject);
     procedure MenuCategoriaClick(Sender: TObject);
     procedure MenuClienteClick(Sender: TObject);
     procedure MenuProdutoClick(Sender: TObject);
+    procedure MenuSairClick(Sender: TObject);
     procedure MenuUsuaruioClick(Sender: TObject);
   private
 
@@ -59,6 +61,11 @@ begin
   CadProdF.ShowModal;
 end;
 
+procedure TMenuF.MenuSairClick(Sender: TObject);
+begin
+     Close;
+end;
+
 procedure TMenuF.MenuUsuaruioClick(Sender: TObject);
 begin
   CadUsuarioF := TCadUsuarioF.Create(Self);
@@ -73,7 +80,16 @@ end;
 
 procedure TMenuF.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
+  CloseAction := caFree;
   Application.Terminate;
+end;
+
+procedure TMenuF.FormShow(Sender: TObject);
+begin
+  CadProdF.qryCadProd.Active := True;
+  CadCategoriaF.qryCatProd.Active := True;
+  CadUsuarioF.qryCadUsuario.Active := True;
+  CadClienteF.qryCadCliente.Active := True;
 end;
 
 end.

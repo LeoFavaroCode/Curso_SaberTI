@@ -1,8 +1,17 @@
 inherited CadCategoriaF: TCadCategoriaF
+  Left = 516
+  Top = 216
+  Width = 1156
   Caption = 'Cadastro de Categoria'
+  ClientWidth = 1156
+  OnShow = FormShow
   inherited PageControl1: TPageControl
+    Width = 1156
     inherited tbPesquisa: TTabSheet
+      ClientWidth = 1148
       inherited Panel1: TPanel
+        Width = 1148
+        ClientWidth = 1148
         inherited BtnBusca: TBitBtn
           Left = 520
           Top = 24
@@ -22,7 +31,22 @@ inherited CadCategoriaF: TCadCategoriaF
           Caption = 'Nome'
         end
       end
+      inherited Panel3: TPanel
+        Width = 1148
+        ClientWidth = 1148
+        inherited BtnSair: TBitBtn
+          OnClick = BtnSairClick
+        end
+        inherited BtnNovo: TBitBtn
+          Left = 40
+          OnClick = BtnNovoClick
+        end
+        inherited BtnEditar: TBitBtn
+          OnClick = BtnEditarClick
+        end
+      end
       inherited DBGrid2: TDBGrid
+        Width = 1148
         Columns = <        
           item
             PickList.Strings = (            )
@@ -39,21 +63,74 @@ inherited CadCategoriaF: TCadCategoriaF
         DataSource = DsCatProd
       end
     end
+    inherited tbCadastro: TTabSheet
+      ClientWidth = 1148
+      inherited Panel2: TPanel
+        Width = 1148
+        ClientWidth = 1148
+        inherited BtnGravar: TBitBtn
+          OnClick = BtnGravarClick
+        end
+        inherited BtnExcluir: TBitBtn
+          OnClick = BtnExcluirClick
+        end
+        inherited BtnCancelar: TBitBtn
+          Left = 995
+          OnClick = BtnCancelarClick
+        end
+      end
+      object DBEdit1: TDBEdit[1]
+        Left = 64
+        Height = 28
+        Top = 24
+        Width = 56
+        DataField = 'categoriaprodutoid'
+        DataSource = DsCatProd
+        Alignment = taRightJustify
+        MaxLength = 0
+        TabOrder = 1
+      end
+      object EdtDesc: TDBEdit[2]
+        Left = 112
+        Height = 28
+        Top = 77
+        Width = 136
+        DataField = 'ds_categoria_produto'
+        DataSource = DsCatProd
+        ReadOnly = True
+        MaxLength = 50
+        TabOrder = 2
+      end
+      object Label2: TLabel[3]
+        Left = 32
+        Height = 20
+        Top = 26
+        Width = 18
+        Caption = 'ID:'
+      end
+      object Label3: TLabel[4]
+        Left = 32
+        Height = 20
+        Top = 80
+        Width = 68
+        Caption = 'Descrição:'
+      end
+    end
   end
   object DsCatProd: TDataSource[1]
     DataSet = qryCatProd
-    Left = 1253
-    Top = 224
+    Left = 984
+    Top = 240
   end
   object qryCatProd: TZQuery[2]
     Connection = dmF.ZConnection1
     Active = True
     SQL.Strings = (
-      'select * from categoria_produto;'
+      'select * from categoria_produto order by categoriaprodutoid;'
     )
     Params = <>
-    Left = 1253
-    Top = 144
+    Left = 984
+    Top = 160
     object qryCatProdcategoriaprodutoid: TLongintField
       FieldKind = fkData
       FieldName = 'categoriaprodutoid'

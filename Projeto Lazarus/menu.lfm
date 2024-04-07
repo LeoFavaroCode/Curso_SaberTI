@@ -57,6 +57,7 @@ object MenuF: TMenuF
     end
     object MenuSair: TMenuItem
       Caption = 'Sair'
+      OnClick = MenuSairClick
     end
   end
 end

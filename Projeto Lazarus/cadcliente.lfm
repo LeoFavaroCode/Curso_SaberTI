@@ -1,13 +1,21 @@
 inherited CadClienteF: TCadClienteF
-  Left = 419
-  Top = 149
+  Left = 468
+  Top = 205
   Caption = 'Cadastro de Cliente'
+  OnShow = FormShow
   inherited PageControl1: TPageControl
     inherited tbPesquisa: TTabSheet
       inherited Panel1: TPanel
         inherited BtnBusca: TBitBtn
+          Cursor = crDefault
           Left = 648
           Top = 24
+        end
+        inherited RadioButton1: TRadioButton
+          Cursor = crDefault
+        end
+        inherited RadioButton2: TRadioButton
+          Cursor = crDefault
         end
         object Label1: TLabel[3]
           Left = 160
@@ -24,7 +32,21 @@ inherited CadClienteF: TCadClienteF
           TabOrder = 3
         end
       end
+      inherited Panel3: TPanel
+        inherited BtnSair: TBitBtn
+          Cursor = crDefault
+          Left = 1008
+        end
+        inherited BtnNovo: TBitBtn
+          Cursor = crDefault
+          OnClick = BtnNovoClick
+        end
+        inherited BtnEditar: TBitBtn
+          OnClick = BtnEditarClick
+        end
+      end
       inherited DBGrid2: TDBGrid
+        Cursor = crHandPoint
         Columns = <        
           item
             PickList.Strings = (            )
@@ -34,83 +56,170 @@ inherited CadClienteF: TCadClienteF
           end        
           item
             PickList.Strings = (            )
-            Title.Caption = 'Nome - Razão Social'
-            Width = 650
+            Title.Caption = 'Nome / Razão Social'
+            Width = 450
             FieldName = 'nome_cliente'
           end        
           item
             PickList.Strings = (            )
-            Title.Caption = 'CPF - CNPJ'
+            Title.Caption = 'CPF / CNPJ'
             Width = 180
             FieldName = 'cpf_cnpj_cliente'
           end        
           item
             PickList.Strings = (            )
-            Title.Caption = 'Tipo (F- J)'
-            Width = 85
+            Title.Caption = 'Tipo (F - J)'
+            Width = 120
             FieldName = 'tipo_cliente'
           end>
-        DataSource = DsCadCliente
+        DataSource = dsCadCliente
+        OnDblClick = DBGrid2DblClick
+      end
+    end
+    inherited tbCadastro: TTabSheet
+      inherited Panel2: TPanel
+        inherited BtnGravar: TBitBtn
+          Cursor = crDefault
+          OnClick = BtnGravarClick
+        end
+        inherited BtnExcluir: TBitBtn
+          Cursor = crDefault
+          OnClick = BtnExcluirClick
+        end
+        inherited BtnCancelar: TBitBtn
+          Cursor = crDefault
+          OnClick = BtnCancelarClick
+        end
+      end
+      object DBEdit1: TDBEdit[1]
+        Left = 56
+        Height = 28
+        Top = 32
+        Width = 64
+        DataField = 'clienteid'
+        DataSource = dsCadCliente
+        Alignment = taRightJustify
+        MaxLength = 0
+        TabOrder = 1
+      end
+      object Label2: TLabel[2]
+        Left = 32
+        Height = 20
+        Top = 36
+        Width = 18
+        Caption = 'ID:'
+      end
+      object EdtNome: TDBEdit[3]
+        Left = 184
+        Height = 28
+        Top = 83
+        Width = 356
+        DataField = 'nome_cliente'
+        DataSource = dsCadCliente
+        ReadOnly = True
+        MaxLength = 100
+        TabOrder = 2
+      end
+      object Label3: TLabel[4]
+        Left = 32
+        Height = 20
+        Top = 86
+        Width = 143
+        Caption = 'Nome / Razão Social:'
+      end
+      object Label4: TLabel[5]
+        Left = 192
+        Height = 20
+        Top = 36
+        Width = 74
+        Caption = 'CPF / CPNJ:'
+      end
+      object DBEdit3: TDBEdit[6]
+        Left = 280
+        Height = 28
+        Top = 32
+        Width = 256
+        DataField = 'cpf_cnpj_cliente'
+        DataSource = dsCadCliente
+        MaxLength = 18
+        TabOrder = 3
+      end
+      object Label5: TLabel[7]
+        Left = 608
+        Height = 20
+        Top = 34
+        Width = 33
+        Caption = 'Tipo:'
+      end
+      object DBComboBox1: TDBComboBox[8]
+        Left = 656
+        Height = 28
+        Top = 32
+        Width = 125
+        DataField = 'tipo_cliente'
+        DataSource = dsCadCliente
+        ItemHeight = 20
+        Items.Strings = (
+          'Física'
+          'Jurídica'
+        )
+        MaxLength = 0
+        TabOrder = 4
       end
     end
   end
-  object DsCadCliente: TDataSource[1]
-    DataSet = qryCliente
-    Left = 1264
-    Top = 148
+  object dsCadCliente: TDataSource[1]
+    DataSet = qryCadCliente
+    Left = 1024
+    Top = 216
   end
-  object qryCliente: TZQuery[2]
+  object qryCadCliente: TZQuery[2]
     Connection = dmF.ZConnection1
     Active = True
     SQL.Strings = (
-      'select clienteid, nome_cliente, cpf_cnpj_cliente, tipo_cliente from cliente;'
+      'select * from cliente order by clienteid;'
     )
     Params = <>
-    MasterSource = DsCadCliente
-    Left = 1264
-    Top = 240
-    object qryClienteclienteid: TLongintField
+    Left = 1024
+    Top = 136
+    object qryCadClienteclienteid: TLongintField
       FieldKind = fkData
       FieldName = 'clienteid'
       Index = 0
       LookupCache = False
-      LookupDataSet = qryCliente
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = True
     end
-    object qryClientenome_cliente: TStringField
+    object qryCadClientetipo_cliente: TStringField
       FieldKind = fkData
-      FieldName = 'nome_cliente'
+      FieldName = 'tipo_cliente'
       Index = 1
       LookupCache = False
-      LookupDataSet = qryCliente
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = True
-      Size = 100
+      Size = 10
     end
-    object qryClientecpf_cnpj_cliente: TStringField
+    object qryCadClientecpf_cnpj_cliente: TStringField
       FieldKind = fkData
       FieldName = 'cpf_cnpj_cliente'
       Index = 2
       LookupCache = False
-      LookupDataSet = qryCliente
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = True
       Size = 18
     end
-    object qryClientetipo_cliente: TStringField
+    object qryCadClientenome_cliente: TStringField
       FieldKind = fkData
-      FieldName = 'tipo_cliente'
+      FieldName = 'nome_cliente'
       Index = 3
       LookupCache = False
-      LookupDataSet = qryCliente
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = True
-      Size = 1
+      Size = 100
     end
   end
 end

@@ -1,8 +1,23 @@
 inherited CadProdF: TCadProdF
+  Left = 439
+  Height = 591
+  Top = 151
+  Width = 1185
   Caption = 'Cadastro de Produto'
+  ClientHeight = 591
+  ClientWidth = 1185
+  OnShow = FormShow
   inherited PageControl1: TPageControl
+    Height = 591
+    Width = 1185
+    ActivePage = tbCadastro
+    TabIndex = 1
     inherited tbPesquisa: TTabSheet
+      ClientHeight = 558
+      ClientWidth = 1177
       inherited Panel1: TPanel
+        Width = 1177
+        ClientWidth = 1177
         inherited BtnBusca: TBitBtn
           Left = 520
           Top = 24
@@ -22,7 +37,17 @@ inherited CadProdF: TCadProdF
           Caption = 'Descrição'
         end
       end
+      inherited Panel3: TPanel
+        Top = 479
+        Width = 1177
+        ClientWidth = 1177
+        inherited BtnSair: TBitBtn
+          Left = 1264
+        end
+      end
       inherited DBGrid2: TDBGrid
+        Height = 399
+        Width = 1177
         Columns = <        
           item
             PickList.Strings = (            )
@@ -67,24 +92,171 @@ inherited CadProdF: TCadProdF
             FieldName = 'status_produto'
           end>
         DataSource = dsCadProd
+        OnDblClick = nil
+      end
+    end
+    inherited tbCadastro: TTabSheet
+      ClientHeight = 558
+      ClientWidth = 1177
+      inherited Panel2: TPanel
+        Top = 478
+        Width = 1177
+        ClientWidth = 1177
+        inherited BtnCancelar: TBitBtn
+          Left = 1024
+        end
+      end
+      object Label2: TLabel[1]
+        Left = 64
+        Height = 20
+        Top = 27
+        Width = 18
+        Caption = 'ID:'
+      end
+      object Label3: TLabel[2]
+        Left = 21
+        Height = 20
+        Top = 83
+        Width = 68
+        Caption = 'Descrição:'
+      end
+      object Label4: TLabel[3]
+        Left = 21
+        Height = 20
+        Top = 144
+        Width = 68
+        Caption = 'Categoria:'
+      end
+      object Label5: TLabel[4]
+        Left = 608
+        Height = 20
+        Top = 85
+        Width = 43
+        Caption = 'Status:'
+      end
+      object Label6: TLabel[5]
+        Left = 328
+        Height = 20
+        Top = 144
+        Width = 81
+        Caption = 'Observação:'
+      end
+      object Label7: TLabel[6]
+        Left = 480
+        Height = 20
+        Top = 27
+        Width = 119
+        Caption = 'Data de Cadastro:'
+      end
+      object Label8: TLabel[7]
+        Left = 216
+        Height = 20
+        Top = 27
+        Width = 103
+        Caption = 'Valor de Venda:'
+      end
+      object DBEdit1: TDBEdit[8]
+        Left = 96
+        Height = 28
+        Top = 24
+        Width = 56
+        DataField = 'produtoid'
+        DataSource = dsCadProd
+        Alignment = taRightJustify
+        MaxLength = 0
+        TabOrder = 1
+      end
+      object DBEdit2: TDBEdit[9]
+        Left = 101
+        Height = 28
+        Top = 80
+        Width = 408
+        DataField = 'ds_produto'
+        DataSource = dsCadProd
+        MaxLength = 50
+        TabOrder = 2
+      end
+      object DBComboBox1: TDBComboBox[10]
+        Left = 101
+        Height = 28
+        Top = 141
+        Width = 173
+        DataField = 'ds_categoria_produto'
+        DataSource = dsCadProd
+        ItemHeight = 20
+        MaxLength = 0
+        TabOrder = 3
+      end
+      object DBEdit3: TDBEdit[11]
+        Left = 335
+        Height = 28
+        Top = 24
+        Width = 88
+        DataField = 'vl_venda_produto'
+        DataSource = dsCadProd
+        Alignment = taRightJustify
+        MaxLength = 0
+        TabOrder = 4
+      end
+      object DBDateEdit1: TDBDateEdit[12]
+        Left = 616
+        Height = 28
+        Top = 24
+        Width = 129
+        CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
+        ReadOnly = True
+        DateOrder = doNone
+        ButtonWidth = 29
+        NumGlyphs = 1
+        MaxLength = 0
+        TabOrder = 5
+        Text = '18/02/2023'
+        DataField = 'dt_cadastro_produto'
+        DataSource = dsCadProd
+      end
+      object DBEdit4: TDBEdit[13]
+        Left = 432
+        Height = 28
+        Top = 141
+        Width = 304
+        DataField = 'obs_produto'
+        DataSource = dsCadProd
+        MaxLength = 300
+        TabOrder = 6
+      end
+      object DBComboBox2: TDBComboBox[14]
+        Left = 664
+        Height = 28
+        Top = 83
+        Width = 125
+        DataField = 'status_produto'
+        DataSource = dsCadProd
+        ItemHeight = 20
+        Items.Strings = (
+          'ATIVO'
+          'INATIVO'
+        )
+        MaxLength = 0
+        TabOrder = 7
       end
     end
   end
   object dsCadProd: TDataSource[1]
     DataSet = qryCadProd
-    Left = 1264
-    Top = 392
+    Left = 1032
+    Top = 56
   end
   object qryCadProd: TZQuery[2]
     Connection = dmF.ZConnection1
     Active = True
     SQL.Strings = (
       'select produtoid, ds_produto, ds_categoria_produto, obs_produto, vl_venda_produto, dt_cadastro_produto, status_produto from produto p'
-      'inner join categoria_produto cp on p.categoriaprodutoid = cp.categoriaprodutoid;'
+      'inner join categoria_produto cp on p.categoriaprodutoid = cp.categoriaprodutoid'
+      'order by produtoid;'
     )
     Params = <>
-    Left = 1264
-    Top = 312
+    Left = 912
+    Top = 56
     object qryCadProdprodutoid: TLongintField
       FieldKind = fkData
       FieldName = 'produtoid'
@@ -132,6 +304,7 @@ inherited CadProdF: TCadProdF
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = True
+      OnGetText = qryCadProdvl_venda_produtoGetText
       Precision = 983042
     end
     object qryCadProddt_cadastro_produto: TDateTimeField
