@@ -1,20 +1,22 @@
 inherited CadUsuarioF: TCadUsuarioF
-  Left = 645
-  Top = 234
-  Width = 677
+  Left = 652
+  Top = 207
+  Width = 758
   Caption = 'Cadastro de Usuário'
-  ClientWidth = 677
+  ClientWidth = 758
+  OnClose = FormClose
   OnShow = FormShow
   inherited PageControl1: TPageControl
-    Width = 677
+    Width = 758
     inherited tbPesquisa: TTabSheet
-      ClientWidth = 669
+      ClientWidth = 750
       inherited Panel1: TPanel
-        Width = 669
-        ClientWidth = 669
+        Width = 750
+        ClientWidth = 750
         inherited BtnBusca: TBitBtn
           Left = 496
           Top = 24
+          OnClick = BtnBuscaClick
         end
         object Label1: TLabel[3]
           Left = 160
@@ -23,7 +25,7 @@ inherited CadUsuarioF: TCadUsuarioF
           Width = 41
           Caption = 'Nome'
         end
-        object EdtCadU: TEdit[4]
+        object EdtBuscaUser: TEdit[4]
           Left = 216
           Height = 28
           Top = 24
@@ -32,10 +34,10 @@ inherited CadUsuarioF: TCadUsuarioF
         end
       end
       inherited Panel3: TPanel
-        Width = 669
-        ClientWidth = 669
+        Width = 750
+        ClientWidth = 750
         inherited BtnSair: TBitBtn
-          Left = 530
+          Left = 611
           Top = 23
         end
         inherited BtnNovo: TBitBtn
@@ -47,7 +49,7 @@ inherited CadUsuarioF: TCadUsuarioF
         end
       end
       inherited DBGrid2: TDBGrid
-        Width = 669
+        Width = 750
         Columns = <        
           item
             PickList.Strings = (            )
@@ -64,13 +66,13 @@ inherited CadUsuarioF: TCadUsuarioF
           item
             PickList.Strings = (            )
             Title.Caption = 'Nome Completo'
-            Width = 400
+            Width = 300
             FieldName = 'nome_completo'
           end        
           item
             PickList.Strings = (            )
             Title.Caption = 'Senha'
-            Width = 200
+            Width = 150
             FieldName = 'senha'
           end>
         DataSource = dsCadUsuario
@@ -78,10 +80,10 @@ inherited CadUsuarioF: TCadUsuarioF
       end
     end
     inherited tbCadastro: TTabSheet
-      ClientWidth = 669
+      ClientWidth = 750
       inherited Panel2: TPanel
-        Width = 669
-        ClientWidth = 669
+        Width = 750
+        ClientWidth = 750
         inherited BtnGravar: TBitBtn
           OnClick = BtnGravarClick
         end
@@ -89,7 +91,7 @@ inherited CadUsuarioF: TCadUsuarioF
           OnClick = BtnExcluirClick
         end
         inherited BtnCancelar: TBitBtn
-          Left = 516
+          Left = 597
           OnClick = BtnCancelarClick
         end
       end
@@ -176,7 +178,6 @@ inherited CadUsuarioF: TCadUsuarioF
   object qryCadUsuario: TZQuery[2]
     Connection = dmF.ZConnection1
     OnNewRecord = qryCadUsuarioNewRecord
-    Active = True
     SQL.Strings = (
       'select * from usuarios order by id;'
     )

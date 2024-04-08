@@ -34,6 +34,7 @@ type
     procedure BtnExcluirClick(Sender: TObject);
     procedure BtnGravarClick(Sender: TObject);
     procedure BtnNovoClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormShow(Sender: TObject);
     procedure qryCadClienteNewRecord(DataSet: TDataSet);
   private
@@ -70,6 +71,14 @@ begin
   qryCadCliente.Insert;
   If EdtNome.CanFocus then
      EdtNome.SetFocus;
+end;
+
+procedure TCadClienteF.FormClose(Sender: TObject; var CloseAction: TCloseAction);
+begin
+  EdtNome.ReadOnly := True;
+  EdtCPF.ReadOnly := True;
+  EdtTipo.ReadOnly := True;
+  inherited;
 end;
 
 procedure TCadClienteF.BtnEditarClick(Sender: TObject);
@@ -123,7 +132,7 @@ begin
    begin
        CadClienteF.qryCadCliente.Close;
        CadClienteF.qryCadCliente.SQL.Clear;
-       CadClienteF.qryCadCliente.SQL.Text := 'select * from cliente order by clienteid;';
+       CadClienteF.qryCadCliente.SQL.Add('select * from cliente order by clienteid');
        qryCadCliente.Open;
    end
    else

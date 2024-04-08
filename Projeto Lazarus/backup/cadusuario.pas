@@ -18,7 +18,7 @@ type
     EdtNome: TDBEdit;
     EdtSenha: TDBEdit;
     dsCadUsuario: TDataSource;
-    EdtCadU: TEdit;
+    EdtBuscaUser: TEdit;
     Label1: TLabel;
     Label2: TLabel;
     Label3: TLabel;
@@ -29,12 +29,14 @@ type
     qryCadUsuarionome_completo: TStringField;
     qryCadUsuariosenha: TStringField;
     qryCadUsuariousuario: TStringField;
+    procedure BtnBuscaClick(Sender: TObject);
     procedure BtnCancelarClick(Sender: TObject);
     procedure BtnEditarClick(Sender: TObject);
     procedure BtnExcluirClick(Sender: TObject);
     procedure BtnGravarClick(Sender: TObject);
     procedure BtnNovoClick(Sender: TObject);
     procedure DBGrid2DblClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormShow(Sender: TObject);
     procedure qryCadUsuarioNewRecord(DataSet: TDataSet);
   private
@@ -82,6 +84,15 @@ begin
   inherited;
 end;
 
+procedure TCadUsuarioF.FormClose(Sender: TObject; var CloseAction: TCloseAction
+  );
+begin
+  EdtUser.ReadOnly := True;
+  EdtNome.ReadOnly := True;
+  EdtSenha.ReadOnly := True;
+  inherited;
+end;
+
 procedure TCadUsuarioF.BtnEditarClick(Sender: TObject);
 begin
   qryCadUsuario.edit;
@@ -98,6 +109,38 @@ begin
   EdtNome.ReadOnly := True;
   EdtSenha.ReadOnly := True;
   inherited;
+end;
+
+procedure TCadUsuarioF.BtnBuscaClick(Sender: TObject);
+begin
+   CadUsuarioF.qryCadUsuario.Close;
+   CadUsuarioF.qryCadUsuario.SQL.Clear;
+
+   if RadioButton1.Checked then
+   begin
+       CadUsuarioF.qryCadUsuario.SQL.Add('select * from usuarios where id = ' + EdtBuscaUser.Text);
+       CadUsuarioF.qryCadUsuario.Open;
+   end
+   else if RadioButton2.Checked then
+   begin
+       CadUsuarioF.qryCadUsuario.SQL.Text := 'select * from usuarios WHERE upper(nome_completo) LIKE' +
+                                             QuotedStr(UpperCase('%'+EdtBuscaUser.Text+'%'));
+       CadUsuarioF.qryCadUsuario.Open;
+   end
+   else if EdtBuscaUser.Text = '' then
+   begin
+       CadUsuarioF.qryCadUsuario.Close;
+       CadUsuarioF.qryCadUsuario.SQL.Clear;
+       CadUsuarioF.qryCadUsuario.SQL.Add('select * from usuarios order by id');
+       qryCadUsuario.Open;
+   end
+   else
+   begin
+     MessageDlg('Selecione uma das opções para a pesquisa.', mtWarning, [mbOK], 0);
+     qryCadUsuario.Active:= True;
+     qryCadUsuario.Refresh;
+   end;
+
 end;
 
 procedure TCadUsuarioF.BtnExcluirClick(Sender: TObject);

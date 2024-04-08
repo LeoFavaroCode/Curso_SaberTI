@@ -23,6 +23,7 @@ type
     qryCatProd: TZQuery;
     qryCatProdcategoriaprodutoid: TLongintField;
     qryCatProdds_categoria_produto: TStringField;
+    procedure BtnBuscaClick(Sender: TObject);
     procedure BtnCancelarClick(Sender: TObject);
     procedure BtnEditarClick(Sender: TObject);
     procedure BtnExcluirClick(Sender: TObject);
@@ -30,6 +31,7 @@ type
     procedure BtnNovoClick(Sender: TObject);
     procedure BtnSairClick(Sender: TObject);
     procedure DBGrid2DblClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormShow(Sender: TObject);
     procedure qryCatProdNewRecord(DataSet: TDataSet);
   private
@@ -77,6 +79,38 @@ begin
   EdtDesc.ReadOnly := True;
 end;
 
+procedure TCadCategoriaF.BtnBuscaClick(Sender: TObject);
+begin
+   CadCategoriaF.qryCatProd.Close;
+   CadCategoriaF.qryCatProd.SQL.Clear;
+
+   if RadioButton1.Checked then
+   begin
+       CadCategoriaF.qryCatProd.SQL.Add('select * from categoria_produto where categoriaprodutoid = ' + EdtBuscaCat.Text);
+       CadCategoriaF.qryCatProd.Open;
+   end
+   else if RadioButton2.Checked then
+   begin
+       CadCategoriaF.qryCatProd.SQL.Text := 'select * from categoria_produto WHERE upper(ds_categoria_produto) LIKE' +
+                                             QuotedStr(UpperCase('%'+EdtBuscaCat.Text+'%'));
+       CadCategoriaF.qryCatProd.Open;
+   end
+   else if EdtBuscaCat.Text = '' then
+   begin
+       CadCategoriaF.qryCatProd.Close;
+       CadCategoriaF.qryCatProd.SQL.Clear;
+       CadCategoriaF.qryCatProd.SQL.Add('select * from categoria_produto order by categoriaprodutoid');
+       qryCatProd.Open;
+   end
+   else
+   begin
+     MessageDlg('Selecione uma das opções para a pesquisa.', mtWarning, [mbOK], 0);
+     qryCatProd.Active:= True;
+     qryCatProd.Refresh;
+   end;
+
+end;
+
 procedure TCadCategoriaF.BtnExcluirClick(Sender: TObject);
 begin
   EdtDesc.ReadOnly := True;
@@ -109,6 +143,13 @@ end;
 
 procedure TCadCategoriaF.DBGrid2DblClick(Sender: TObject);
 begin
+  inherited;
+end;
+
+procedure TCadCategoriaF.FormClose(Sender: TObject;
+  var CloseAction: TCloseAction);
+begin
+  EdtDesc.ReadOnly := True;
   inherited;
 end;
 

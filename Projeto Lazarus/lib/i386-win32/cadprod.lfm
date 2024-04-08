@@ -1,27 +1,31 @@
 inherited CadProdF: TCadProdF
-  Left = 410
+  Left = 449
   Height = 591
-  Top = 195
-  Width = 1303
+  Top = 191
+  Width = 1309
   Caption = 'Cadastro de Produto'
   ClientHeight = 591
-  ClientWidth = 1303
+  ClientWidth = 1309
+  OnClose = FormClose
   OnShow = FormShow
   inherited PageControl1: TPageControl
     Height = 591
-    Width = 1303
-    ActivePage = tbCadastro
-    TabIndex = 1
+    Width = 1309
     inherited tbPesquisa: TTabSheet
       ClientHeight = 558
-      ClientWidth = 1295
+      ClientWidth = 1301
       inherited Panel1: TPanel
-        Width = 1295
-        ClientWidth = 1295
+        Width = 1301
+        ClientWidth = 1301
         inherited BtnBusca: TBitBtn
           Left = 520
           Top = 24
           OnClick = BtnBuscaClick
+        end
+        inherited RadioButton2: TRadioButton
+          Height = 24
+          Width = 86
+          Caption = 'Descrição'
         end
         object EdtBuscaProd: TEdit[3]
           Left = 248
@@ -30,20 +34,13 @@ inherited CadProdF: TCadProdF
           Width = 264
           TabOrder = 3
         end
-        object Label1: TLabel[4]
-          Left = 160
-          Height = 20
-          Top = 28
-          Width = 65
-          Caption = 'Descrição'
-        end
       end
       inherited Panel3: TPanel
         Top = 479
-        Width = 1295
-        ClientWidth = 1295
+        Width = 1301
+        ClientWidth = 1301
         inherited BtnSair: TBitBtn
-          Left = 1143
+          Left = 1149
         end
         inherited BtnNovo: TBitBtn
           OnClick = BtnNovoClick
@@ -54,7 +51,7 @@ inherited CadProdF: TCadProdF
       end
       inherited DBGrid2: TDBGrid
         Height = 399
-        Width = 1295
+        Width = 1301
         Columns = <        
           item
             PickList.Strings = (            )
@@ -64,8 +61,8 @@ inherited CadProdF: TCadProdF
           end        
           item
             PickList.Strings = (            )
-            Title.Caption = 'Descrição'
-            Width = 400
+            Title.Caption = 'Produto'
+            Width = 350
             FieldName = 'ds_produto'
           end        
           item
@@ -76,27 +73,33 @@ inherited CadProdF: TCadProdF
           end        
           item
             PickList.Strings = (            )
-            Title.Caption = 'Observação'
-            Width = 200
-            FieldName = 'obs_produto'
-          end        
-          item
-            PickList.Strings = (            )
             Title.Caption = 'Valor de Venda'
-            Width = 150
+            Width = 120
             FieldName = 'vl_venda_produto'
           end        
           item
             PickList.Strings = (            )
-            Title.Caption = 'Data do Cadastro'
-            Width = 140
+            Title.Caption = 'Observação'
+            Width = 250
+            FieldName = 'obs_produto'
+          end        
+          item
+            PickList.Strings = (            )
+            Title.Caption = 'Data de Cadastro'
+            Width = 160
             FieldName = 'dt_cadastro_produto'
           end        
           item
             PickList.Strings = (            )
             Title.Caption = 'Status'
-            Width = 85
+            Width = 100
             FieldName = 'status_produto'
+          end        
+          item
+            PickList.Strings = (            )
+            Title.Caption = 'categoriaprodutoid'
+            Visible = False
+            FieldName = 'categoriaprodutoid'
           end>
         DataSource = dsCadProd
         OnDblClick = DBGrid2DblClick
@@ -104,11 +107,11 @@ inherited CadProdF: TCadProdF
     end
     inherited tbCadastro: TTabSheet
       ClientHeight = 558
-      ClientWidth = 1295
+      ClientWidth = 1301
       inherited Panel2: TPanel
         Top = 478
-        Width = 1295
-        ClientWidth = 1295
+        Width = 1301
+        ClientWidth = 1301
         inherited BtnGravar: TBitBtn
           OnClick = BtnGravarClick
         end
@@ -116,7 +119,7 @@ inherited CadProdF: TCadProdF
           OnClick = BtnExcluirClick
         end
         inherited BtnCancelar: TBitBtn
-          Left = 1142
+          Left = 1148
           OnClick = BtnCancelarClick
         end
       end
@@ -149,7 +152,7 @@ inherited CadProdF: TCadProdF
         Caption = 'Status:'
       end
       object Label6: TLabel[5]
-        Left = 328
+        Left = 352
         Height = 20
         Top = 144
         Width = 81
@@ -170,10 +173,10 @@ inherited CadProdF: TCadProdF
         Caption = 'Valor de Venda:'
       end
       object DBEdit1: TDBEdit[8]
-        Left = 96
+        Left = 101
         Height = 28
         Top = 24
-        Width = 56
+        Width = 40
         DataField = 'produtoid'
         DataSource = dsCadProd
         ReadOnly = True
@@ -189,28 +192,10 @@ inherited CadProdF: TCadProdF
         DataField = 'ds_produto'
         DataSource = dsCadProd
         ReadOnly = True
-        MaxLength = 0
+        MaxLength = 50
         TabOrder = 2
       end
-      object EdtCat: TDBComboBox[10]
-        Left = 101
-        Height = 28
-        Top = 141
-        Width = 173
-        DataField = 'ds_categoria_produto'
-        DataSource = CadCategoriaF.DsCatProd
-        ItemHeight = 20
-        Items.Strings = (
-          'BASIC'
-          'PREMIUM'
-          'PLATINUM'
-          'ELITE'
-        )
-        MaxLength = 0
-        ReadOnly = True
-        TabOrder = 3
-      end
-      object EdtValor: TDBEdit[11]
+      object EdtValor: TDBEdit[10]
         Left = 335
         Height = 28
         Top = 24
@@ -220,9 +205,9 @@ inherited CadProdF: TCadProdF
         ReadOnly = True
         Alignment = taRightJustify
         MaxLength = 0
-        TabOrder = 4
+        TabOrder = 3
       end
-      object DbData: TDBDateEdit[12]
+      object DbData: TDBDateEdit[11]
         Left = 616
         Height = 28
         Top = 24
@@ -233,22 +218,23 @@ inherited CadProdF: TCadProdF
         ButtonWidth = 29
         NumGlyphs = 1
         MaxLength = 0
-        TabOrder = 5
+        TabOrder = 4
+        Text = '18/02/2023'
         DataField = 'dt_cadastro_produto'
         DataSource = dsCadProd
       end
-      object EdtObs: TDBEdit[13]
-        Left = 432
+      object EdtObs: TDBEdit[12]
+        Left = 456
         Height = 28
         Top = 141
         Width = 304
         DataField = 'obs_produto'
         DataSource = dsCadProd
         ReadOnly = True
-        MaxLength = 0
-        TabOrder = 6
+        MaxLength = 300
+        TabOrder = 5
       end
-      object EdtStatus: TDBComboBox[14]
+      object EdtStatus: TDBComboBox[13]
         Left = 664
         Height = 28
         Top = 83
@@ -262,26 +248,48 @@ inherited CadProdF: TCadProdF
         )
         MaxLength = 0
         ReadOnly = True
+        TabOrder = 6
+      end
+      object DBEdit2: TDBEdit[14]
+        Left = 101
+        Height = 28
+        Top = 141
+        Width = 40
+        DataField = 'categoriaprodutoid'
+        DataSource = dsCadProd
+        ReadOnly = True
+        Alignment = taRightJustify
+        MaxLength = 0
         TabOrder = 7
+      end
+      object SpeedButton1: TSpeedButton[15]
+        Cursor = crHandPoint
+        Left = 152
+        Height = 23
+        Top = 144
+        Width = 29
+        Caption = '...'
+        OnClick = SpeedButton1Click
       end
     end
   end
   object dsCadProd: TDataSource[1]
     DataSet = qryCadProd
-    Left = 400
-    Top = 328
+    Left = 408
+    Top = 352
   end
   object qryCadProd: TZQuery[2]
     Connection = dmF.ZConnection1
     OnNewRecord = qryCadProdNewRecord
+    Active = True
     SQL.Strings = (
-      'select produtoid, ds_produto, ds_categoria_produto, obs_produto, vl_venda_produto, dt_cadastro_produto, status_produto from produto p'
+      'select produtoid, ds_produto, ds_categoria_produto, obs_produto, vl_venda_produto, dt_cadastro_produto, status_produto, cp.categoriaprodutoid  from produto p'
       'inner join categoria_produto cp on p.categoriaprodutoid = cp.categoriaprodutoid'
       'order by produtoid;'
     )
     Params = <>
     Left = 280
-    Top = 328
+    Top = 352
     object qryCadProdprodutoid: TLongintField
       FieldKind = fkData
       FieldName = 'produtoid'
@@ -350,6 +358,15 @@ inherited CadProdF: TCadProdF
       ReadOnly = False
       Required = True
       Size = 10
+    end
+    object qryCadProdcategoriaprodutoid: TLongintField
+      FieldKind = fkData
+      FieldName = 'categoriaprodutoid'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
     end
   end
 end

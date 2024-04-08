@@ -4,6 +4,7 @@ inherited CadCategoriaF: TCadCategoriaF
   Width = 690
   Caption = 'Cadastro de Categoria'
   ClientWidth = 690
+  OnClose = FormClose
   OnShow = FormShow
   inherited PageControl1: TPageControl
     Width = 690
@@ -15,6 +16,7 @@ inherited CadCategoriaF: TCadCategoriaF
         inherited BtnBusca: TBitBtn
           Left = 520
           Top = 24
+          OnClick = BtnBuscaClick
         end
         object EdtBuscaCat: TEdit[3]
           Left = 232

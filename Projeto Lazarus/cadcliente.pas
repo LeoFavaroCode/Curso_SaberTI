@@ -34,6 +34,7 @@ type
     procedure BtnExcluirClick(Sender: TObject);
     procedure BtnGravarClick(Sender: TObject);
     procedure BtnNovoClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormShow(Sender: TObject);
     procedure qryCadClienteNewRecord(DataSet: TDataSet);
   private
@@ -72,6 +73,14 @@ begin
      EdtNome.SetFocus;
 end;
 
+procedure TCadClienteF.FormClose(Sender: TObject; var CloseAction: TCloseAction);
+begin
+  EdtNome.ReadOnly := True;
+  EdtCPF.ReadOnly := True;
+  EdtTipo.ReadOnly := True;
+  inherited;
+end;
+
 procedure TCadClienteF.BtnEditarClick(Sender: TObject);
 begin
   qryCadCliente.edit;
@@ -105,16 +114,18 @@ end;
 
 procedure TCadClienteF.BtnBuscaClick(Sender: TObject);
 begin
-   CadClienteF.qryCadCliente.Close;
-   CadClienteF.qryCadCliente.SQL.Clear;
 
    if RadioButton1.Checked then
    begin
+       CadClienteF.qryCadCliente.Close;
+       CadClienteF.qryCadCliente.SQL.Clear;
        CadClienteF.qryCadCliente.SQL.Add('select * from cliente where clienteid = ' + EdtBuscaCliente.Text);
        CadClienteF.qryCadCliente.Open;
    end
    else if RadioButton2.Checked then
    begin
+       CadClienteF.qryCadCliente.Close;
+       CadClienteF.qryCadCliente.SQL.Clear;
        CadClienteF.qryCadCliente.SQL.Text := 'select * from cliente WHERE upper(nome_cliente) LIKE' +
                                              QuotedStr(UpperCase('%'+EdtBuscaCliente.Text+'%'));
        CadClienteF.qryCadCliente.Open;

@@ -6,14 +6,14 @@ interface
 
 uses
   Classes, SysUtils, DB, Forms, Controls, Graphics, Dialogs, StdCtrls, DBCtrls,
-  DBExtCtrls, DBDateTimePicker, ZDataset, CadModelo, datamodule;
+  DBExtCtrls, Buttons, DBDateTimePicker, ZDataset, CadModelo, datamodule, PesqCat;
 
 type
 
   { TCadProdF }
 
   TCadProdF = class(TCadModeloF)
-    EdtCat: TDBComboBox;
+    DBEdit2: TDBEdit;
     EdtStatus: TDBComboBox;
     DbData: TDBDateEdit;
     DBEdit1: TDBEdit;
@@ -22,7 +22,6 @@ type
     EdtObs: TDBEdit;
     dsCadProd: TDataSource;
     EdtBuscaProd: TEdit;
-    Label1: TLabel;
     Label2: TLabel;
     Label3: TLabel;
     Label4: TLabel;
@@ -31,6 +30,7 @@ type
     Label7: TLabel;
     Label8: TLabel;
     qryCadProd: TZQuery;
+    qryCadProdcategoriaprodutoid: TLongintField;
     qryCadProdds_categoria_produto: TStringField;
     qryCadProdds_produto: TStringField;
     qryCadProddt_cadastro_produto: TDateTimeField;
@@ -38,6 +38,7 @@ type
     qryCadProdprodutoid: TLongintField;
     qryCadProdstatus_produto: TStringField;
     qryCadProdvl_venda_produto: TFloatField;
+    SpeedButton1: TSpeedButton;
     procedure BtnBuscaClick(Sender: TObject);
     procedure BtnCancelarClick(Sender: TObject);
     procedure BtnEditarClick(Sender: TObject);
@@ -45,10 +46,12 @@ type
     procedure BtnGravarClick(Sender: TObject);
     procedure BtnNovoClick(Sender: TObject);
     procedure DBGrid2DblClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormShow(Sender: TObject);
     procedure qryCadProdNewRecord(DataSet: TDataSet);
     procedure qryCadProdvl_venda_produtoGetText(Sender: TField;
       var aText: string; DisplayText: Boolean);
+    procedure SpeedButton1Click(Sender: TObject);
   private
 
   public
@@ -87,7 +90,6 @@ begin
   EdtValor.ReadOnly := False;
   EdtObs.ReadOnly := False;
   EdtDesc.ReadOnly := False;
-  EdtCat.ReadOnly := False;
   EdtStatus.ReadOnly := False;
 end;
 
@@ -97,23 +99,24 @@ begin
   EdtValor.ReadOnly := True;
   EdtObs.ReadOnly := True;
   EdtDesc.ReadOnly := True;
-  EdtCat.ReadOnly := True;
   EdtStatus.ReadOnly := True;
   inherited;
 end;
 
 procedure TCadProdF.BtnBuscaClick(Sender: TObject);
 begin
-   CadProdF.qryCadProd.Close;
-   CadProdF.qryCadProd.SQL.Clear;
-
    if RadioButton1.Checked then
    begin
-       CadProdF.qryCadProd.SQL.Add('select * from produto order by produtoid = ' + EdtBuscaProd.Text);
+       CadProdF.qryCadProd.Close;
+       CadProdF.qryCadProd.SQL.Clear;
+       CadProdF.qryCadProd.SQL.Add('select produtoid, ds_produto, ds_categoria_produto, obs_produto, vl_venda_produto, dt_cadastro_produto, status_produto from produto p ' +
+       'inner join categoria_produto cp on p.categoriaprodutoid = cp.categoriaprodutoid order by produtoid = ' + EdtBuscaProd.Text);
        CadProdF.qryCadProd.Open;
    end
    else if RadioButton2.Checked then
    begin
+       CadProdF.qryCadProd.Close;
+       CadProdF.qryCadProd.SQL.Clear;
        CadProdF.qryCadProd.SQL.Text := 'select produtoid, ds_produto, ds_categoria_produto, obs_produto, vl_venda_produto, dt_cadastro_produto, status_produto from produto p ' +
        'inner join categoria_produto cp on p.categoriaprodutoid = cp.categoriaprodutoid WHERE upper(ds_produto) LIKE '
         + QuotedStr(UpperCase('%'+EdtBuscaProd.Text+'%'));
@@ -139,7 +142,6 @@ begin
   EdtValor.ReadOnly := True;
   EdtObs.ReadOnly := True;
   EdtDesc.ReadOnly := True;
-  EdtCat.ReadOnly := True;
   EdtStatus.ReadOnly := True;
     If  MessageDlg('Deseja excluir o registro?', mtWarning,[mbyes,mbno],0)=mryes then
   begin
@@ -156,7 +158,6 @@ begin
   EdtValor.ReadOnly := True;
   EdtObs.ReadOnly := True;
   EdtDesc.ReadOnly := True;
-  EdtCat.ReadOnly := True;
   EdtStatus.ReadOnly := True;
 end;
 
@@ -167,7 +168,6 @@ begin
   EdtValor.ReadOnly := False;
   EdtObs.ReadOnly := False;
   EdtDesc.ReadOnly := False;
-  EdtCat.ReadOnly := False;
   EdtStatus.ReadOnly := False;
   inherited;
 end;
@@ -177,6 +177,15 @@ begin
   PageControl1.ActivePage := tbCadastro;
 end;
 
+procedure TCadProdF.FormClose(Sender: TObject; var CloseAction: TCloseAction);
+begin
+  EdtValor.ReadOnly := True;
+  EdtObs.ReadOnly := True;
+  EdtDesc.ReadOnly := True;
+  EdtStatus.ReadOnly := True;
+  inherited;
+end;
+
 procedure TCadProdF.qryCadProdvl_venda_produtoGetText(Sender: TField;
   var aText: string; DisplayText: Boolean);
 begin
@@ -184,6 +193,12 @@ begin
     aText := Format('%.2f', [Sender.AsFloat])
   else
     aText := '';
+end;
+
+procedure TCadProdF.SpeedButton1Click(Sender: TObject);
+begin
+  PesqCatF := TPesqCatF.Create(Self);
+  PesqCatF.ShowModal;
 end;
 
 end.

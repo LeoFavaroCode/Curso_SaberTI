@@ -4,6 +4,7 @@ inherited CadClienteF: TCadClienteF
   Width = 949
   Caption = 'Cadastro de Cliente'
   ClientWidth = 949
+  OnClose = FormClose
   OnShow = FormShow
   inherited PageControl1: TPageControl
     Width = 949

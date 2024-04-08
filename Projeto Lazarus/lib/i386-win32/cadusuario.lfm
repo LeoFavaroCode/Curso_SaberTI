@@ -4,6 +4,7 @@ inherited CadUsuarioF: TCadUsuarioF
   Width = 758
   Caption = 'Cadastro de Usuário'
   ClientWidth = 758
+  OnClose = FormClose
   OnShow = FormShow
   inherited PageControl1: TPageControl
     Width = 758
@@ -15,6 +16,7 @@ inherited CadUsuarioF: TCadUsuarioF
         inherited BtnBusca: TBitBtn
           Left = 496
           Top = 24
+          OnClick = BtnBuscaClick
         end
         object Label1: TLabel[3]
           Left = 160
@@ -23,7 +25,7 @@ inherited CadUsuarioF: TCadUsuarioF
           Width = 41
           Caption = 'Nome'
         end
-        object EdtCadU: TEdit[4]
+        object EdtBuscaUser: TEdit[4]
           Left = 216
           Height = 28
           Top = 24
