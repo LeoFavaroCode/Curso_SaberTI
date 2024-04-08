@@ -81,16 +81,18 @@ end;
 
 procedure TCadCategoriaF.BtnBuscaClick(Sender: TObject);
 begin
-   CadCategoriaF.qryCatProd.Close;
-   CadCategoriaF.qryCatProd.SQL.Clear;
 
    if RadioButton1.Checked then
    begin
+       CadCategoriaF.qryCatProd.Close;
+       CadCategoriaF.qryCatProd.SQL.Clear;
        CadCategoriaF.qryCatProd.SQL.Add('select * from categoria_produto where categoriaprodutoid = ' + EdtBuscaCat.Text);
        CadCategoriaF.qryCatProd.Open;
    end
    else if RadioButton2.Checked then
    begin
+       CadCategoriaF.qryCatProd.Close;
+       CadCategoriaF.qryCatProd.SQL.Clear;
        CadCategoriaF.qryCatProd.SQL.Text := 'select * from categoria_produto WHERE upper(ds_categoria_produto) LIKE' +
                                              QuotedStr(UpperCase('%'+EdtBuscaCat.Text+'%'));
        CadCategoriaF.qryCatProd.Open;

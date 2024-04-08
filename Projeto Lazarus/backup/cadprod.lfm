@@ -1,7 +1,7 @@
 inherited CadProdF: TCadProdF
-  Left = 449
+  Left = 414
   Height = 591
-  Top = 191
+  Top = 203
   Width = 1309
   Caption = 'Cadastro de Produto'
   ClientHeight = 591
@@ -11,6 +11,8 @@ inherited CadProdF: TCadProdF
   inherited PageControl1: TPageControl
     Height = 591
     Width = 1309
+    ActivePage = tbCadastro
+    TabIndex = 1
     inherited tbPesquisa: TTabSheet
       ClientHeight = 558
       ClientWidth = 1301
@@ -108,6 +110,7 @@ inherited CadProdF: TCadProdF
     inherited tbCadastro: TTabSheet
       ClientHeight = 558
       ClientWidth = 1301
+      OnContextPopup = tbCadastroContextPopup
       inherited Panel2: TPanel
         Top = 478
         Width = 1301
@@ -192,7 +195,7 @@ inherited CadProdF: TCadProdF
         DataField = 'ds_produto'
         DataSource = dsCadProd
         ReadOnly = True
-        MaxLength = 50
+        MaxLength = 0
         TabOrder = 2
       end
       object EdtValor: TDBEdit[10]
@@ -219,7 +222,6 @@ inherited CadProdF: TCadProdF
         NumGlyphs = 1
         MaxLength = 0
         TabOrder = 4
-        Text = '18/02/2023'
         DataField = 'dt_cadastro_produto'
         DataSource = dsCadProd
       end
@@ -231,7 +233,7 @@ inherited CadProdF: TCadProdF
         DataField = 'obs_produto'
         DataSource = dsCadProd
         ReadOnly = True
-        MaxLength = 300
+        MaxLength = 0
         TabOrder = 5
       end
       object EdtStatus: TDBComboBox[13]
@@ -250,7 +252,7 @@ inherited CadProdF: TCadProdF
         ReadOnly = True
         TabOrder = 6
       end
-      object DBEdit2: TDBEdit[14]
+      object EdtCat: TDBEdit[14]
         Left = 101
         Height = 28
         Top = 141
@@ -274,28 +276,28 @@ inherited CadProdF: TCadProdF
     end
   end
   object dsCadProd: TDataSource[1]
-    DataSet = qryCadProd
-    Left = 408
-    Top = 352
+    Left = 440
+    Top = 328
   end
   object qryCadProd: TZQuery[2]
     Connection = dmF.ZConnection1
+    AutoCalcFields = False
     OnNewRecord = qryCadProdNewRecord
-    Active = True
     SQL.Strings = (
-      'select produtoid, ds_produto, ds_categoria_produto, obs_produto, vl_venda_produto, dt_cadastro_produto, status_produto, cp.categoriaprodutoid  from produto p'
+      'select p.produtoid, ds_produto, cp.ds_categoria_produto, p.obs_produto, p.vl_venda_produto, p.dt_cadastro_produto, p.status_produto, p.categoriaprodutoid  from produto p'
       'inner join categoria_produto cp on p.categoriaprodutoid = cp.categoriaprodutoid'
       'order by produtoid;'
     )
     Params = <>
-    Left = 280
-    Top = 352
+    UpdateMode = umUpdateAll
+    Left = 288
+    Top = 344
     object qryCadProdprodutoid: TLongintField
       FieldKind = fkData
       FieldName = 'produtoid'
       Index = 0
       LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       ReadOnly = False
       Required = True
     end
@@ -309,20 +311,10 @@ inherited CadProdF: TCadProdF
       Required = True
       Size = 50
     end
-    object qryCadProdds_categoria_produto: TStringField
-      FieldKind = fkData
-      FieldName = 'ds_categoria_produto'
-      Index = 2
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = True
-      Size = 50
-    end
     object qryCadProdobs_produto: TStringField
       FieldKind = fkData
       FieldName = 'obs_produto'
-      Index = 3
+      Index = 2
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -332,18 +324,17 @@ inherited CadProdF: TCadProdF
     object qryCadProdvl_venda_produto: TFloatField
       FieldKind = fkData
       FieldName = 'vl_venda_produto'
-      Index = 4
+      Index = 3
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = True
-      OnGetText = qryCadProdvl_venda_produtoGetText
       Precision = 983042
     end
     object qryCadProddt_cadastro_produto: TDateTimeField
       FieldKind = fkData
       FieldName = 'dt_cadastro_produto'
-      Index = 5
+      Index = 4
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -352,7 +343,7 @@ inherited CadProdF: TCadProdF
     object qryCadProdstatus_produto: TStringField
       FieldKind = fkData
       FieldName = 'status_produto'
-      Index = 6
+      Index = 5
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -362,11 +353,21 @@ inherited CadProdF: TCadProdF
     object qryCadProdcategoriaprodutoid: TLongintField
       FieldKind = fkData
       FieldName = 'categoriaprodutoid'
-      Index = 7
+      Index = 6
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = True
+    end
+    object qryCadProdds_categoria_produto: TStringField
+      FieldKind = fkData
+      FieldName = 'ds_categoria_produto'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 50
     end
   end
 end

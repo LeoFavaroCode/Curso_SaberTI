@@ -7,6 +7,7 @@ object PesqCatF: TPesqCatF
   ClientHeight = 562
   ClientWidth = 626
   DesignTimePPI = 120
+  OnClose = FormClose
   Position = poDesktopCenter
   LCLVersion = '3.2.0.0'
   object Panel1: TPanel
@@ -78,7 +79,7 @@ object PesqCatF: TPesqCatF
       TabOrder = 3
     end
   end
-  object DBGrid1: TDBGrid
+  object GridCat: TDBGrid
     Left = 0
     Height = 482
     Top = 80
@@ -98,6 +99,7 @@ object PesqCatF: TPesqCatF
       end>
     DataSource = dsPesqCat
     TabOrder = 1
+    OnDblClick = GridCatDblClick
   end
   object dsPesqCat: TDataSource
     DataSet = qryPesqCat

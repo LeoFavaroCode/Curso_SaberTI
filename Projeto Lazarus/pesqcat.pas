@@ -15,7 +15,7 @@ type
   TPesqCatF = class(TForm)
     BtnBusca: TBitBtn;
     dsPesqCat: TDataSource;
-    DBGrid1: TDBGrid;
+    GridCat: TDBGrid;
     EdtBuscaCat: TEdit;
     Panel1: TPanel;
     qryPesqCatcategoriaprodutoid: TLongintField;
@@ -24,6 +24,8 @@ type
     RadioButton2: TRadioButton;
     qryPesqCat: TZQuery;
     procedure BtnBuscaClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
+    procedure GridCatDblClick(Sender: TObject);
   private
 
   public
@@ -34,6 +36,9 @@ var
   PesqCatF: TPesqCatF;
 
 implementation
+
+Uses
+  CadProd;
 
 {$R *.lfm}
 
@@ -46,7 +51,7 @@ begin
    begin
        PesqCatF.qryPesqCat.Close;
        PesqCatF.qryPesqCat.SQL.Clear;
-       PesqCatF.qryPesqCat.SQL.Text := 'select * from categoria_produto order by categoriaprodutoid = ' + QuotedStr(EdtBuscaCat.Text);
+       PesqCatF.qryPesqCat.SQL.Text := 'select * from categoria_produto Where categoriaprodutoid = ' + EdtBuscaCat.Text;
        PesqCatF.qryPesqCat.Open;
    end
    else if RadioButton2.Checked then
@@ -70,6 +75,17 @@ begin
      qryPesqCat.Active:= True;
      qryPesqCat.Refresh;
    end;
+end;
+
+procedure TPesqCatF.FormClose(Sender: TObject; var CloseAction: TCloseAction);
+begin
+  CloseAction := caFree;
+end;
+
+procedure TPesqCatF.GridCatDblClick(Sender: TObject);
+begin
+  CadProdF.qryCadProdcategoriaprodutoid.AsInteger := qryPesqCatcategoriaprodutoid.AsInteger;
+  Close;
 end;
 
 end.
