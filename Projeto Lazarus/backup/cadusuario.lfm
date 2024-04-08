@@ -40,8 +40,12 @@ inherited CadUsuarioF: TCadUsuarioF
           Left = 530
           Top = 23
         end
+        inherited BtnNovo: TBitBtn
+          Left = 40
+          OnClick = BtnNovoClick
+        end
         inherited BtnEditar: TBitBtn
-          OnClick = nil
+          OnClick = BtnEditarClick
         end
       end
       inherited DBGrid2: TDBGrid
@@ -79,8 +83,15 @@ inherited CadUsuarioF: TCadUsuarioF
       inherited Panel2: TPanel
         Width = 669
         ClientWidth = 669
+        inherited BtnGravar: TBitBtn
+          OnClick = BtnGravarClick
+        end
+        inherited BtnExcluir: TBitBtn
+          OnClick = BtnExcluirClick
+        end
         inherited BtnCancelar: TBitBtn
           Left = 516
+          OnClick = BtnCancelarClick
         end
       end
       object Label2: TLabel[1]
@@ -94,9 +105,10 @@ inherited CadUsuarioF: TCadUsuarioF
         Left = 56
         Height = 28
         Top = 21
-        Width = 60
+        Width = 56
         DataField = 'id'
         DataSource = dsCadUsuario
+        ReadOnly = True
         Alignment = taRightJustify
         MaxLength = 0
         TabOrder = 1
@@ -108,13 +120,14 @@ inherited CadUsuarioF: TCadUsuarioF
         Width = 53
         Caption = 'Usuário:'
       end
-      object DBEdit2: TDBEdit[4]
+      object EdtUser: TDBEdit[4]
         Left = 232
         Height = 28
         Top = 21
         Width = 160
         DataField = 'usuario'
         DataSource = dsCadUsuario
+        ReadOnly = True
         MaxLength = 30
         TabOrder = 2
       end
@@ -125,23 +138,25 @@ inherited CadUsuarioF: TCadUsuarioF
         Width = 118
         Caption = 'Nome Completo: '
       end
-      object DBEdit3: TDBEdit[6]
+      object EdtNome: TDBEdit[6]
         Left = 152
         Height = 28
         Top = 80
         Width = 264
         DataField = 'nome_completo'
         DataSource = dsCadUsuario
+        ReadOnly = True
         MaxLength = 60
         TabOrder = 3
       end
-      object DBEdit4: TDBEdit[7]
+      object EdtSenha: TDBEdit[7]
         Left = 496
         Height = 28
         Top = 21
         Width = 140
         DataField = 'senha'
         DataSource = dsCadUsuario
+        ReadOnly = True
         MaxLength = 50
         TabOrder = 4
       end
@@ -161,9 +176,10 @@ inherited CadUsuarioF: TCadUsuarioF
   end
   object qryCadUsuario: TZQuery[2]
     Connection = dmF.ZConnection1
+    OnNewRecord = qryCadUsuarioNewRecord
     Active = True
     SQL.Strings = (
-      'select * from usuarios;'
+      'select * from usuarios order by id;'
     )
     Params = <>
     Left = 144

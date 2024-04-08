@@ -1,23 +1,21 @@
 inherited CadProdF: TCadProdF
-  Left = 439
+  Left = 548
   Height = 591
-  Top = 151
-  Width = 1185
+  Top = 193
+  Width = 847
   Caption = 'Cadastro de Produto'
   ClientHeight = 591
-  ClientWidth = 1185
+  ClientWidth = 847
   OnShow = FormShow
   inherited PageControl1: TPageControl
     Height = 591
-    Width = 1185
-    ActivePage = tbCadastro
-    TabIndex = 1
+    Width = 847
     inherited tbPesquisa: TTabSheet
       ClientHeight = 558
-      ClientWidth = 1177
+      ClientWidth = 839
       inherited Panel1: TPanel
-        Width = 1177
-        ClientWidth = 1177
+        Width = 839
+        ClientWidth = 839
         inherited BtnBusca: TBitBtn
           Left = 520
           Top = 24
@@ -39,10 +37,10 @@ inherited CadProdF: TCadProdF
       end
       inherited Panel3: TPanel
         Top = 479
-        Width = 1177
-        ClientWidth = 1177
+        Width = 839
+        ClientWidth = 839
         inherited BtnSair: TBitBtn
-          Left = 1025
+          Left = 687
         end
         inherited BtnNovo: TBitBtn
           OnClick = BtnNovoClick
@@ -53,7 +51,7 @@ inherited CadProdF: TCadProdF
       end
       inherited DBGrid2: TDBGrid
         Height = 399
-        Width = 1177
+        Width = 839
         Columns = <        
           item
             PickList.Strings = (            )
@@ -98,16 +96,16 @@ inherited CadProdF: TCadProdF
             FieldName = 'status_produto'
           end>
         DataSource = dsCadProd
-        OnDblClick = nil
+        OnDblClick = DBGrid2DblClick
       end
     end
     inherited tbCadastro: TTabSheet
       ClientHeight = 558
-      ClientWidth = 1177
+      ClientWidth = 839
       inherited Panel2: TPanel
         Top = 478
-        Width = 1177
-        ClientWidth = 1177
+        Width = 839
+        ClientWidth = 839
         inherited BtnGravar: TBitBtn
           OnClick = BtnGravarClick
         end
@@ -115,7 +113,7 @@ inherited CadProdF: TCadProdF
           OnClick = BtnExcluirClick
         end
         inherited BtnCancelar: TBitBtn
-          Left = 1024
+          Left = 686
           OnClick = BtnCancelarClick
         end
       end
@@ -268,20 +266,20 @@ inherited CadProdF: TCadProdF
   end
   object dsCadProd: TDataSource[1]
     DataSet = qryCadProd
-    Left = 1032
-    Top = 56
+    Left = 400
+    Top = 328
   end
   object qryCadProd: TZQuery[2]
     Connection = dmF.ZConnection1
-    Active = True
+    OnNewRecord = qryCadProdNewRecord
     SQL.Strings = (
       'select produtoid, ds_produto, ds_categoria_produto, obs_produto, vl_venda_produto, dt_cadastro_produto, status_produto from produto p'
       'inner join categoria_produto cp on p.categoriaprodutoid = cp.categoriaprodutoid'
       'order by produtoid;'
     )
     Params = <>
-    Left = 912
-    Top = 56
+    Left = 280
+    Top = 328
     object qryCadProdprodutoid: TLongintField
       FieldKind = fkData
       FieldName = 'produtoid'

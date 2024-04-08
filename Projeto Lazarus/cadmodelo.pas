@@ -31,7 +31,6 @@ type
     tbCadastro: TTabSheet;
     procedure BtnCancelarClick(Sender: TObject);
     procedure BtnEditarClick(Sender: TObject);
-    procedure BtnExcluirClick(Sender: TObject);
     procedure BtnGravarClick(Sender: TObject);
     procedure BtnNovoClick(Sender: TObject);
     procedure BtnSairClick(Sender: TObject);
@@ -81,11 +80,6 @@ end;
 procedure TCadModeloF.BtnEditarClick(Sender: TObject);
 begin
   PageControl1.ActivePage := tbCadastro;
-end;
-
-procedure TCadModeloF.BtnExcluirClick(Sender: TObject);
-begin
-   PageControl1.ActivePage := tbPesquisa;
 end;
 
 procedure TCadModeloF.FormClose(Sender: TObject; var CloseAction: TCloseAction);

@@ -17,7 +17,6 @@ type
     qryClientenome_cliente: TStringField;
     qryClientetipo_cliente: TStringField;
     ZConnection1: TZConnection;
-    qryCliente: TZQuery;
   private
 
   public

@@ -35,6 +35,7 @@ type
     procedure BtnGravarClick(Sender: TObject);
     procedure BtnNovoClick(Sender: TObject);
     procedure BtnSairClick(Sender: TObject);
+    procedure DBGrid2DblClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormShow(Sender: TObject);
   private
@@ -55,6 +56,11 @@ implementation
 procedure TCadModeloF.BtnSairClick(Sender: TObject);
 begin
   Close;
+end;
+
+procedure TCadModeloF.DBGrid2DblClick(Sender: TObject);
+begin
+  PageControl1.ActivePage := tbCadastro;
 end;
 
 procedure TCadModeloF.BtnGravarClick(Sender: TObject);
@@ -79,7 +85,11 @@ end;
 
 procedure TCadModeloF.BtnExcluirClick(Sender: TObject);
 begin
-   PageControl1.ActivePage := tbPesquisa;
+      If  MessageDlg('Deseja excluir o registro?', mtWarning,[mbyes,mbno],0)=mryes then
+  begin
+      qryCatProd.delete;
+      PageControl1.ActivePage := tbPesquisa;
+  end;
 end;
 
 procedure TCadModeloF.FormClose(Sender: TObject; var CloseAction: TCloseAction);

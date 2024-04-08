@@ -5,7 +5,7 @@ unit CadCliente;
 interface
 
 uses
-  Classes, SysUtils, DB, Forms, Controls, Graphics, Dialogs, StdCtrls, DBCtrls,
+  Classes, SysUtils, DB, Forms, Controls, Graphics, Dialogs, StdCtrls, DBCtrls, datamodule,
   ZDataset, CadModelo;
 
 type
@@ -19,7 +19,6 @@ type
     EdtNome: TDBEdit;
     EdtCPF: TDBEdit;
     EdtBuscaCliente: TEdit;
-    Label1: TLabel;
     Label2: TLabel;
     Label3: TLabel;
     Label4: TLabel;
@@ -29,12 +28,14 @@ type
     qryCadClientecpf_cnpj_cliente: TStringField;
     qryCadClientenome_cliente: TStringField;
     qryCadClientetipo_cliente: TStringField;
+    procedure BtnBuscaClick(Sender: TObject);
     procedure BtnCancelarClick(Sender: TObject);
     procedure BtnEditarClick(Sender: TObject);
     procedure BtnExcluirClick(Sender: TObject);
     procedure BtnGravarClick(Sender: TObject);
     procedure BtnNovoClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure qryCadClienteNewRecord(DataSet: TDataSet);
   private
 
   public
@@ -83,11 +84,14 @@ end;
 
 procedure TCadClienteF.BtnExcluirClick(Sender: TObject);
 begin
-  qryCadCliente.Delete;
   EdtNome.ReadOnly := True;
   EdtCPF.ReadOnly := True;
   EdtTipo.ReadOnly := True;
-  inherited;
+  If  MessageDlg('Deseja excluir o registro?', mtWarning,[mbyes,mbno],0)=mryes then
+  begin
+       qryCadCliente.Delete;
+      PageControl1.ActivePage := tbPesquisa;
+  end;
 end;
 
 procedure TCadClienteF.BtnCancelarClick(Sender: TObject);
@@ -99,10 +103,48 @@ begin
   EdtTipo.ReadOnly := True;
 end;
 
+procedure TCadClienteF.BtnBuscaClick(Sender: TObject);
+begin
+   CadClienteF.qryCadCliente.Close;
+   CadClienteF.qryCadCliente.SQL.Clear;
+
+   if RadioButton1.Checked then
+   begin
+       CadClienteF.qryCadCliente.SQL.Add('select * from cliente where clienteid = ' + EdtBuscaCliente.Text);
+       CadClienteF.qryCadCliente.Open;
+   end
+   else if RadioButton2.Checked then
+   begin
+       CadClienteF.qryCadCliente.SQL.Add('select * from cliente where nome_cliente = :nome');
+       CadClienteF.qryCadCliente.ParamByName('nome').AsString := EdtBuscaCliente.Text;
+       CadClienteF.qryCadCliente.Open;
+   end
+   else if EdtBuscaCliente.Text = '' then
+   begin
+       CadClienteF.qryCadCliente.SQL.Add('select * from cliente');
+       qryCadCliente.Active := True;
+   end
+   else
+   begin
+     MessageDlg('Selecione uma das opções para a pesquisa.', mtWarning, [mbOK], 0);
+   end;
+
+end;
+
 procedure TCadClienteF.FormShow(Sender: TObject);
 begin
   inherited;
   CadClienteF.qryCadCliente.Active := True;
+end;
+
+procedure TCadClienteF.qryCadClienteNewRecord(DataSet: TDataSet);
+begin
+  dmF.qryGenerica.Close;
+  dmF.qryGenerica.SQL.Clear;
+  dmF.qryGenerica.SQL.Add('select nextval('+ QuotedStr('cliente_clienteid')+') AS CODIGO');
+  dmF.qryGenerica.Open;
+
+  qryCadClienteclienteid.AsInteger := dmF.qryGenerica.FieldByName('CODIGO').AsInteger;
 end;
 
 end.

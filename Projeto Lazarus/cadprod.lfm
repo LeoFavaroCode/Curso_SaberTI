@@ -1,7 +1,7 @@
 inherited CadProdF: TCadProdF
-  Left = 632
+  Left = 548
   Height = 591
-  Top = 191
+  Top = 193
   Width = 847
   Caption = 'Cadastro de Produto'
   ClientHeight = 591
@@ -10,8 +10,6 @@ inherited CadProdF: TCadProdF
   inherited PageControl1: TPageControl
     Height = 591
     Width = 847
-    ActivePage = tbCadastro
-    TabIndex = 1
     inherited tbPesquisa: TTabSheet
       ClientHeight = 558
       ClientWidth = 839
@@ -98,7 +96,7 @@ inherited CadProdF: TCadProdF
             FieldName = 'status_produto'
           end>
         DataSource = dsCadProd
-        OnDblClick = nil
+        OnDblClick = DBGrid2DblClick
       end
     end
     inherited tbCadastro: TTabSheet
@@ -273,7 +271,7 @@ inherited CadProdF: TCadProdF
   end
   object qryCadProd: TZQuery[2]
     Connection = dmF.ZConnection1
-    Active = True
+    OnNewRecord = qryCadProdNewRecord
     SQL.Strings = (
       'select produtoid, ds_produto, ds_categoria_produto, obs_produto, vl_venda_produto, dt_cadastro_produto, status_produto from produto p'
       'inner join categoria_produto cp on p.categoriaprodutoid = cp.categoriaprodutoid'

@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, DB, Forms, Controls, Graphics, Dialogs, StdCtrls, DBCtrls,
-  DBExtCtrls, DBDateTimePicker, ZDataset, CadModelo;
+  DBExtCtrls, DBDateTimePicker, ZDataset, CadModelo, datamodule;
 
 type
 
@@ -43,7 +43,9 @@ type
     procedure BtnExcluirClick(Sender: TObject);
     procedure BtnGravarClick(Sender: TObject);
     procedure BtnNovoClick(Sender: TObject);
+    procedure DBGrid2DblClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure qryCadProdNewRecord(DataSet: TDataSet);
     procedure qryCadProdvl_venda_produtoGetText(Sender: TField;
       var aText: string; DisplayText: Boolean);
   private
@@ -65,6 +67,16 @@ procedure TCadProdF.FormShow(Sender: TObject);
 begin
   inherited;
   qryCadProd.Active := True;
+end;
+
+procedure TCadProdF.qryCadProdNewRecord(DataSet: TDataSet);
+begin
+  dmF.qryGenerica.Close;
+  dmF.qryGenerica.SQL.Clear;
+  dmF.qryGenerica.SQL.Add('select nextval('+ QuotedStr('produto_produtoid')+') AS CODIGO');
+  dmF.qryGenerica.Open;
+
+  qryCadProdprodutoid.AsInteger := dmF.qryGenerica.FieldByName('CODIGO').AsInteger;
 end;
 
 procedure TCadProdF.BtnEditarClick(Sender: TObject);
@@ -91,18 +103,22 @@ end;
 
 procedure TCadProdF.BtnExcluirClick(Sender: TObject);
 begin
-  qryCadProd.Delete;
   EdtValor.ReadOnly := True;
   EdtObs.ReadOnly := True;
   EdtDesc.ReadOnly := True;
   EdtCat.ReadOnly := True;
   EdtStatus.ReadOnly := True;
-  inherited;
+    If  MessageDlg('Deseja excluir o registro?', mtWarning,[mbyes,mbno],0)=mryes then
+  begin
+      qryCadProd.Delete;
+      PageControl1.ActivePage := tbPesquisa;
+  end;
 end;
 
 procedure TCadProdF.BtnGravarClick(Sender: TObject);
 begin
   qryCadProd.Post;
+  qryCadProd.Refresh;
   inherited;
   EdtValor.ReadOnly := True;
   EdtObs.ReadOnly := True;
@@ -121,6 +137,11 @@ begin
   EdtCat.ReadOnly := False;
   EdtStatus.ReadOnly := False;
   inherited;
+end;
+
+procedure TCadProdF.DBGrid2DblClick(Sender: TObject);
+begin
+  PageControl1.ActivePage := tbCadastro;
 end;
 
 procedure TCadProdF.qryCadProdvl_venda_produtoGetText(Sender: TField;

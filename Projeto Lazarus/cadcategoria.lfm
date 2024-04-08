@@ -7,8 +7,6 @@ inherited CadCategoriaF: TCadCategoriaF
   OnShow = FormShow
   inherited PageControl1: TPageControl
     Width = 708
-    ActivePage = tbCadastro
-    TabIndex = 1
     inherited tbPesquisa: TTabSheet
       ClientWidth = 700
       inherited Panel1: TPanel
@@ -64,6 +62,7 @@ inherited CadCategoriaF: TCadCategoriaF
             FieldName = 'ds_categoria_produto'
           end>
         DataSource = DsCatProd
+        OnDblClick = DBGrid2DblClick
       end
     end
     inherited tbCadastro: TTabSheet
@@ -128,6 +127,7 @@ inherited CadCategoriaF: TCadCategoriaF
   end
   object qryCatProd: TZQuery[2]
     Connection = dmF.ZConnection1
+    OnNewRecord = qryCatProdNewRecord
     SQL.Strings = (
       'select * from categoria_produto order by categoriaprodutoid;'
     )

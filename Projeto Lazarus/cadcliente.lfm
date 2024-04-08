@@ -1,14 +1,12 @@
 inherited CadClienteF: TCadClienteF
-  Left = 468
-  Top = 205
+  Left = 577
+  Top = 213
   Width = 949
   Caption = 'Cadastro de Cliente'
   ClientWidth = 949
   OnShow = FormShow
   inherited PageControl1: TPageControl
     Width = 949
-    ActivePage = tbCadastro
-    TabIndex = 1
     inherited tbPesquisa: TTabSheet
       ClientWidth = 941
       inherited Panel1: TPanel
@@ -18,21 +16,19 @@ inherited CadClienteF: TCadClienteF
           Cursor = crDefault
           Left = 648
           Top = 24
+          OnClick = BtnBuscaClick
         end
         inherited RadioButton1: TRadioButton
           Cursor = crDefault
+          Top = 28
         end
         inherited RadioButton2: TRadioButton
           Cursor = crDefault
-        end
-        object Label1: TLabel[3]
-          Left = 160
-          Height = 20
-          Top = 28
-          Width = 140
+          Height = 24
+          Width = 161
           Caption = 'Nome / Razão Social'
         end
-        object EdtBuscaCliente: TEdit[4]
+        object EdtBuscaCliente: TEdit[3]
           Left = 320
           Height = 28
           Top = 24
@@ -56,7 +52,6 @@ inherited CadClienteF: TCadClienteF
         end
       end
       inherited DBGrid2: TDBGrid
-        Cursor = crHandPoint
         Width = 941
         Columns = <        
           item
@@ -186,18 +181,18 @@ inherited CadClienteF: TCadClienteF
   end
   object dsCadCliente: TDataSource[1]
     DataSet = qryCadCliente
-    Left = 832
-    Top = 224
+    Left = 440
+    Top = 320
   end
   object qryCadCliente: TZQuery[2]
     Connection = dmF.ZConnection1
-    Active = True
+    OnNewRecord = qryCadClienteNewRecord
     SQL.Strings = (
       'select * from cliente order by clienteid;'
     )
     Params = <>
-    Left = 832
-    Top = 144
+    Left = 328
+    Top = 320
     object qryCadClienteclienteid: TLongintField
       FieldKind = fkData
       FieldName = 'clienteid'

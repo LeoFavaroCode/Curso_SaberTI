@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, DB, Forms, Controls, Graphics, Dialogs, StdCtrls, DBCtrls,
-  ZDataset, CadModelo;
+  ZDataset, CadModelo, datamodule;
 
 type
 
@@ -29,7 +29,9 @@ type
     procedure BtnGravarClick(Sender: TObject);
     procedure BtnNovoClick(Sender: TObject);
     procedure BtnSairClick(Sender: TObject);
+    procedure DBGrid2DblClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure qryCatProdNewRecord(DataSet: TDataSet);
   private
 
   public
@@ -51,6 +53,16 @@ begin
   CadCategoriaF.qryCatProd.Active := True;
 end;
 
+procedure TCadCategoriaF.qryCatProdNewRecord(DataSet: TDataSet);
+begin
+  dmF.qryGenerica.Close;
+  dmF.qryGenerica.SQL.Clear;
+  dmF.qryGenerica.SQL.Add('select nextval('+ QuotedStr('categoria_produto_categoriaprodutoid_seq')+') AS CODIGO');
+  dmF.qryGenerica.Open;
+
+  qryCatProdcategoriaprodutoid.AsInteger := dmF.qryGenerica.FieldByName('CODIGO').AsInteger;
+end;
+
 procedure TCadCategoriaF.BtnEditarClick(Sender: TObject);
 begin
   inherited;
@@ -67,9 +79,12 @@ end;
 
 procedure TCadCategoriaF.BtnExcluirClick(Sender: TObject);
 begin
-  inherited;
-  qryCatProd.Delete;
   EdtDesc.ReadOnly := True;
+  If  MessageDlg('Deseja excluir o registro?', mtWarning,[mbyes,mbno],0)=mryes then
+  begin
+      qryCatProd.Delete;
+      PageControl1.ActivePage := tbPesquisa;
+  end;
 end;
 
 procedure TCadCategoriaF.BtnGravarClick(Sender: TObject);
@@ -88,6 +103,11 @@ begin
 end;
 
 procedure TCadCategoriaF.BtnSairClick(Sender: TObject);
+begin
+  inherited;
+end;
+
+procedure TCadCategoriaF.DBGrid2DblClick(Sender: TObject);
 begin
   inherited;
 end;

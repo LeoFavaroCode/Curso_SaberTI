@@ -273,6 +273,7 @@ object CadModeloF: TCadModeloF
         Color = clWindow
         Columns = <>
         TabOrder = 2
+        OnDblClick = DBGrid2DblClick
       end
     end
     object tbCadastro: TTabSheet

@@ -22,4 +22,10 @@ object dmF: TdmF
     Left = 70
     Top = 50
   end
+  object qryGenerica: TZQuery
+    Connection = ZConnection1
+    Params = <>
+    Left = 70
+    Top = 149
+  end
 end
