@@ -1,6 +1,6 @@
 inherited CadClienteF: TCadClienteF
-  Left = 577
-  Top = 213
+  Left = 532
+  Top = 224
   Width = 949
   Caption = 'Cadastro de Cliente'
   ClientWidth = 949
@@ -187,6 +187,7 @@ inherited CadClienteF: TCadClienteF
   object qryCadCliente: TZQuery[2]
     Connection = dmF.ZConnection1
     OnNewRecord = qryCadClienteNewRecord
+    Active = True
     SQL.Strings = (
       'select * from cliente order by clienteid;'
     )

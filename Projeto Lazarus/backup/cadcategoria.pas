@@ -29,6 +29,7 @@ type
     procedure BtnGravarClick(Sender: TObject);
     procedure BtnNovoClick(Sender: TObject);
     procedure BtnSairClick(Sender: TObject);
+    procedure DBGrid2DblClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure qryCatProdNewRecord(DataSet: TDataSet);
   private
@@ -102,6 +103,11 @@ begin
 end;
 
 procedure TCadCategoriaF.BtnSairClick(Sender: TObject);
+begin
+  inherited;
+end;
+
+procedure TCadCategoriaF.DBGrid2DblClick(Sender: TObject);
 begin
   inherited;
 end;

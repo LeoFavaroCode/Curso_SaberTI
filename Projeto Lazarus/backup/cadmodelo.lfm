@@ -350,7 +350,6 @@ object CadModeloF: TCadModeloF
             0000777700000000077770000000777777700077777770000000777777777777
             777770000000
           }
-          OnClick = BtnExcluirClick
           TabOrder = 1
         end
         object BtnCancelar: TBitBtn

@@ -1,6 +1,6 @@
 inherited CadClienteF: TCadClienteF
-  Left = 577
-  Top = 213
+  Left = 532
+  Top = 224
   Width = 949
   Caption = 'Cadastro de Cliente'
   ClientWidth = 949
@@ -52,7 +52,6 @@ inherited CadClienteF: TCadClienteF
         end
       end
       inherited DBGrid2: TDBGrid
-        Cursor = crHandPoint
         Width = 941
         Columns = <        
           item

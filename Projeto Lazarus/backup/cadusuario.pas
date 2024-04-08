@@ -34,6 +34,7 @@ type
     procedure BtnExcluirClick(Sender: TObject);
     procedure BtnGravarClick(Sender: TObject);
     procedure BtnNovoClick(Sender: TObject);
+    procedure DBGrid2DblClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure qryCadUsuarioNewRecord(DataSet: TDataSet);
   private
@@ -74,6 +75,11 @@ begin
   EdtUser.ReadOnly := False;
   EdtNome.ReadOnly := False;
   EdtSenha.ReadOnly := False;
+end;
+
+procedure TCadUsuarioF.DBGrid2DblClick(Sender: TObject);
+begin
+  inherited;
 end;
 
 procedure TCadUsuarioF.BtnEditarClick(Sender: TObject);

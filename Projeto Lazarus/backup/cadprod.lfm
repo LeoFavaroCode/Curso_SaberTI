@@ -1,26 +1,27 @@
 inherited CadProdF: TCadProdF
-  Left = 548
+  Left = 410
   Height = 591
-  Top = 193
-  Width = 847
+  Top = 195
+  Width = 1303
   Caption = 'Cadastro de Produto'
   ClientHeight = 591
-  ClientWidth = 847
+  ClientWidth = 1303
   OnShow = FormShow
   inherited PageControl1: TPageControl
     Height = 591
-    Width = 847
+    Width = 1303
     ActivePage = tbCadastro
     TabIndex = 1
     inherited tbPesquisa: TTabSheet
       ClientHeight = 558
-      ClientWidth = 839
+      ClientWidth = 1295
       inherited Panel1: TPanel
-        Width = 839
-        ClientWidth = 839
+        Width = 1295
+        ClientWidth = 1295
         inherited BtnBusca: TBitBtn
           Left = 520
           Top = 24
+          OnClick = BtnBuscaClick
         end
         object EdtBuscaProd: TEdit[3]
           Left = 248
@@ -39,10 +40,10 @@ inherited CadProdF: TCadProdF
       end
       inherited Panel3: TPanel
         Top = 479
-        Width = 839
-        ClientWidth = 839
+        Width = 1295
+        ClientWidth = 1295
         inherited BtnSair: TBitBtn
-          Left = 687
+          Left = 1143
         end
         inherited BtnNovo: TBitBtn
           OnClick = BtnNovoClick
@@ -53,7 +54,7 @@ inherited CadProdF: TCadProdF
       end
       inherited DBGrid2: TDBGrid
         Height = 399
-        Width = 839
+        Width = 1295
         Columns = <        
           item
             PickList.Strings = (            )
@@ -98,16 +99,16 @@ inherited CadProdF: TCadProdF
             FieldName = 'status_produto'
           end>
         DataSource = dsCadProd
-        OnDblClick = nil
+        OnDblClick = DBGrid2DblClick
       end
     end
     inherited tbCadastro: TTabSheet
       ClientHeight = 558
-      ClientWidth = 839
+      ClientWidth = 1295
       inherited Panel2: TPanel
         Top = 478
-        Width = 839
-        ClientWidth = 839
+        Width = 1295
+        ClientWidth = 1295
         inherited BtnGravar: TBitBtn
           OnClick = BtnGravarClick
         end
@@ -115,7 +116,7 @@ inherited CadProdF: TCadProdF
           OnClick = BtnExcluirClick
         end
         inherited BtnCancelar: TBitBtn
-          Left = 686
+          Left = 1142
           OnClick = BtnCancelarClick
         end
       end
@@ -188,7 +189,7 @@ inherited CadProdF: TCadProdF
         DataField = 'ds_produto'
         DataSource = dsCadProd
         ReadOnly = True
-        MaxLength = 50
+        MaxLength = 0
         TabOrder = 2
       end
       object EdtCat: TDBComboBox[10]
@@ -233,7 +234,6 @@ inherited CadProdF: TCadProdF
         NumGlyphs = 1
         MaxLength = 0
         TabOrder = 5
-        Text = '18/02/2023'
         DataField = 'dt_cadastro_produto'
         DataSource = dsCadProd
       end
@@ -245,7 +245,7 @@ inherited CadProdF: TCadProdF
         DataField = 'obs_produto'
         DataSource = dsCadProd
         ReadOnly = True
-        MaxLength = 300
+        MaxLength = 0
         TabOrder = 6
       end
       object EdtStatus: TDBComboBox[14]

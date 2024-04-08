@@ -115,18 +115,22 @@ begin
    end
    else if RadioButton2.Checked then
    begin
-       CadClienteF.qryCadCliente.SQL.Add('select * from cliente where nome_cliente = :nome');
-       CadClienteF.qryCadCliente.ParamByName('nome').AsString := EdtBuscaCliente.Text;
+       CadClienteF.qryCadCliente.SQL.Text := 'select * from cliente WHERE upper(nome_cliente) LIKE' +
+                                             QuotedStr(UpperCase('%'+EdtBuscaCliente.Text+'%'));
        CadClienteF.qryCadCliente.Open;
    end
    else if EdtBuscaCliente.Text = '' then
    begin
-       CadClienteF.qryCadCliente.SQL.Add('select * from cliente');
-       qryCadCliente.Active := True;
+       CadClienteF.qryCadCliente.Close;
+       CadClienteF.qryCadCliente.SQL.Clear;
+       CadClienteF.qryCadCliente.SQL.Add('select * from cliente order by clienteid');
+       qryCadCliente.Open;
    end
    else
    begin
      MessageDlg('Selecione uma das opções para a pesquisa.', mtWarning, [mbOK], 0);
+     qryCadCliente.Active:= True;
+     qryCadCliente.Refresh;
    end;
 
 end;

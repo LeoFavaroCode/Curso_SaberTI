@@ -38,6 +38,7 @@ type
     qryCadProdprodutoid: TLongintField;
     qryCadProdstatus_produto: TStringField;
     qryCadProdvl_venda_produto: TFloatField;
+    procedure BtnBuscaClick(Sender: TObject);
     procedure BtnCancelarClick(Sender: TObject);
     procedure BtnEditarClick(Sender: TObject);
     procedure BtnExcluirClick(Sender: TObject);
@@ -99,6 +100,38 @@ begin
   EdtCat.ReadOnly := True;
   EdtStatus.ReadOnly := True;
   inherited;
+end;
+
+procedure TCadProdF.BtnBuscaClick(Sender: TObject);
+begin
+   CadProdF.qryCadProd.Close;
+   CadProdF.qryCadProd.SQL.Clear;
+
+   if RadioButton1.Checked then
+   begin
+       CadProdF.qryCadProd.SQL.Add('select * from produto order by produtoid = ' + EdtBuscaProd.Text);
+       CadProdF.qryCadProd.Open;
+   end
+   else if RadioButton2.Checked then
+   begin
+       CadProdF.qryCadProd.SQL.Text := 'select produtoid, ds_produto, ds_categoria_produto, obs_produto, vl_venda_produto, dt_cadastro_produto, status_produto from produto p ' +
+       'inner join categoria_produto cp on p.categoriaprodutoid = cp.categoriaprodutoid WHERE upper(ds_produto) LIKE '
+        + QuotedStr(UpperCase('%'+EdtBuscaProd.Text+'%'));
+       CadProdF.qryCadProd.Open;
+   end
+   else if EdtBuscaProd.Text = '' then
+   begin
+       CadProdF.qryCadProd.Close;
+       CadProdF.qryCadProd.SQL.Clear;
+       CadProdF.qryCadProd.SQL.Add('select * from produto order by produtoid');
+       qryCadProd.Open;
+   end
+   else
+   begin
+     MessageDlg('Selecione uma das opções para a pesquisa.', mtWarning, [mbOK], 0);
+     qryCadProd.Active:= True;
+     qryCadProd.Refresh;
+   end;
 end;
 
 procedure TCadProdF.BtnExcluirClick(Sender: TObject);

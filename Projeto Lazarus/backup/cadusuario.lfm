@@ -7,8 +7,6 @@ inherited CadUsuarioF: TCadUsuarioF
   OnShow = FormShow
   inherited PageControl1: TPageControl
     Width = 677
-    ActivePage = tbCadastro
-    TabIndex = 1
     inherited tbPesquisa: TTabSheet
       ClientWidth = 669
       inherited Panel1: TPanel
@@ -76,6 +74,7 @@ inherited CadUsuarioF: TCadUsuarioF
             FieldName = 'senha'
           end>
         DataSource = dsCadUsuario
+        OnDblClick = DBGrid2DblClick
       end
     end
     inherited tbCadastro: TTabSheet
