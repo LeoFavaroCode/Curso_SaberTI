@@ -1,0 +1,167 @@
+object PesqClienteF: TPesqClienteF
+  Left = 655
+  Height = 570
+  Top = 209
+  Width = 666
+  Caption = 'Pesquisa de Clientes'
+  ClientHeight = 570
+  ClientWidth = 666
+  DesignTimePPI = 120
+  Position = poDesktopCenter
+  LCLVersion = '3.2.0.0'
+  object Panel1: TPanel
+    Left = 0
+    Height = 80
+    Top = 0
+    Width = 666
+    Align = alTop
+    ClientHeight = 80
+    ClientWidth = 666
+    TabOrder = 0
+    object EdtBuscaCliente: TEdit
+      Left = 288
+      Height = 28
+      Top = 26
+      Width = 232
+      TabOrder = 0
+    end
+    object BtnBusca: TBitBtn
+      Cursor = crHandPoint
+      Left = 528
+      Height = 28
+      Top = 26
+      Width = 88
+      Caption = 'Buscar'
+      Glyph.Data = {
+        DE020000424DDE02000000000000B60000002800000016000000170000000100
+        08000000000028020000C30E0000C30E0000200000000000000000FF0000FFFF
+        FF0080808000C0C0C00000000000FF000000FFFF00000000FF0000FFFF0045CA
+        BF004B737F00D0B4B400CC625700FF31310000CEFF000079FF000029FF005E5E
+        FF00BDBDFF00502B2D0000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000010101010101
+        0101010101010101010101010101010100000103030303030303030303030303
+        0303030404040301000001030303030303030303030303030303040701070401
+        0000010303030303030303030303030303040701010704010000010303030303
+        0303030303030303040701010707040100000103030303030303030303030304
+        0701010707040301000001030303030303030303030304070101070704030301
+        0000010303030303030303030304070101070704030303010000010303030303
+        0303030304070101070704030303030100000103030303030303030404040307
+        0704030303030301000001030303030304040404040404070403030303030301
+        0000010303030404060106010104040403030303030303010000010303040106
+        0106010101010403030303030303030100000103030406010601060106010403
+        0303030303030301000001030406010601010106010601040303030303030301
+        0000010304010601060106010601010403030303030303010000010304060106
+        0106010601060104030303030303030100000103040106010601060106010104
+        0303030303030301000001030304010601010106010604030303030303030301
+        0000010303040601060106010601040303030303030303010000010303030404
+        0101010604040303030303030303030100000103030303030404040403030303
+        0303030303030301000001010101010101010101010101010101010101010101
+        0000
+      }
+      OnClick = BtnBuscaClick
+      TabOrder = 1
+    end
+    object RadioButton1: TRadioButton
+      Left = 24
+      Height = 24
+      Top = 28
+      Width = 70
+      Caption = 'Código'
+      TabOrder = 2
+    end
+    object RadioButton2: TRadioButton
+      Left = 112
+      Height = 24
+      Top = 28
+      Width = 161
+      Caption = 'Nome / Razão Social'
+      TabOrder = 3
+    end
+  end
+  object DBGrid1: TDBGrid
+    Left = 0
+    Height = 490
+    Top = 80
+    Width = 666
+    Align = alClient
+    Color = clWindow
+    Columns = <    
+      item
+        Title.Caption = 'ID'
+        Width = 70
+        FieldName = 'clienteid'
+      end    
+      item
+        Title.Caption = 'Nome / Razão Social'
+        Width = 310
+        FieldName = 'nome_cliente'
+      end    
+      item
+        Title.Caption = 'Tipo (F - J)'
+        Width = 95
+        FieldName = 'tipo_cliente'
+      end    
+      item
+        Title.Caption = 'CPF - CNPJ'
+        Width = 150
+        FieldName = 'cpf_cnpj_cliente'
+      end>
+    DataSource = dsPesqCliente
+    TabOrder = 1
+    OnDblClick = DBGrid1DblClick
+  end
+  object dsPesqCliente: TDataSource
+    DataSet = qryPesqCliente
+    Left = 400
+    Top = 408
+  end
+  object qryPesqCliente: TZQuery
+    Connection = dmF.ZConnection1
+    Active = True
+    SQL.Strings = (
+      'Select * from cliente order by clienteid'
+    )
+    Params = <>
+    Left = 504
+    Top = 408
+    object qryPesqClienteclienteid: TLongintField
+      FieldKind = fkData
+      FieldName = 'clienteid'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qryPesqClientetipo_cliente: TStringField
+      FieldKind = fkData
+      FieldName = 'tipo_cliente'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 10
+    end
+    object qryPesqClientecpf_cnpj_cliente: TStringField
+      FieldKind = fkData
+      FieldName = 'cpf_cnpj_cliente'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 18
+    end
+    object qryPesqClientenome_cliente: TStringField
+      FieldKind = fkData
+      FieldName = 'nome_cliente'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 100
+    end
+  end
+end

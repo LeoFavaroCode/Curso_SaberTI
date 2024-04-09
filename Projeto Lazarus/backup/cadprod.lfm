@@ -2,23 +2,25 @@ inherited CadProdF: TCadProdF
   Left = 566
   Height = 591
   Top = 196
-  Width = 963
+  Width = 969
   Caption = 'Cadastro de Produto'
   ClientHeight = 591
-  ClientWidth = 963
+  ClientWidth = 969
   OnClose = FormClose
   OnShow = FormShow
   inherited PageControl1: TPageControl
     Height = 591
-    Width = 963
-    ActivePage = tbPesquisa
-    TabIndex = 0
+    Width = 969
+    Font.CharSet = ANSI_CHARSET
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentFont = False
     inherited tbPesquisa: TTabSheet
       ClientHeight = 558
-      ClientWidth = 955
+      ClientWidth = 961
       inherited Panel1: TPanel
-        Width = 955
-        ClientWidth = 955
+        Width = 961
+        ClientWidth = 961
         inherited BtnBusca: TBitBtn
           Left = 520
           Top = 24
@@ -39,16 +41,19 @@ inherited CadProdF: TCadProdF
       end
       inherited Panel3: TPanel
         Top = 479
-        Width = 955
-        ClientWidth = 955
+        Width = 961
+        ClientWidth = 961
         inherited BtnSair: TBitBtn
-          Left = 803
+          Left = 809
+          TabOrder = 3
         end
         inherited BtnNovo: TBitBtn
           OnClick = BtnNovoClick
+          TabOrder = 0
         end
         inherited BtnEditar: TBitBtn
           OnClick = BtnEditarClick
+          TabOrder = 1
         end
         object BtnImprimir: TBitBtn[3]
           Left = 296
@@ -83,12 +88,12 @@ inherited CadProdF: TCadProdF
             BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF00000000000000000000000000000000
             0000000000000000000000BFBFBFBFBFBF00
           }
-          TabOrder = 3
+          TabOrder = 2
         end
       end
       inherited DBGrid2: TDBGrid
         Height = 399
-        Width = 955
+        Width = 961
         Columns = <        
           item
             PickList.Strings = (            )
@@ -138,12 +143,13 @@ inherited CadProdF: TCadProdF
     end
     inherited tbCadastro: TTabSheet
       ClientHeight = 558
-      ClientWidth = 955
+      ClientWidth = 961
       OnContextPopup = tbCadastroContextPopup
       inherited Panel2: TPanel
         Top = 478
-        Width = 955
-        ClientWidth = 955
+        Width = 961
+        ClientWidth = 961
+        TabOrder = 7
         inherited BtnGravar: TBitBtn
           OnClick = BtnGravarClick
         end
@@ -151,7 +157,7 @@ inherited CadProdF: TCadProdF
           OnClick = BtnExcluirClick
         end
         inherited BtnCancelar: TBitBtn
-          Left = 802
+          Left = 808
           OnClick = BtnCancelarClick
         end
       end
@@ -159,50 +165,85 @@ inherited CadProdF: TCadProdF
         Left = 64
         Height = 20
         Top = 27
-        Width = 18
+        Width = 20
         Caption = 'ID:'
+        Font.CharSet = ANSI_CHARSET
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        Font.Style = [fsBold]
+        ParentFont = False
       end
       object Label3: TLabel[2]
         Left = 21
         Height = 20
         Top = 83
-        Width = 68
+        Width = 71
         Caption = 'Descrição:'
+        Font.CharSet = ANSI_CHARSET
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        Font.Style = [fsBold]
+        ParentFont = False
       end
       object Label4: TLabel[3]
         Left = 21
         Height = 20
         Top = 144
-        Width = 68
+        Width = 71
         Caption = 'Categoria:'
+        Font.CharSet = ANSI_CHARSET
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        Font.Style = [fsBold]
+        ParentFont = False
       end
       object Label5: TLabel[4]
         Left = 608
         Height = 20
         Top = 85
-        Width = 43
+        Width = 48
         Caption = 'Status:'
+        Font.CharSet = ANSI_CHARSET
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        Font.Style = [fsBold]
+        ParentFont = False
       end
       object Label6: TLabel[5]
         Left = 352
         Height = 20
         Top = 144
-        Width = 81
+        Width = 86
         Caption = 'Observação:'
+        Font.CharSet = ANSI_CHARSET
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        Font.Style = [fsBold]
+        ParentFont = False
       end
       object Label7: TLabel[6]
         Left = 480
         Height = 20
         Top = 27
-        Width = 119
+        Width = 124
         Caption = 'Data de Cadastro:'
+        Font.CharSet = ANSI_CHARSET
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        Font.Style = [fsBold]
+        ParentFont = False
       end
       object Label8: TLabel[7]
         Left = 216
         Height = 20
         Top = 27
-        Width = 103
+        Width = 108
         Caption = 'Valor de Venda:'
+        Font.CharSet = ANSI_CHARSET
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        Font.Style = [fsBold]
+        ParentFont = False
       end
       object DBEdit1: TDBEdit[8]
         Left = 101
@@ -214,7 +255,7 @@ inherited CadProdF: TCadProdF
         ReadOnly = True
         Alignment = taRightJustify
         MaxLength = 0
-        TabOrder = 1
+        TabOrder = 0
       end
       object EdtDesc: TDBEdit[9]
         Left = 101
@@ -225,7 +266,7 @@ inherited CadProdF: TCadProdF
         DataSource = dsCadProd
         ReadOnly = True
         MaxLength = 50
-        TabOrder = 2
+        TabOrder = 3
       end
       object EdtValor: TDBEdit[10]
         Left = 335
@@ -237,7 +278,7 @@ inherited CadProdF: TCadProdF
         ReadOnly = True
         Alignment = taRightJustify
         MaxLength = 0
-        TabOrder = 3
+        TabOrder = 1
       end
       object DbData: TDBDateEdit[11]
         Left = 616
@@ -250,7 +291,7 @@ inherited CadProdF: TCadProdF
         ButtonWidth = 29
         NumGlyphs = 1
         MaxLength = 0
-        TabOrder = 4
+        TabOrder = 2
         Text = '18/02/2023'
         DataField = 'dt_cadastro_produto'
         DataSource = dsCadProd
@@ -264,7 +305,7 @@ inherited CadProdF: TCadProdF
         DataSource = dsCadProd
         ReadOnly = True
         MaxLength = 300
-        TabOrder = 5
+        TabOrder = 6
       end
       object EdtStatus: TDBComboBox[13]
         Left = 664
@@ -280,7 +321,7 @@ inherited CadProdF: TCadProdF
         )
         MaxLength = 0
         ReadOnly = True
-        TabOrder = 6
+        TabOrder = 4
       end
       object EdtCat: TDBEdit[14]
         Left = 101
@@ -292,7 +333,7 @@ inherited CadProdF: TCadProdF
         ReadOnly = True
         Alignment = taRightJustify
         MaxLength = 0
-        TabOrder = 7
+        TabOrder = 5
       end
       object SpeedButton1: TSpeedButton[15]
         Cursor = crHandPoint
@@ -318,8 +359,8 @@ inherited CadProdF: TCadProdF
       'select * from produto p order by produtoid;'
     )
     Params = <>
-    Left = 288
-    Top = 344
+    Left = 296
+    Top = 328
     object qryCadProdprodutoid: TLongintField
       FieldKind = fkData
       FieldName = 'produtoid'

@@ -25,6 +25,7 @@ type
     qryPesqCat: TZQuery;
     procedure BtnBuscaClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
+    procedure FormShow(Sender: TObject);
     procedure GridCatDblClick(Sender: TObject);
   private
 
@@ -45,28 +46,39 @@ Uses
 { TPesqCatF }
 
 procedure TPesqCatF.BtnBuscaClick(Sender: TObject);
+var
+  valor: Boolean;
 begin
 
-   if RadioButton1.Checked then
+     if EdtBuscaCat.Text = '' then
+   begin
+       valor := False;
+   end
+   else
+   begin
+       valor := True;
+   end;
+
+   if RadioButton1.Checked and valor = True then
    begin
        PesqCatF.qryPesqCat.Close;
        PesqCatF.qryPesqCat.SQL.Clear;
-       PesqCatF.qryPesqCat.SQL.Text := 'select * from categoria_produto Where categoriaprodutoid = ' + EdtBuscaCat.Text;
+       PesqCatF.qryPesqCat.SQL.Text := 'select * from categoria_produto Where categoriaprodutoid = ' + EdtBuscaCat.Text + ' order by categoriaprodutoid';
        PesqCatF.qryPesqCat.Open;
    end
-   else if RadioButton2.Checked then
+   else if RadioButton2.Checked and valor = True then
    begin
        PesqCatF.qryPesqCat.Close;
        PesqCatF.qryPesqCat.SQL.Clear;
        PesqCatF.qryPesqCat.SQL.Text := 'select * from categoria_produto WHERE upper(ds_categoria_produto) LIKE' +
-                                             QuotedStr(UpperCase('%'+EdtBuscaCat.Text+'%'));
+                                             QuotedStr(UpperCase('%'+EdtBuscaCat.Text+'%')) + ' order by categoriaprodutoid';
        PesqCatF.qryPesqCat.Open;
    end
-   else if EdtBuscaCat.Text = '' then
+   else if valor = False then
    begin
        PesqCatF.qryPesqCat.Close;
        PesqCatF.qryPesqCat.SQL.Clear;
-       PesqCatF.qryPesqCat.SQL.Add('select * from produto order by produtoid');
+       PesqCatF.qryPesqCat.SQL.Add('select * from produto order by categoriaprodutoid');
        qryPesqCat.Open;
    end
    else
@@ -80,6 +92,11 @@ end;
 procedure TPesqCatF.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
   CloseAction := caFree;
+end;
+
+procedure TPesqCatF.FormShow(Sender: TObject);
+begin
+  qryPesqCat.Active := True;
 end;
 
 procedure TPesqCatF.GridCatDblClick(Sender: TObject);

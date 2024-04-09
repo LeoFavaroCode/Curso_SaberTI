@@ -20,7 +20,6 @@ type
     EdtSenha: TDBEdit;
     dsCadUsuario: TDataSource;
     EdtBuscaUser: TEdit;
-    Label1: TLabel;
     Label2: TLabel;
     Label3: TLabel;
     Label4: TLabel;
@@ -115,24 +114,35 @@ begin
 end;
 
 procedure TCadUsuarioF.BtnBuscaClick(Sender: TObject);
+var
+  valor: Boolean;
 begin
 
-   if RadioButton1.Checked then
+   if EdtBuscaUser.Text = '' then
+   begin
+       valor := False;
+   end
+   else
+   begin
+       valor := True;
+   end;
+
+   if RadioButton1.Checked and valor = True then
    begin
        CadUsuarioF.qryCadUsuario.Close;
        CadUsuarioF.qryCadUsuario.SQL.Clear;
-       CadUsuarioF.qryCadUsuario.SQL.Add('select * from usuarios where id = ' + EdtBuscaUser.Text);
+       CadUsuarioF.qryCadUsuario.SQL.Add('select * from usuarios where id = ' + EdtBuscaUser.Text + ' order by id');
        CadUsuarioF.qryCadUsuario.Open;
    end
-   else if RadioButton2.Checked then
+   else if RadioButton2.Checked and valor = True then
    begin
        CadUsuarioF.qryCadUsuario.Close;
        CadUsuarioF.qryCadUsuario.SQL.Clear;
        CadUsuarioF.qryCadUsuario.SQL.Text := 'select * from usuarios WHERE upper(nome_completo) LIKE' +
-                                             QuotedStr(UpperCase('%'+EdtBuscaUser.Text+'%'));
+                                             QuotedStr(UpperCase('%'+EdtBuscaUser.Text+'%')) + 'order by id';
        CadUsuarioF.qryCadUsuario.Open;
    end
-   else if EdtBuscaUser.Text = '' then
+   else if valor = False then
    begin
        CadUsuarioF.qryCadUsuario.Close;
        CadUsuarioF.qryCadUsuario.SQL.Clear;

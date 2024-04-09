@@ -26,6 +26,9 @@ object MenuF: TMenuF
         Caption = 'Produtos'
         OnClick = MenuProdutoClick
       end
+      object Separator1: TMenuItem
+        Caption = '-'
+      end
       object MenuUsuaruio: TMenuItem
         Caption = 'Usuários'
         OnClick = MenuUsuaruioClick

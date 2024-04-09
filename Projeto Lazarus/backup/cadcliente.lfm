@@ -8,6 +8,12 @@ inherited CadClienteF: TCadClienteF
   OnShow = FormShow
   inherited PageControl1: TPageControl
     Width = 949
+    ActivePage = tbPesquisa
+    Font.CharSet = ANSI_CHARSET
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentFont = False
+    TabIndex = 0
     inherited tbPesquisa: TTabSheet
       ClientWidth = 941
       inherited Panel1: TPanel
@@ -43,6 +49,7 @@ inherited CadClienteF: TCadClienteF
         inherited BtnSair: TBitBtn
           Cursor = crDefault
           Left = 802
+          TabOrder = 2
         end
         inherited BtnNovo: TBitBtn
           Cursor = crDefault
@@ -50,6 +57,7 @@ inherited CadClienteF: TCadClienteF
         end
         inherited BtnEditar: TBitBtn
           OnClick = BtnEditarClick
+          TabOrder = 0
         end
       end
       inherited DBGrid2: TDBGrid
@@ -88,6 +96,7 @@ inherited CadClienteF: TCadClienteF
       inherited Panel2: TPanel
         Width = 941
         ClientWidth = 941
+        TabOrder = 4
         inherited BtnGravar: TBitBtn
           Cursor = crDefault
           OnClick = BtnGravarClick
@@ -100,6 +109,7 @@ inherited CadClienteF: TCadClienteF
           Cursor = crDefault
           Left = 788
           OnClick = BtnCancelarClick
+          TabOrder = 3
         end
         object BtnImprimir: TBitBtn[3]
           Left = 296
@@ -134,7 +144,7 @@ inherited CadClienteF: TCadClienteF
             BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF00000000000000000000000000000000
             0000000000000000000000BFBFBFBFBFBF00
           }
-          TabOrder = 3
+          TabOrder = 2
         end
       end
       object DBEdit1: TDBEdit[1]
@@ -147,14 +157,19 @@ inherited CadClienteF: TCadClienteF
         ReadOnly = True
         Alignment = taRightJustify
         MaxLength = 0
-        TabOrder = 1
+        TabOrder = 0
       end
       object Label2: TLabel[2]
-        Left = 32
+        Left = 24
         Height = 20
         Top = 36
-        Width = 18
+        Width = 20
         Caption = 'ID:'
+        Font.CharSet = ANSI_CHARSET
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        Font.Style = [fsBold]
+        ParentFont = False
       end
       object EdtNome: TDBEdit[3]
         Left = 184
@@ -165,21 +180,31 @@ inherited CadClienteF: TCadClienteF
         DataSource = dsCadCliente
         ReadOnly = True
         MaxLength = 100
-        TabOrder = 2
+        TabOrder = 3
       end
       object Label3: TLabel[4]
-        Left = 32
+        Left = 24
         Height = 20
         Top = 86
-        Width = 143
+        Width = 148
         Caption = 'Nome / Razão Social:'
+        Font.CharSet = ANSI_CHARSET
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        Font.Style = [fsBold]
+        ParentFont = False
       end
       object Label4: TLabel[5]
         Left = 184
         Height = 20
         Top = 36
-        Width = 74
+        Width = 82
         Caption = 'CPF / CPNJ:'
+        Font.CharSet = ANSI_CHARSET
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        Font.Style = [fsBold]
+        ParentFont = False
       end
       object EdtCPF: TDBEdit[6]
         Left = 272
@@ -189,14 +214,19 @@ inherited CadClienteF: TCadClienteF
         DataField = 'cpf_cnpj_cliente'
         DataSource = dsCadCliente
         MaxLength = 18
-        TabOrder = 3
+        TabOrder = 1
       end
       object Label5: TLabel[7]
         Left = 600
         Height = 20
         Top = 34
-        Width = 33
+        Width = 35
         Caption = 'Tipo:'
+        Font.CharSet = ANSI_CHARSET
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        Font.Style = [fsBold]
+        ParentFont = False
       end
       object EdtTipo: TDBComboBox[8]
         Left = 648
@@ -211,7 +241,7 @@ inherited CadClienteF: TCadClienteF
           'Jurídica'
         )
         MaxLength = 0
-        TabOrder = 4
+        TabOrder = 2
       end
     end
   end

@@ -93,13 +93,13 @@ end;
 
 procedure TCadClienteF.BtnExcluirClick(Sender: TObject);
 begin
-  EdtNome.ReadOnly := True;
-  EdtCPF.ReadOnly := True;
-  EdtTipo.ReadOnly := True;
   If  MessageDlg('Deseja excluir o registro?', mtWarning,[mbyes,mbno],0)=mryes then
   begin
-       qryCadCliente.Delete;
+      qryCadCliente.Delete;
       PageControl1.ActivePage := tbPesquisa;
+      EdtNome.ReadOnly := True;
+      EdtCPF.ReadOnly := True;
+      EdtTipo.ReadOnly := True;
   end;
 end;
 
@@ -113,24 +113,35 @@ begin
 end;
 
 procedure TCadClienteF.BtnBuscaClick(Sender: TObject);
+var
+  valor: Boolean;
 begin
 
-   if RadioButton1.Checked then
+   if EdtBuscaCliente.Text = '' then
+   begin
+       valor := False;
+   end
+   else
+   begin
+     valor := True;
+   end;
+
+   if RadioButton1.Checked and valor = True then
    begin
        CadClienteF.qryCadCliente.Close;
        CadClienteF.qryCadCliente.SQL.Clear;
-       CadClienteF.qryCadCliente.SQL.Add('select * from cliente where clienteid = ' + EdtBuscaCliente.Text);
+       CadClienteF.qryCadCliente.SQL.Add('select * from cliente where clienteid = ' + EdtBuscaCliente.Text + ' order by clienteid');
        CadClienteF.qryCadCliente.Open;
    end
-   else if RadioButton2.Checked then
+   else if RadioButton2.Checked and valor = True then
    begin
        CadClienteF.qryCadCliente.Close;
        CadClienteF.qryCadCliente.SQL.Clear;
        CadClienteF.qryCadCliente.SQL.Text := 'select * from cliente WHERE upper(nome_cliente) LIKE' +
-                                             QuotedStr(UpperCase('%'+EdtBuscaCliente.Text+'%'));
+                                             QuotedStr(UpperCase('%'+EdtBuscaCliente.Text+'%')) + ' order by clienteid';
        CadClienteF.qryCadCliente.Open;
    end
-   else if EdtBuscaCliente.Text = '' then
+   else if valor = False then
    begin
        CadClienteF.qryCadCliente.Close;
        CadClienteF.qryCadCliente.SQL.Clear;

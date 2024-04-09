@@ -20,19 +20,17 @@ inherited CadCategoriaF: TCadCategoriaF
           Top = 24
           OnClick = BtnBuscaClick
         end
+        inherited RadioButton2: TRadioButton
+          Height = 24
+          Width = 62
+          Caption = 'Nome'
+        end
         object EdtBuscaCat: TEdit[3]
           Left = 232
           Height = 28
           Top = 24
           Width = 272
           TabOrder = 3
-        end
-        object Label1: TLabel[4]
-          Left = 160
-          Height = 20
-          Top = 29
-          Width = 41
-          Caption = 'Nome'
         end
       end
       inherited Panel3: TPanel
@@ -41,13 +39,16 @@ inherited CadCategoriaF: TCadCategoriaF
         inherited BtnSair: TBitBtn
           Left = 534
           OnClick = BtnSairClick
+          TabOrder = 2
         end
         inherited BtnNovo: TBitBtn
           Left = 40
           OnClick = BtnNovoClick
+          TabOrder = 0
         end
         inherited BtnEditar: TBitBtn
           OnClick = BtnEditarClick
+          TabOrder = 1
         end
       end
       inherited DBGrid2: TDBGrid
@@ -74,6 +75,7 @@ inherited CadCategoriaF: TCadCategoriaF
       inherited Panel2: TPanel
         Width = 682
         ClientWidth = 682
+        TabOrder = 2
         inherited BtnGravar: TBitBtn
           OnClick = BtnGravarClick
         end
@@ -83,6 +85,7 @@ inherited CadCategoriaF: TCadCategoriaF
         inherited BtnCancelar: TBitBtn
           Left = 529
           OnClick = BtnCancelarClick
+          TabOrder = 3
         end
         object BtnImprimir: TBitBtn[3]
           Left = 304
@@ -117,7 +120,7 @@ inherited CadCategoriaF: TCadCategoriaF
             BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF00000000000000000000000000000000
             0000000000000000000000BFBFBFBFBFBF00
           }
-          TabOrder = 3
+          TabOrder = 2
         end
       end
       object DBEdit1: TDBEdit[1]
@@ -130,7 +133,7 @@ inherited CadCategoriaF: TCadCategoriaF
         ReadOnly = True
         Alignment = taRightJustify
         MaxLength = 0
-        TabOrder = 1
+        TabOrder = 0
       end
       object EdtDesc: TDBEdit[2]
         Left = 112
@@ -141,21 +144,31 @@ inherited CadCategoriaF: TCadCategoriaF
         DataSource = DsCatProd
         ReadOnly = True
         MaxLength = 50
-        TabOrder = 2
+        TabOrder = 1
       end
       object Label2: TLabel[3]
         Left = 32
         Height = 20
         Top = 26
-        Width = 18
+        Width = 20
         Caption = 'ID:'
+        Font.CharSet = ANSI_CHARSET
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        Font.Style = [fsBold]
+        ParentFont = False
       end
       object Label3: TLabel[4]
         Left = 32
         Height = 20
         Top = 80
-        Width = 68
+        Width = 71
         Caption = 'Descrição:'
+        Font.CharSet = ANSI_CHARSET
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        Font.Style = [fsBold]
+        ParentFont = False
       end
     end
   end

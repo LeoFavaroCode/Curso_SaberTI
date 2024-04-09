@@ -12,7 +12,7 @@ uses
   Interfaces, // this includes the LCL widgetset
   Forms, datetimectrls, printer4lazarus, zcomponent, CadModelo, Menu,
   CadCliente, DataModule, CadCategoria, CadUsuario, CadProd, PesqCat, 
-CadOrcamento
+CadOrcamento, PesqCliente
   { you can add units after this };
 
 {$R *.res}

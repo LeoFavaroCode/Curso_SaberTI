@@ -14,6 +14,7 @@ type
   { TCadProdF }
 
   TCadProdF = class(TCadModeloF)
+    BtnImprimir: TBitBtn;
     EdtCat: TDBEdit;
     EdtStatus: TDBComboBox;
     DbData: TDBDateEdit;
@@ -106,25 +107,37 @@ begin
 end;
 
 procedure TCadProdF.BtnBuscaClick(Sender: TObject);
+var
+  valor: Boolean;
 begin
-   if RadioButton1.Checked then
+
+     if EdtBuscaProd.Text = '' then
+   begin
+       valor := False;
+   end
+   else
+   begin
+       valor := True;
+   end;
+
+   if RadioButton1.Checked and valor = True then
    begin
        CadProdF.qryCadProd.Close;
        CadProdF.qryCadProd.SQL.Clear;
        CadProdF.qryCadProd.SQL.Add('select produtoid, ds_produto, ds_categoria_produto, obs_produto, vl_venda_produto, dt_cadastro_produto, status_produto, p.categoriaprodutoid from produto p ' +
-       'inner join categoria_produto cp on p.categoriaprodutoid = cp.categoriaprodutoid Where produtoid = ' + EdtBuscaProd.Text);
+       'inner join categoria_produto cp on p.categoriaprodutoid = cp.categoriaprodutoid Where produtoid = ' + EdtBuscaProd.Text + ' order by produtoid');
        CadProdF.qryCadProd.Open;
    end
-   else if RadioButton2.Checked then
+   else if RadioButton2.Checked and valor = True then
    begin
        CadProdF.qryCadProd.Close;
        CadProdF.qryCadProd.SQL.Clear;
        CadProdF.qryCadProd.SQL.Text := 'select produtoid, ds_produto, ds_categoria_produto, obs_produto, vl_venda_produto, dt_cadastro_produto, status_produto, p.categoriaprodutoid from produto p ' +
        'inner join categoria_produto cp on p.categoriaprodutoid = cp.categoriaprodutoid WHERE upper(ds_produto) LIKE '
-        + QuotedStr(UpperCase('%'+EdtBuscaProd.Text+'%'));
+        + QuotedStr(UpperCase('%'+EdtBuscaProd.Text+'%')) + 'order by produtoid';
        CadProdF.qryCadProd.Open;
    end
-   else if EdtBuscaProd.Text = '' then
+   else if valor = False then
    begin
        CadProdF.qryCadProd.Close;
        CadProdF.qryCadProd.SQL.Clear;
@@ -141,14 +154,14 @@ end;
 
 procedure TCadProdF.BtnExcluirClick(Sender: TObject);
 begin
-  EdtValor.ReadOnly := True;
-  EdtObs.ReadOnly := True;
-  EdtDesc.ReadOnly := True;
-  EdtStatus.ReadOnly := True;
     If  MessageDlg('Deseja excluir o registro?', mtWarning,[mbyes,mbno],0)=mryes then
   begin
       qryCadProd.Delete;
       PageControl1.ActivePage := tbPesquisa;
+      EdtValor.ReadOnly := True;
+      EdtObs.ReadOnly := True;
+      EdtDesc.ReadOnly := True;
+      EdtStatus.ReadOnly := True;
   end;
 end;
 

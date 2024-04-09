@@ -28,6 +28,7 @@ type
     MenuCliente: TMenuItem;
     MenuProduto: TMenuItem;
     MenuUsuaruio: TMenuItem;
+    Separator1: TMenuItem;
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure MenuCategoriaClick(Sender: TObject);
     procedure MenuClienteClick(Sender: TObject);

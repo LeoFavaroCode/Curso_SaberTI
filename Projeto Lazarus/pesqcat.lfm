@@ -54,7 +54,7 @@ object PesqCatF: TPesqCatF
         0000
       }
       OnClick = BtnBuscaClick
-      TabOrder = 0
+      TabOrder = 1
     end
     object RadioButton1: TRadioButton
       Left = 24
@@ -62,7 +62,7 @@ object PesqCatF: TPesqCatF
       Top = 28
       Width = 70
       Caption = 'Código'
-      TabOrder = 1
+      TabOrder = 2
     end
     object RadioButton2: TRadioButton
       Left = 112
@@ -70,14 +70,14 @@ object PesqCatF: TPesqCatF
       Top = 28
       Width = 86
       Caption = 'Descrição'
-      TabOrder = 2
+      TabOrder = 3
     end
     object EdtBuscaCat: TEdit
       Left = 216
       Height = 28
       Top = 28
       Width = 280
-      TabOrder = 3
+      TabOrder = 0
     end
   end
   object GridCat: TDBGrid
@@ -95,7 +95,7 @@ object PesqCatF: TPesqCatF
       end    
       item
         Title.Caption = 'Categoria'
-        Width = 200
+        Width = 250
         FieldName = 'ds_categoria_produto'
       end>
     DataSource = dsPesqCat

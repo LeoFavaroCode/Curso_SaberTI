@@ -8,6 +8,8 @@ inherited CadUsuarioF: TCadUsuarioF
   OnShow = FormShow
   inherited PageControl1: TPageControl
     Width = 758
+    ActivePage = tbPesquisa
+    TabIndex = 0
     inherited tbPesquisa: TTabSheet
       ClientWidth = 750
       inherited Panel1: TPanel
@@ -18,14 +20,15 @@ inherited CadUsuarioF: TCadUsuarioF
           Top = 24
           OnClick = BtnBuscaClick
         end
-        object Label1: TLabel[3]
-          Left = 160
-          Height = 20
+        inherited RadioButton1: TRadioButton
           Top = 28
-          Width = 41
+        end
+        inherited RadioButton2: TRadioButton
+          Height = 24
+          Width = 62
           Caption = 'Nome'
         end
-        object EdtBuscaUser: TEdit[4]
+        object EdtBuscaUser: TEdit[3]
           Left = 216
           Height = 28
           Top = 24
@@ -39,13 +42,16 @@ inherited CadUsuarioF: TCadUsuarioF
         inherited BtnSair: TBitBtn
           Left = 611
           Top = 23
+          TabOrder = 2
         end
         inherited BtnNovo: TBitBtn
           Left = 40
           OnClick = BtnNovoClick
+          TabOrder = 0
         end
         inherited BtnEditar: TBitBtn
           OnClick = BtnEditarClick
+          TabOrder = 1
         end
       end
       inherited DBGrid2: TDBGrid
@@ -84,6 +90,7 @@ inherited CadUsuarioF: TCadUsuarioF
       inherited Panel2: TPanel
         Width = 750
         ClientWidth = 750
+        TabOrder = 4
         inherited BtnGravar: TBitBtn
           OnClick = BtnGravarClick
         end
@@ -93,6 +100,7 @@ inherited CadUsuarioF: TCadUsuarioF
         inherited BtnCancelar: TBitBtn
           Left = 597
           OnClick = BtnCancelarClick
+          TabOrder = 3
         end
         object BtnImprimir: TBitBtn[3]
           Left = 304
@@ -127,15 +135,20 @@ inherited CadUsuarioF: TCadUsuarioF
             BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF00000000000000000000000000000000
             0000000000000000000000BFBFBFBFBFBF00
           }
-          TabOrder = 3
+          TabOrder = 2
         end
       end
       object Label2: TLabel[1]
         Left = 24
         Height = 20
         Top = 24
-        Width = 18
+        Width = 20
         Caption = 'ID:'
+        Font.CharSet = ANSI_CHARSET
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        Font.Style = [fsBold]
+        ParentFont = False
       end
       object DBEdit1: TDBEdit[2]
         Left = 56
@@ -147,17 +160,22 @@ inherited CadUsuarioF: TCadUsuarioF
         ReadOnly = True
         Alignment = taRightJustify
         MaxLength = 0
-        TabOrder = 1
+        TabOrder = 0
       end
       object Label3: TLabel[3]
         Left = 168
         Height = 20
         Top = 24
-        Width = 53
+        Width = 58
         Caption = 'Usuário:'
+        Font.CharSet = ANSI_CHARSET
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        Font.Style = [fsBold]
+        ParentFont = False
       end
       object EdtUser: TDBEdit[4]
-        Left = 232
+        Left = 240
         Height = 28
         Top = 21
         Width = 160
@@ -165,14 +183,19 @@ inherited CadUsuarioF: TCadUsuarioF
         DataSource = dsCadUsuario
         ReadOnly = True
         MaxLength = 30
-        TabOrder = 2
+        TabOrder = 1
       end
       object Label4: TLabel[5]
         Left = 24
         Height = 20
         Top = 84
-        Width = 118
+        Width = 123
         Caption = 'Nome Completo: '
+        Font.CharSet = ANSI_CHARSET
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        Font.Style = [fsBold]
+        ParentFont = False
       end
       object EdtNome: TDBEdit[6]
         Left = 152
@@ -194,14 +217,19 @@ inherited CadUsuarioF: TCadUsuarioF
         DataSource = dsCadUsuario
         ReadOnly = True
         MaxLength = 50
-        TabOrder = 4
+        TabOrder = 2
       end
       object Label5: TLabel[8]
         Left = 440
         Height = 20
         Top = 23
-        Width = 43
+        Width = 46
         Caption = 'Senha:'
+        Font.CharSet = ANSI_CHARSET
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        Font.Style = [fsBold]
+        ParentFont = False
       end
     end
   end

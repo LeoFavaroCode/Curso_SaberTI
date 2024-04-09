@@ -17,7 +17,6 @@ type
     EdtDesc: TDBEdit;
     DsCatProd: TDataSource;
     EdtBuscaCat: TEdit;
-    Label1: TLabel;
     Label2: TLabel;
     Label3: TLabel;
     qryCatProd: TZQuery;
@@ -80,24 +79,35 @@ begin
 end;
 
 procedure TCadCategoriaF.BtnBuscaClick(Sender: TObject);
+var
+  valor: Boolean;
 begin
 
-   if RadioButton1.Checked then
+     if EdtBuscaCat.Text = '' then
+   begin
+       valor := False;
+   end
+   else
+   begin
+       valor := True;
+   end;
+
+   if RadioButton1.Checked and valor = True then
    begin
        CadCategoriaF.qryCatProd.Close;
        CadCategoriaF.qryCatProd.SQL.Clear;
-       CadCategoriaF.qryCatProd.SQL.Add('select * from categoria_produto where categoriaprodutoid = ' + EdtBuscaCat.Text);
+       CadCategoriaF.qryCatProd.SQL.Add('select * from categoria_produto where categoriaprodutoid = ' + EdtBuscaCat.Text + 'order by categoriaprodutoid');
        CadCategoriaF.qryCatProd.Open;
    end
-   else if RadioButton2.Checked then
+   else if RadioButton2.Checked and valor = True then
    begin
        CadCategoriaF.qryCatProd.Close;
        CadCategoriaF.qryCatProd.SQL.Clear;
        CadCategoriaF.qryCatProd.SQL.Text := 'select * from categoria_produto WHERE upper(ds_categoria_produto) LIKE' +
-                                             QuotedStr(UpperCase('%'+EdtBuscaCat.Text+'%'));
+                                             QuotedStr(UpperCase('%'+EdtBuscaCat.Text+'%')) + ' order by categoriaprodutoid';
        CadCategoriaF.qryCatProd.Open;
    end
-   else if EdtBuscaCat.Text = '' then
+   else if valor = False then
    begin
        CadCategoriaF.qryCatProd.Close;
        CadCategoriaF.qryCatProd.SQL.Clear;
@@ -115,11 +125,11 @@ end;
 
 procedure TCadCategoriaF.BtnExcluirClick(Sender: TObject);
 begin
-  EdtDesc.ReadOnly := True;
   If  MessageDlg('Deseja excluir o registro?', mtWarning,[mbyes,mbno],0)=mryes then
   begin
       qryCatProd.Delete;
       PageControl1.ActivePage := tbPesquisa;
+      EdtDesc.ReadOnly := True;
   end;
 end;
 

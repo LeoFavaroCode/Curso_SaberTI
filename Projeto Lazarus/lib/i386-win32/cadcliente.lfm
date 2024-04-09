@@ -49,6 +49,7 @@ inherited CadClienteF: TCadClienteF
         inherited BtnSair: TBitBtn
           Cursor = crDefault
           Left = 802
+          TabOrder = 2
         end
         inherited BtnNovo: TBitBtn
           Cursor = crDefault
@@ -56,6 +57,7 @@ inherited CadClienteF: TCadClienteF
         end
         inherited BtnEditar: TBitBtn
           OnClick = BtnEditarClick
+          TabOrder = 0
         end
       end
       inherited DBGrid2: TDBGrid
@@ -94,6 +96,7 @@ inherited CadClienteF: TCadClienteF
       inherited Panel2: TPanel
         Width = 941
         ClientWidth = 941
+        TabOrder = 4
         inherited BtnGravar: TBitBtn
           Cursor = crDefault
           OnClick = BtnGravarClick
@@ -106,6 +109,7 @@ inherited CadClienteF: TCadClienteF
           Cursor = crDefault
           Left = 788
           OnClick = BtnCancelarClick
+          TabOrder = 3
         end
         object BtnImprimir: TBitBtn[3]
           Left = 296
@@ -140,7 +144,7 @@ inherited CadClienteF: TCadClienteF
             BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF00000000000000000000000000000000
             0000000000000000000000BFBFBFBFBFBF00
           }
-          TabOrder = 3
+          TabOrder = 2
         end
       end
       object DBEdit1: TDBEdit[1]
@@ -153,7 +157,7 @@ inherited CadClienteF: TCadClienteF
         ReadOnly = True
         Alignment = taRightJustify
         MaxLength = 0
-        TabOrder = 1
+        TabOrder = 0
       end
       object Label2: TLabel[2]
         Left = 24
@@ -176,7 +180,7 @@ inherited CadClienteF: TCadClienteF
         DataSource = dsCadCliente
         ReadOnly = True
         MaxLength = 100
-        TabOrder = 2
+        TabOrder = 3
       end
       object Label3: TLabel[4]
         Left = 24
@@ -210,7 +214,7 @@ inherited CadClienteF: TCadClienteF
         DataField = 'cpf_cnpj_cliente'
         DataSource = dsCadCliente
         MaxLength = 18
-        TabOrder = 3
+        TabOrder = 1
       end
       object Label5: TLabel[7]
         Left = 600
@@ -237,7 +241,7 @@ inherited CadClienteF: TCadClienteF
           'Jurídica'
         )
         MaxLength = 0
-        TabOrder = 4
+        TabOrder = 2
       end
     end
   end
