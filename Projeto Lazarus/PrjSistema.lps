@@ -132,9 +132,23 @@
         <UnitName Value="CadOrcamento"/>
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="3"/>
-        <TopLine Value="113"/>
+        <TopLine Value="112"/>
         <CursorPos X="33" Y="69"/>
         <UsageCount Value="25"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="pesqcliente.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="PesqClienteF"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="PesqCliente"/>
+        <EditorIndex Value="4"/>
+        <TopLine Value="53"/>
+        <CursorPos X="24" Y="59"/>
+        <UsageCount Value="22"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -148,19 +162,6 @@
         <DefaultSyntaxHighlighter Value="LFM"/>
       </Unit>
       <Unit>
-        <Filename Value="pesqcliente.pas"/>
-        <IsPartOfProject Value="True"/>
-        <ComponentName Value="PesqClienteF"/>
-        <ResourceBaseClass Value="Form"/>
-        <UnitName Value="PesqCliente"/>
-        <EditorIndex Value="4"/>
-        <TopLine Value="53"/>
-        <CursorPos X="24" Y="59"/>
-        <UsageCount Value="22"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
-      </Unit>
-      <Unit>
         <Filename Value="C:\lazarus\lcl\stdctrls.pp"/>
         <UnitName Value="StdCtrls"/>
         <EditorIndex Value="-1"/>
@@ -169,7 +170,7 @@
         <UsageCount Value="10"/>
       </Unit>
     </Units>
-    <JumpHistory HistoryIndex="29">
+    <JumpHistory HistoryIndex="27">
       <Position>
         <Filename Value="pesqcliente.pas"/>
         <Caret Line="68" Column="35" TopLine="41"/>
@@ -189,10 +190,6 @@
       <Position>
         <Filename Value="cadprod.pas"/>
         <Caret Line="131" Column="35" TopLine="120"/>
-      </Position>
-      <Position>
-        <Filename Value="cadprod.pas"/>
-        <Caret Line="110" Column="4" TopLine="116"/>
       </Position>
       <Position>
         <Filename Value="cadcliente.pas"/>
@@ -225,10 +222,6 @@
       <Position>
         <Filename Value="cadprod.pas"/>
         <Caret Line="130" Column="33" TopLine="117"/>
-      </Position>
-      <Position>
-        <Filename Value="cadusuario.pas"/>
-        <Caret Line="121" TopLine="123"/>
       </Position>
       <Position>
         <Filename Value="pesqcat.pas"/>

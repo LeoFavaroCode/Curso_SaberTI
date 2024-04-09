@@ -34,8 +34,8 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Menu"/>
         <EditorIndex Value="5"/>
-        <TopLine Value="43"/>
-        <CursorPos X="25" Y="56"/>
+        <TopLine Value="66"/>
+        <CursorPos X="3" Y="68"/>
         <UsageCount Value="48"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -132,8 +132,8 @@
         <UnitName Value="CadOrcamento"/>
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="3"/>
-        <TopLine Value="63"/>
-        <CursorPos X="32" Y="76"/>
+        <TopLine Value="113"/>
+        <CursorPos X="33" Y="69"/>
         <UsageCount Value="25"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -170,14 +170,6 @@
       </Unit>
     </Units>
     <JumpHistory HistoryIndex="29">
-      <Position>
-        <Filename Value="pesqcliente.pas"/>
-        <Caret Line="54" Column="11" TopLine="43"/>
-      </Position>
-      <Position>
-        <Filename Value="cadorcamento.pas"/>
-        <Caret Line="73" Column="6" TopLine="73"/>
-      </Position>
       <Position>
         <Filename Value="pesqcliente.pas"/>
         <Caret Line="68" Column="35" TopLine="41"/>
@@ -289,6 +281,14 @@
       <Position>
         <Filename Value="cadprod.pas"/>
         <Caret Line="182" Column="16" TopLine="164"/>
+      </Position>
+      <Position>
+        <Filename Value="menu.pas"/>
+        <Caret Line="56" Column="25" TopLine="43"/>
+      </Position>
+      <Position>
+        <Filename Value="menu.pas"/>
+        <Caret Line="67" Column="3" TopLine="65"/>
       </Position>
     </JumpHistory>
     <RunParams>
