@@ -25,6 +25,7 @@ type
     qryPesqCat: TZQuery;
     procedure BtnBuscaClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
+    procedure FormShow(Sender: TObject);
     procedure GridCatDblClick(Sender: TObject);
   private
 
@@ -80,6 +81,11 @@ end;
 procedure TPesqCatF.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
   CloseAction := caFree;
+end;
+
+procedure TPesqCatF.FormShow(Sender: TObject);
+begin
+  qryPesqCat.Active := True;
 end;
 
 procedure TPesqCatF.GridCatDblClick(Sender: TObject);

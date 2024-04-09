@@ -35,6 +35,7 @@ object MenuF: TMenuF
       Caption = 'Venda'
       object MenuOrc: TMenuItem
         Caption = 'Orçamento'
+        OnClick = MenuOrcClick
       end
     end
     object MenuRelat: TMenuItem

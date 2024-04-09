@@ -5,8 +5,8 @@ unit CadCliente;
 interface
 
 uses
-  Classes, SysUtils, DB, Forms, Controls, Graphics, Dialogs, StdCtrls, DBCtrls, datamodule,
-  ZDataset, CadModelo;
+  Classes, SysUtils, DB, Forms, Controls, Graphics, Dialogs, StdCtrls, DBCtrls,
+  Buttons, datamodule, ZDataset, CadModelo;
 
 type
 
@@ -114,16 +114,18 @@ end;
 
 procedure TCadClienteF.BtnBuscaClick(Sender: TObject);
 begin
-   CadClienteF.qryCadCliente.Close;
-   CadClienteF.qryCadCliente.SQL.Clear;
 
    if RadioButton1.Checked then
    begin
+       CadClienteF.qryCadCliente.Close;
+       CadClienteF.qryCadCliente.SQL.Clear;
        CadClienteF.qryCadCliente.SQL.Add('select * from cliente where clienteid = ' + EdtBuscaCliente.Text);
        CadClienteF.qryCadCliente.Open;
    end
    else if RadioButton2.Checked then
    begin
+       CadClienteF.qryCadCliente.Close;
+       CadClienteF.qryCadCliente.SQL.Clear;
        CadClienteF.qryCadCliente.SQL.Text := 'select * from cliente WHERE upper(nome_cliente) LIKE' +
                                              QuotedStr(UpperCase('%'+EdtBuscaCliente.Text+'%'));
        CadClienteF.qryCadCliente.Open;

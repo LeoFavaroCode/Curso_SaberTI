@@ -5,8 +5,8 @@ unit CadCliente;
 interface
 
 uses
-  Classes, SysUtils, DB, Forms, Controls, Graphics, Dialogs, StdCtrls, DBCtrls, datamodule,
-  ZDataset, CadModelo;
+  Classes, SysUtils, DB, Forms, Controls, Graphics, Dialogs, StdCtrls, DBCtrls,
+  Buttons, datamodule, ZDataset, CadModelo;
 
 type
 

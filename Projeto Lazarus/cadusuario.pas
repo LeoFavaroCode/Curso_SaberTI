@@ -6,24 +6,25 @@ interface
 
 uses
   Classes, SysUtils, DB, Forms, Controls, Graphics, Dialogs, StdCtrls, DBCtrls,
-  ZDataset, CadModelo, datamodule;
+  Buttons, PrintersDlgs, ZDataset, CadModelo, datamodule, Printers;
 
 type
 
   { TCadUsuarioF }
 
   TCadUsuarioF = class(TCadModeloF)
+    BtnImprimir: TBitBtn;
     DBEdit1: TDBEdit;
     EdtUser: TDBEdit;
     EdtNome: TDBEdit;
     EdtSenha: TDBEdit;
     dsCadUsuario: TDataSource;
     EdtBuscaUser: TEdit;
-    Label1: TLabel;
     Label2: TLabel;
     Label3: TLabel;
     Label4: TLabel;
     Label5: TLabel;
+    PrintDialog1: TPrintDialog;
     qryCadUsuario: TZQuery;
     qryCadUsuarioid: TLongintField;
     qryCadUsuarionome_completo: TStringField;
@@ -81,6 +82,7 @@ end;
 
 procedure TCadUsuarioF.DBGrid2DblClick(Sender: TObject);
 begin
+  PageControl1.ActivePage := tbCadastro;
   inherited;
 end;
 
@@ -165,4 +167,3 @@ begin
 end;
 
 end.
-

@@ -6,13 +6,14 @@ interface
 
 uses
   Classes, SysUtils, DB, Forms, Controls, Graphics, Dialogs, StdCtrls, DBCtrls,
-  ZDataset, CadModelo, datamodule;
+  Buttons, PrintersDlgs, ZDataset, CadModelo, datamodule, Printers;
 
 type
 
   { TCadUsuarioF }
 
   TCadUsuarioF = class(TCadModeloF)
+    BtnImprimir: TBitBtn;
     DBEdit1: TDBEdit;
     EdtUser: TDBEdit;
     EdtNome: TDBEdit;
@@ -24,6 +25,7 @@ type
     Label3: TLabel;
     Label4: TLabel;
     Label5: TLabel;
+    PrintDialog1: TPrintDialog;
     qryCadUsuario: TZQuery;
     qryCadUsuarioid: TLongintField;
     qryCadUsuarionome_completo: TStringField;
@@ -81,6 +83,7 @@ end;
 
 procedure TCadUsuarioF.DBGrid2DblClick(Sender: TObject);
 begin
+  PageControl1.ActivePage := tbCadastro;
   inherited;
 end;
 
@@ -113,16 +116,18 @@ end;
 
 procedure TCadUsuarioF.BtnBuscaClick(Sender: TObject);
 begin
-   CadUsuarioF.qryCadUsuario.Close;
-   CadUsuarioF.qryCadUsuario.SQL.Clear;
 
    if RadioButton1.Checked then
    begin
+       CadUsuarioF.qryCadUsuario.Close;
+       CadUsuarioF.qryCadUsuario.SQL.Clear;
        CadUsuarioF.qryCadUsuario.SQL.Add('select * from usuarios where id = ' + EdtBuscaUser.Text);
        CadUsuarioF.qryCadUsuario.Open;
    end
    else if RadioButton2.Checked then
    begin
+       CadUsuarioF.qryCadUsuario.Close;
+       CadUsuarioF.qryCadUsuario.SQL.Clear;
        CadUsuarioF.qryCadUsuario.SQL.Text := 'select * from usuarios WHERE upper(nome_completo) LIKE' +
                                              QuotedStr(UpperCase('%'+EdtBuscaUser.Text+'%'));
        CadUsuarioF.qryCadUsuario.Open;
@@ -163,4 +168,3 @@ begin
 end;
 
 end.
-

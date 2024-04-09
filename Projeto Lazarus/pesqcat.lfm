@@ -8,6 +8,7 @@ object PesqCatF: TPesqCatF
   ClientWidth = 626
   DesignTimePPI = 120
   OnClose = FormClose
+  OnShow = FormShow
   Position = poDesktopCenter
   LCLVersion = '3.2.0.0'
   object Panel1: TPanel

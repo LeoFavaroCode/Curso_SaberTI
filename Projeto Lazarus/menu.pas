@@ -5,7 +5,8 @@ unit Menu;
 interface
 
 uses
-  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, Menus, CadCliente, CadCategoria, CadUsuario,CadProd;
+  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, Menus, CadCliente, CadCategoria, CadUsuario,CadProd,
+  CadOrcamento;
 
 type
 
@@ -30,6 +31,7 @@ type
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure MenuCategoriaClick(Sender: TObject);
     procedure MenuClienteClick(Sender: TObject);
+    procedure MenuOrcClick(Sender: TObject);
     procedure MenuProdutoClick(Sender: TObject);
     procedure MenuSairClick(Sender: TObject);
     procedure MenuUsuaruioClick(Sender: TObject);
@@ -52,6 +54,12 @@ procedure TMenuF.MenuClienteClick(Sender: TObject);
 begin
   CadClienteF := TCadClienteF.Create(Self);
   CadClienteF.ShowModal;
+end;
+
+procedure TMenuF.MenuOrcClick(Sender: TObject);
+begin
+  CadOrcamentoF := TCadOrcamentoF.Create(Self);
+  CadOrcamentoF.ShowModal;
 end;
 
 procedure TMenuF.MenuProdutoClick(Sender: TObject);

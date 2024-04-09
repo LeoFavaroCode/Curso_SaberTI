@@ -1,24 +1,22 @@
 inherited CadProdF: TCadProdF
-  Left = 414
+  Left = 566
   Height = 591
-  Top = 203
-  Width = 1309
+  Top = 196
+  Width = 969
   Caption = 'Cadastro de Produto'
   ClientHeight = 591
-  ClientWidth = 1309
+  ClientWidth = 969
   OnClose = FormClose
   OnShow = FormShow
   inherited PageControl1: TPageControl
     Height = 591
-    Width = 1309
-    ActivePage = tbCadastro
-    TabIndex = 1
+    Width = 969
     inherited tbPesquisa: TTabSheet
       ClientHeight = 558
-      ClientWidth = 1301
+      ClientWidth = 961
       inherited Panel1: TPanel
-        Width = 1301
-        ClientWidth = 1301
+        Width = 961
+        ClientWidth = 961
         inherited BtnBusca: TBitBtn
           Left = 520
           Top = 24
@@ -39,10 +37,10 @@ inherited CadProdF: TCadProdF
       end
       inherited Panel3: TPanel
         Top = 479
-        Width = 1301
-        ClientWidth = 1301
+        Width = 961
+        ClientWidth = 961
         inherited BtnSair: TBitBtn
-          Left = 1149
+          Left = 809
         end
         inherited BtnNovo: TBitBtn
           OnClick = BtnNovoClick
@@ -50,10 +48,45 @@ inherited CadProdF: TCadProdF
         inherited BtnEditar: TBitBtn
           OnClick = BtnEditarClick
         end
+        object BtnImprimir: TBitBtn[3]
+          Left = 296
+          Height = 30
+          Top = 24
+          Width = 94
+          Caption = 'Imprimir'
+          Glyph.Data = {
+            0E030000424D0E030000000000003600000028000000110000000E0000000100
+            180000000000D802000000000000000000000000000000000000BFBFBFBFBFBF
+            BFBFBF0000000000000000000000000000000000000000000000000000000000
+            00000000BFBFBFBFBFBFBFBFBF00BFBFBFBFBFBF000000BFBFBFBFBFBFBFBFBF
+            BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF000000BFBFBF000000BFBFBFBFBF
+            BF00BFBFBF000000000000000000000000000000000000000000000000000000
+            000000000000000000000000BFBFBF000000BFBFBF00BFBFBF000000BFBFBFBF
+            BFBFBFBFBFBFBFBFBFBFBFBFBFBF00FFFF00FFFF00FFFFBFBFBFBFBFBF000000
+            000000000000BFBFBF00BFBFBF000000BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
+            BFBF7F7F7F7F7F7F7F7F7FBFBFBFBFBFBF000000BFBFBF000000BFBFBF00BFBF
+            BF00000000000000000000000000000000000000000000000000000000000000
+            0000000000000000BFBFBFBFBFBF00000000BFBFBF000000BFBFBFBFBFBFBFBF
+            BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF000000BFBFBF000000BF
+            BFBF00000000BFBFBFBFBFBF0000000000000000000000000000000000000000
+            00000000000000000000BFBFBF000000BFBFBF00000000000000BFBFBFBFBFBF
+            BFBFBF000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0000
+            00BFBFBF000000BFBFBF00000000BFBFBFBFBFBFBFBFBFBFBFBF000000FFFFFF
+            000000000000000000000000000000FFFFFF000000000000000000000000BFBF
+            BF00BFBFBFBFBFBFBFBFBFBFBFBF000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFF000000BFBFBFBFBFBFBFBFBF00BFBFBFBFBFBFBFBFBFBF
+            BFBFBFBFBF000000FFFFFF000000000000000000000000000000FFFFFF000000
+            BFBFBFBFBFBFBFBFBF00BFBFBFBFBFBFBFBFBFBFBFBFBFBFBF000000FFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF000000BFBFBFBFBFBF00BFBF
+            BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF00000000000000000000000000000000
+            0000000000000000000000BFBFBFBFBFBF00
+          }
+          TabOrder = 3
+        end
       end
       inherited DBGrid2: TDBGrid
         Height = 399
-        Width = 1301
+        Width = 961
         Columns = <        
           item
             PickList.Strings = (            )
@@ -63,38 +96,32 @@ inherited CadProdF: TCadProdF
           end        
           item
             PickList.Strings = (            )
-            Title.Caption = 'Produto'
-            Width = 350
+            Title.Caption = 'Descrição'
+            Width = 300
             FieldName = 'ds_produto'
           end        
           item
             PickList.Strings = (            )
-            Title.Caption = 'Categoria'
-            Width = 200
-            FieldName = 'ds_categoria_produto'
-          end        
-          item
-            PickList.Strings = (            )
-            Title.Caption = 'Valor de Venda'
-            Width = 120
-            FieldName = 'vl_venda_produto'
-          end        
-          item
-            PickList.Strings = (            )
             Title.Caption = 'Observação'
-            Width = 250
+            Width = 200
             FieldName = 'obs_produto'
           end        
           item
             PickList.Strings = (            )
-            Title.Caption = 'Data de Cadastro'
-            Width = 160
+            Title.Caption = 'Valor de Venda'
+            Width = 130
+            FieldName = 'vl_venda_produto'
+          end        
+          item
+            PickList.Strings = (            )
+            Title.Caption = 'Data do Cadastro'
+            Width = 130
             FieldName = 'dt_cadastro_produto'
           end        
           item
             PickList.Strings = (            )
             Title.Caption = 'Status'
-            Width = 100
+            Width = 80
             FieldName = 'status_produto'
           end        
           item
@@ -109,12 +136,12 @@ inherited CadProdF: TCadProdF
     end
     inherited tbCadastro: TTabSheet
       ClientHeight = 558
-      ClientWidth = 1301
+      ClientWidth = 961
       OnContextPopup = tbCadastroContextPopup
       inherited Panel2: TPanel
         Top = 478
-        Width = 1301
-        ClientWidth = 1301
+        Width = 961
+        ClientWidth = 961
         inherited BtnGravar: TBitBtn
           OnClick = BtnGravarClick
         end
@@ -122,7 +149,7 @@ inherited CadProdF: TCadProdF
           OnClick = BtnExcluirClick
         end
         inherited BtnCancelar: TBitBtn
-          Left = 1148
+          Left = 808
           OnClick = BtnCancelarClick
         end
       end
@@ -195,7 +222,7 @@ inherited CadProdF: TCadProdF
         DataField = 'ds_produto'
         DataSource = dsCadProd
         ReadOnly = True
-        MaxLength = 0
+        MaxLength = 50
         TabOrder = 2
       end
       object EdtValor: TDBEdit[10]
@@ -222,6 +249,7 @@ inherited CadProdF: TCadProdF
         NumGlyphs = 1
         MaxLength = 0
         TabOrder = 4
+        Text = '18/02/2023'
         DataField = 'dt_cadastro_produto'
         DataSource = dsCadProd
       end
@@ -233,7 +261,7 @@ inherited CadProdF: TCadProdF
         DataField = 'obs_produto'
         DataSource = dsCadProd
         ReadOnly = True
-        MaxLength = 0
+        MaxLength = 300
         TabOrder = 5
       end
       object EdtStatus: TDBComboBox[13]
@@ -283,10 +311,9 @@ inherited CadProdF: TCadProdF
   object qryCadProd: TZQuery[2]
     Connection = dmF.ZConnection1
     OnNewRecord = qryCadProdNewRecord
+    Active = True
     SQL.Strings = (
-      'select p.produtoid, ds_produto, cp.ds_categoria_produto, p.obs_produto, p.vl_venda_produto, p.dt_cadastro_produto, p.status_produto, p.categoriaprodutoid  from produto p'
-      'inner join categoria_produto cp on p.categoriaprodutoid = cp.categoriaprodutoid'
-      'order by produtoid;'
+      'select * from produto p order by produtoid;'
     )
     Params = <>
     Left = 288
@@ -357,16 +384,6 @@ inherited CadProdF: TCadProdF
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = True
-    end
-    object qryCadProdds_categoria_produto: TStringField
-      FieldKind = fkData
-      FieldName = 'ds_categoria_produto'
-      Index = 7
-      LookupCache = False
-      ProviderFlags = []
-      ReadOnly = False
-      Required = False
-      Size = 50
     end
   end
 end

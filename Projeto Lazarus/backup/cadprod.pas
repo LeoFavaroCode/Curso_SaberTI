@@ -32,7 +32,6 @@ type
     Label8: TLabel;
     qryCadProd: TZQuery;
     qryCadProdcategoriaprodutoid: TLongintField;
-    qryCadProdds_categoria_produto: TStringField;
     qryCadProdds_produto: TStringField;
     qryCadProddt_cadastro_produto: TDateTimeField;
     qryCadProdobs_produto: TStringField;

@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, DB, Forms, Controls, Graphics, Dialogs, ExtCtrls, DBGrids,
-  DBCtrls, Buttons, StdCtrls, ComCtrls, Types;
+  DBCtrls, Buttons, StdCtrls, ComCtrls, PrintersDlgs, Types;
 
 type
 

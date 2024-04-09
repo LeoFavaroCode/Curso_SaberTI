@@ -26,6 +26,9 @@
     </RunParams>
     <RequiredPackages>
       <Item>
+        <PackageName Value="Printer4Lazarus"/>
+      </Item>
+      <Item>
         <PackageName Value="DateTimeCtrlsDsgn"/>
       </Item>
       <Item>
@@ -106,8 +109,17 @@
         <Filename Value="pesqcat.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="PesqCatF"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="PesqCat"/>
+      </Unit>
+      <Unit>
+        <Filename Value="cadorcamento.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="CadOrcamentoF"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="CadOrcamento"/>
       </Unit>
     </Units>
   </ProjectOptions>

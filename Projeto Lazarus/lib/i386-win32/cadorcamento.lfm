@@ -1,0 +1,232 @@
+inherited CadOrcamentoF: TCadOrcamentoF
+  Caption = 'Orçamento '
+  OnShow = FormShow
+  inherited PageControl1: TPageControl
+    inherited tbPesquisa: TTabSheet
+      inherited Panel1: TPanel
+        inherited BtnBusca: TBitBtn
+          Left = 392
+          Top = 24
+        end
+        inherited RadioButton1: TRadioButton
+          Top = 26
+        end
+        inherited RadioButton2: TRadioButton
+          Height = 24
+          Top = 26
+          Width = 53
+          Caption = 'Data'
+        end
+        object EdtBuscaOrc: TEdit[3]
+          Left = 200
+          Height = 28
+          Top = 24
+          Width = 184
+          TabOrder = 3
+        end
+      end
+      inherited Panel3: TPanel
+        inherited BtnNovo: TBitBtn
+          OnClick = BtnNovoClick
+        end
+      end
+      inherited DBGrid2: TDBGrid
+        Columns = <        
+          item
+            PickList.Strings = (            )
+            Title.Caption = 'ID'
+            Width = 80
+            FieldName = 'orcamentoid'
+          end        
+          item
+            PickList.Strings = (            )
+            Title.Caption = 'Valor total'
+            Width = 110
+            FieldName = 'vl_total_orcamento'
+          end        
+          item
+            PickList.Strings = (            )
+            Title.Caption = 'Data de Cadastro'
+            Width = 140
+            FieldName = 'dt_orcamento'
+          end        
+          item
+            PickList.Strings = (            )
+            Title.Caption = 'Data de Validade'
+            Width = 140
+            FieldName = 'dt_validade_orcamento'
+          end        
+          item
+            PickList.Strings = (            )
+            Title.Caption = 'clienteid'
+            Visible = False
+            FieldName = 'clienteid'
+          end>
+        DataSource = dsCadOrcamento
+        OnDblClick = DBGrid2DblClick
+      end
+    end
+    inherited tbCadastro: TTabSheet
+      object Panel4: TPanel[1]
+        Left = 0
+        Height = 112
+        Top = 0
+        Width = 1147
+        Align = alTop
+        ClientHeight = 112
+        ClientWidth = 1147
+        TabOrder = 1
+        object DBEdit1: TDBEdit
+          Left = 64
+          Height = 28
+          Top = 13
+          Width = 48
+          DataField = 'orcamentoid'
+          DataSource = dsCadOrcamento
+          Alignment = taRightJustify
+          MaxLength = 0
+          TabOrder = 0
+        end
+        object DBEdit2: TDBEdit
+          Left = 64
+          Height = 28
+          Top = 68
+          Width = 48
+          DataField = 'clienteid'
+          DataSource = dsCadOrcamento
+          Alignment = taRightJustify
+          MaxLength = 0
+          TabOrder = 1
+        end
+        object Label1: TLabel
+          Left = 39
+          Height = 20
+          Top = 20
+          Width = 18
+          Caption = 'ID:'
+        end
+        object Label2: TLabel
+          Left = 8
+          Height = 20
+          Top = 72
+          Width = 49
+          Caption = 'Cliente:'
+        end
+        object DataCadastro: TDBDateEdit
+          Left = 272
+          Height = 28
+          Top = 13
+          Width = 129
+          CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
+          ReadOnly = True
+          DateOrder = doNone
+          DateFormat = 'dd/mm/aaaa'
+          ButtonWidth = 29
+          NumGlyphs = 1
+          MaxLength = 0
+          TabOrder = 2
+          Text = '18/02/2023'
+          DataField = 'dt_orcamento'
+          DataSource = dsCadOrcamento
+        end
+        object DataValidade: TDBDateEdit
+          Left = 272
+          Height = 28
+          Top = 68
+          Width = 129
+          CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
+          DateOrder = doNone
+          ButtonWidth = 29
+          NumGlyphs = 1
+          MaxLength = 0
+          TabOrder = 3
+        end
+        object Label3: TLabel
+          Left = 143
+          Height = 20
+          Top = 16
+          Width = 119
+          Caption = 'Data de Cadastro:'
+        end
+        object Label4: TLabel
+          Left = 144
+          Height = 20
+          Top = 72
+          Width = 118
+          Caption = 'Data de Validade:'
+        end
+      end
+      object DBGrid1: TDBGrid[2]
+        Left = 0
+        Height = 300
+        Top = 112
+        Width = 1147
+        Align = alClient
+        Color = clWindow
+        Columns = <>
+        TabOrder = 2
+      end
+    end
+  end
+  object qryCadOrcamento: TZQuery[1]
+    Connection = dmF.ZConnection1
+    Active = True
+    SQL.Strings = (
+      'select * from orcamento order by orcamentoid'
+    )
+    Params = <>
+    Left = 896
+    Top = 144
+    object qryCadOrcamentoorcamentoid: TLongintField
+      FieldKind = fkData
+      FieldName = 'orcamentoid'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qryCadOrcamentoclienteid: TLongintField
+      FieldKind = fkData
+      FieldName = 'clienteid'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qryCadOrcamentodt_orcamento: TDateTimeField
+      FieldKind = fkData
+      FieldName = 'dt_orcamento'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qryCadOrcamentodt_validade_orcamento: TDateTimeField
+      FieldKind = fkData
+      FieldName = 'dt_validade_orcamento'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qryCadOrcamentovl_total_orcamento: TFloatField
+      FieldKind = fkData
+      FieldName = 'vl_total_orcamento'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Precision = 983042
+    end
+  end
+  object dsCadOrcamento: TDataSource[2]
+    DataSet = qryCadOrcamento
+    Left = 1008
+    Top = 144
+  end
+end
