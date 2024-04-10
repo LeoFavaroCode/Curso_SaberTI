@@ -125,11 +125,11 @@ end;
 
 procedure TCadCategoriaF.BtnExcluirClick(Sender: TObject);
 begin
-  EdtDesc.ReadOnly := True;
   If  MessageDlg('Deseja excluir o registro?', mtWarning,[mbyes,mbno],0)=mryes then
   begin
       qryCatProd.Delete;
       PageControl1.ActivePage := tbPesquisa;
+      EdtDesc.ReadOnly := True;
   end;
 end;
 

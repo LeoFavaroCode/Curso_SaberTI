@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, DB, Forms, Controls, Graphics, Dialogs, StdCtrls, ExtCtrls,
-  DBGrids, DBCtrls, DBExtCtrls, Buttons, ZDataset, CadModelo, datamodule, PesqCliente;
+  DBGrids, DBCtrls, DBExtCtrls, Buttons, ZDataset, CadModelo, datamodule, PesqCliente, InsereItem;
 
 type
 
@@ -16,6 +16,7 @@ type
     BtnAdd: TBitBtn;
     BtnExcItem: TBitBtn;
     DataCadastro: TDBDateEdit;
+    dsOrcItem: TDataSource;
     DataValidade: TDBDateEdit;
     DBEdit1: TDBEdit;
     DBEdit2: TDBEdit;
@@ -35,7 +36,17 @@ type
     qryCadOrcamentodt_validade_orcamento: TDateTimeField;
     qryCadOrcamentoorcamentoid: TLongintField;
     qryCadOrcamentovl_total_orcamento: TFloatField;
+    qryOrcItemorcamentoid: TLongintField;
+    qryOrcItemorcamentoitemid: TLongintField;
+    qryOrcItemprodutodesc: TStringField;
+    qryOrcItemprodutoid: TLongintField;
+    qryOrcItemqt_produto: TFloatField;
+    qryOrcItemvl_total: TFloatField;
+    qryOrcItemvl_unitario: TFloatField;
     SpeedButton1: TSpeedButton;
+    qryOrcItem: TZQuery;
+    procedure BtnAddClick(Sender: TObject);
+    procedure BtnBuscaClick(Sender: TObject);
     procedure BtnCancelarClick(Sender: TObject);
     procedure BtnEditarClick(Sender: TObject);
     procedure BtnExcluirClick(Sender: TObject);
@@ -72,11 +83,10 @@ end;
 
 procedure TCadOrcamentoF.BtnNovoClick(Sender: TObject);
 begin
-  DataCadastro.Text := DateToStr(Date);
-  showmessage(DateToStr(Date));
-  DataValidade.Text := DateToStr(Date);
   qryCadOrcamento.Insert;
   DataValidade.ReadOnly := False;
+  DataCadastro.Text := DateToStr(Date);
+  DataValidade.Text := DateToStr(Date);
   inherited;
 end;
 
@@ -91,6 +101,56 @@ begin
   qryCadOrcamento.Cancel;
     DataValidade.ReadOnly := True;
   inherited;
+end;
+
+procedure TCadOrcamentoF.BtnBuscaClick(Sender: TObject);
+var
+  valor: Boolean;
+begin
+
+     if EdtBuscaOrc.Text = '' then
+   begin
+       valor := False;
+   end
+   else
+   begin
+       valor := True;
+   end;
+
+   if RadioButton1.Checked and valor = True then
+   begin
+       CadOrcamentoF.qryCadOrcamento.Close;
+       CadOrcamentoF.qryCadOrcamento.SQL.Clear;
+       CadOrcamentoF.qryCadOrcamento.SQL.Add('select * from orcamento where orcamentoid = ' + EdtBuscaOrc.Text + ' order by orcamentoid');
+       CadOrcamentoF.qryCadOrcamento.Open;
+   end
+   //else if RadioButton2.Checked and valor = True  then
+   //begin
+   //    CadOrcamentoF.qryCadOrcamento.Close;
+   //    CadOrcamentoF.qryCadOrcamento.SQL.Clear;
+   //    CadOrcamentoF.qryCadOrcamento.SQL.Text := 'select * from cliente WHERE upper(orcamento) LIKE' +
+   //                                          QuotedStr(UpperCase('%'+EdtBuscaCliente.Text+'%')) + ' order by clienteid';
+   //    CadOrcamentoF.qryCadOrcamento.Open;
+   //end
+   else if valor = False then
+   begin
+       CadOrcamentoF.qryCadOrcamento.Close;
+       CadOrcamentoF.qryCadOrcamento.SQL.Clear;
+       CadOrcamentoF.qryCadOrcamento.SQL.Add('select * from orcamento order by orcamentoid');
+       qryCadOrcamento.Open;
+   end
+   else
+   begin
+     MessageDlg('Selecione uma das opções para a pesquisa.', mtWarning, [mbOK], 0);
+     qryCadOrcamento.Active:= True;
+     qryCadOrcamento.Refresh;
+   end;
+end;
+
+procedure TCadOrcamentoF.BtnAddClick(Sender: TObject);
+begin
+  InsertItemF := TInsertItemF.Create(Self);
+  InsertItemF.ShowModal;
 end;
 
 procedure TCadOrcamentoF.BtnEditarClick(Sender: TObject);

@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, Menus, CadCliente, CadCategoria, CadUsuario,CadProd,
-  CadOrcamento;
+  CadOrcamento, datamodule;
 
 type
 
@@ -28,7 +28,9 @@ type
     MenuCliente: TMenuItem;
     MenuProduto: TMenuItem;
     MenuUsuaruio: TMenuItem;
+    Separator1: TMenuItem;
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
+    procedure FormShow(Sender: TObject);
     procedure MenuCategoriaClick(Sender: TObject);
     procedure MenuClienteClick(Sender: TObject);
     procedure MenuOrcClick(Sender: TObject);
@@ -89,6 +91,12 @@ procedure TMenuF.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
   CloseAction := caFree;
   Application.Terminate;
+end;
+
+procedure TMenuF.FormShow(Sender: TObject);
+begin
+  dmF := TdmF.Create(Self);
+  dmF.Visible := False;
 end;
 
 end.

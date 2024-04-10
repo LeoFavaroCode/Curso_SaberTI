@@ -93,13 +93,13 @@ end;
 
 procedure TCadClienteF.BtnExcluirClick(Sender: TObject);
 begin
-  EdtNome.ReadOnly := True;
-  EdtCPF.ReadOnly := True;
-  EdtTipo.ReadOnly := True;
   If  MessageDlg('Deseja excluir o registro?', mtWarning,[mbyes,mbno],0)=mryes then
   begin
-       qryCadCliente.Delete;
+      qryCadCliente.Delete;
       PageControl1.ActivePage := tbPesquisa;
+      EdtNome.ReadOnly := True;
+      EdtCPF.ReadOnly := True;
+      EdtTipo.ReadOnly := True;
   end;
 end;
 

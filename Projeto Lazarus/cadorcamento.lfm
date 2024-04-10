@@ -1,4 +1,5 @@
 inherited CadOrcamentoF: TCadOrcamentoF
+  Left = 509
   Caption = 'Orçamento '
   OnShow = FormShow
   inherited PageControl1: TPageControl
@@ -7,6 +8,7 @@ inherited CadOrcamentoF: TCadOrcamentoF
         inherited BtnBusca: TBitBtn
           Left = 392
           Top = 24
+          OnClick = BtnBuscaClick
         end
         inherited RadioButton1: TRadioButton
           Top = 26
@@ -218,7 +220,7 @@ inherited CadOrcamentoF: TCadOrcamentoF
         object DBEdit3: TDBEdit
           Left = 584
           Height = 43
-          Top = 49
+          Top = 53
           Width = 176
           DataField = 'vl_total_orcamento'
           DataSource = dsCadOrcamento
@@ -251,6 +253,7 @@ inherited CadOrcamentoF: TCadOrcamentoF
             7000777770C07777700077777000777770007777777777777000777777777777
             7000
           }
+          OnClick = BtnAddClick
           TabOrder = 5
         end
         object BtnExcItem: TBitBtn
@@ -329,25 +332,39 @@ inherited CadOrcamentoF: TCadOrcamentoF
         Color = clWindow
         Columns = <        
           item
-            Title.Caption = 'orcamentoid'
+            Title.Caption = 'ID Orc.'
             FieldName = 'orcamentoid'
           end        
           item
-            Title.Caption = 'clienteid'
-            FieldName = 'clienteid'
+            Title.Caption = 'ID Item'
+            FieldName = 'orcamentoitemid'
           end        
           item
-            Title.Caption = 'dt_orcamento'
-            FieldName = 'dt_orcamento'
+            Title.Caption = 'Id Produto'
+            FieldName = 'produtoid'
           end        
           item
-            Title.Caption = 'dt_validade_orcamento'
-            FieldName = 'dt_validade_orcamento'
+            Title.Caption = 'Descrição'
+            Width = 300
+            FieldName = 'produtodesc'
           end        
           item
-            Title.Caption = 'vl_total_orcamento'
-            FieldName = 'vl_total_orcamento'
+            Title.Caption = 'Quantidade'
+            Width = 120
+            FieldName = 'qt_produto'
+          end        
+          item
+            Title.Caption = 'Valor Unitário'
+            Width = 120
+            FieldName = 'vl_unitario'
+          end        
+          item
+            Title.Caption = 'Valor Total'
+            Width = 120
+            FieldName = 'vl_total'
           end>
+        DataSource = dsOrcItem
+        ReadOnly = True
         TabOrder = 2
       end
     end
@@ -355,13 +372,12 @@ inherited CadOrcamentoF: TCadOrcamentoF
   object qryCadOrcamento: TZQuery[1]
     Connection = dmF.ZConnection1
     OnNewRecord = qryCadOrcamentoNewRecord
-    Active = True
     SQL.Strings = (
       'select * from orcamento order by orcamentoid'
     )
     Params = <>
-    Left = 856
-    Top = 152
+    Left = 896
+    Top = 216
     object qryCadOrcamentoorcamentoid: TLongintField
       FieldKind = fkData
       FieldName = 'orcamentoid'
@@ -412,7 +428,99 @@ inherited CadOrcamentoF: TCadOrcamentoF
   end
   object dsCadOrcamento: TDataSource[2]
     DataSet = qryCadOrcamento
-    Left = 1008
-    Top = 152
+    Left = 1048
+    Top = 216
+  end
+  object qryOrcItem: TZQuery[3]
+    Connection = dmF.ZConnection1
+    SQL.Strings = (
+      'select * from orcamento_item where orcamentoid = :orcamentoid order by orcamentoitemid;'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'orcamentoid'
+        ParamType = ptUnknown
+      end>
+    Left = 896
+    Top = 336
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'orcamentoid'
+        ParamType = ptUnknown
+      end>
+    object qryOrcItemorcamentoid: TLongintField
+      FieldKind = fkData
+      FieldName = 'orcamentoid'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qryOrcItemorcamentoitemid: TLongintField
+      FieldKind = fkData
+      FieldName = 'orcamentoitemid'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qryOrcItemprodutoid: TLongintField
+      FieldKind = fkData
+      FieldName = 'produtoid'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qryOrcItemprodutodesc: TStringField
+      FieldKind = fkData
+      FieldName = 'produtodesc'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 50
+    end
+    object qryOrcItemqt_produto: TFloatField
+      FieldKind = fkData
+      FieldName = 'qt_produto'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Precision = 983042
+    end
+    object qryOrcItemvl_unitario: TFloatField
+      FieldKind = fkData
+      FieldName = 'vl_unitario'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Precision = 983042
+    end
+    object qryOrcItemvl_total: TFloatField
+      FieldKind = fkData
+      FieldName = 'vl_total'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Precision = 983042
+    end
+  end
+  object dsOrcItem: TDataSource[4]
+    DataSet = qryOrcItem
+    Left = 1048
+    Top = 336
   end
 end

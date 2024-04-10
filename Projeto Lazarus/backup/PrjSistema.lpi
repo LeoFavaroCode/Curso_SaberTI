@@ -125,8 +125,25 @@
         <Filename Value="pesqcliente.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="PesqClienteF"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="PesqCliente"/>
+      </Unit>
+      <Unit>
+        <Filename Value="insereitem.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="InsertItemF"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="InsereItem"/>
+      </Unit>
+      <Unit>
+        <Filename Value="pesqprod.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="PesqProdF"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="PesqProd"/>
       </Unit>
     </Units>
   </ProjectOptions>

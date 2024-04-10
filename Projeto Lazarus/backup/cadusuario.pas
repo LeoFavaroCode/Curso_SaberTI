@@ -160,11 +160,14 @@ end;
 
 procedure TCadUsuarioF.BtnExcluirClick(Sender: TObject);
 begin
-  qryCadUsuario.delete;
-  PageControl1.ActivePage := tbPesquisa;
-  EdtUser.ReadOnly := True;
-  EdtNome.ReadOnly := True;
-  EdtSenha.ReadOnly := True;
+     If  MessageDlg('Deseja excluir o registro?', mtWarning,[mbyes,mbno],0)=mryes then
+  begin
+      qryCadUsuario.delete;
+      PageControl1.ActivePage := tbPesquisa;
+      EdtUser.ReadOnly := True;
+      EdtNome.ReadOnly := True;
+      EdtSenha.ReadOnly := True;
+  end;
 end;
 
 procedure TCadUsuarioF.BtnGravarClick(Sender: TObject);

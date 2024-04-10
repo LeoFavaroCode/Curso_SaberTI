@@ -78,7 +78,7 @@ begin
    begin
        PesqCatF.qryPesqCat.Close;
        PesqCatF.qryPesqCat.SQL.Clear;
-       PesqCatF.qryPesqCat.SQL.Add('select * from produto order by categoriaprodutoid');
+       PesqCatF.qryPesqCat.SQL.Add('select * from categoria_produto order by categoriaprodutoid');
        qryPesqCat.Open;
    end
    else

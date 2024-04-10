@@ -1,0 +1,335 @@
+object InsertItemF: TInsertItemF
+  Left = 668
+  Height = 320
+  Top = 326
+  Width = 513
+  Caption = 'Inserção de Itens'
+  ClientHeight = 320
+  ClientWidth = 513
+  DesignTimePPI = 120
+  OnClose = FormClose
+  OnShow = FormShow
+  LCLVersion = '3.2.0.0'
+  object EdtID: TDBEdit
+    Left = 48
+    Height = 28
+    Top = 16
+    Width = 40
+    DataField = 'produtoid'
+    DataSource = dsInsereItem
+    ReadOnly = True
+    Alignment = taRightJustify
+    MaxLength = 0
+    TabOrder = 0
+  end
+  object DBEdit2: TDBEdit
+    Left = 98
+    Height = 28
+    Top = 72
+    Width = 362
+    DataField = 'ds_produto'
+    DataSource = dsInsereItem
+    ReadOnly = True
+    MaxLength = 50
+    TabOrder = 1
+  end
+  object Label1: TLabel
+    Left = 24
+    Height = 20
+    Top = 18
+    Width = 20
+    Caption = 'ID:'
+    Font.CharSet = ANSI_CHARSET
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label2: TLabel
+    Left = 24
+    Height = 20
+    Top = 74
+    Width = 71
+    Caption = 'Descrição:'
+    Font.CharSet = ANSI_CHARSET
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object SpeedButton1: TSpeedButton
+    Cursor = crHandPoint
+    Left = 102
+    Height = 22
+    Top = 19
+    Width = 29
+    Caption = '...'
+    OnClick = SpeedButton1Click
+  end
+  object EdtQuant: TEdit
+    Left = 112
+    Height = 28
+    Top = 136
+    Width = 100
+    TabOrder = 2
+    OnExit = EdtQuantExit
+  end
+  object EdtValorUnit: TDBEdit
+    Left = 360
+    Height = 28
+    Top = 136
+    Width = 100
+    DataField = 'vl_venda_produto'
+    DataSource = dsInsereItem
+    ReadOnly = True
+    Alignment = taRightJustify
+    MaxLength = 0
+    TabOrder = 3
+  end
+  object EdtDesc: TEdit
+    Left = 112
+    Height = 28
+    Top = 200
+    Width = 62
+    TabOrder = 4
+  end
+  object EdtValorTot: TEdit
+    Left = 360
+    Height = 28
+    Top = 195
+    Width = 100
+    ReadOnly = True
+    TabOrder = 5
+  end
+  object Label3: TLabel
+    Left = 24
+    Height = 20
+    Top = 139
+    Width = 85
+    Caption = 'Quantidade:'
+    Font.CharSet = ANSI_CHARSET
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label4: TLabel
+    Left = 256
+    Height = 20
+    Top = 139
+    Width = 101
+    Caption = 'Valor Unitário:'
+    Font.CharSet = ANSI_CHARSET
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label5: TLabel
+    Left = 39
+    Height = 20
+    Top = 203
+    Width = 70
+    Caption = 'Desconto:'
+    Font.CharSet = ANSI_CHARSET
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label6: TLabel
+    Left = 276
+    Height = 20
+    Top = 198
+    Width = 79
+    Caption = 'Valor Total:'
+    Font.CharSet = ANSI_CHARSET
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object BtnConfirmar: TBitBtn
+    Cursor = crHandPoint
+    Left = 296
+    Height = 30
+    Top = 256
+    Width = 120
+    Caption = 'Confirmar'
+    Font.CharSet = ANSI_CHARSET
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Glyph.Data = {
+      A2070000424DA207000000000000360000002800000019000000190000000100
+      1800000000006C070000C30E0000C30E00000000000000000000BFBFBFBFBFBF
+      BFBFBFBFBFBFBFBFBF7F7F7F7F7F7F7F7F7FBFBFBFBFBFBFBFBFBFBFBFBFBFBF
+      BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
+      BFBFBFBFBF00BFBFBFBFBFBFBFBFBFBFBFBF7F7F7F7F7F7F7F7F7F7F7F7F7F7F
+      7FBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
+      BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF00BFBFBFBFBFBFBFBFBF7F00007F00
+      007F00007F7F7F7F7F7F7F7F7F7F7F7FBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
+      BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF00BFBF
+      BFBFBFBF7F0000007F00007F007F00007F00007F7F7F7F7F7F7F7F7F7F7F7FBF
+      BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
+      BFBFBFBFBFBFBFBFBF00BFBFBF00FF00007F00007F00007F00007F007F00007F
+      00007F7F7F7F7F7F7F7F7F7F7F7FBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
+      BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF0000FF00007F00007F0000
+      7F00007F00007F00007F007F00007F00007F7F7F7F7F7F7F7F7F7F7F7FBFBFBF
+      BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
+      BF0000FF00007F00007F00007F00007F00007F00007F00007F007F00007F0000
+      7F7F7F7F7F7F7F7F7F7F7F7FBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
+      BFBFBFBFBFBFBFBFBFBFBFBFBF0000FF00007F00007F00007F00007F00007F00
+      007F00007F00007F007F00007F00007F7F7F7F7F7F7F7F7F7F7F7FBFBFBFBFBF
+      BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF0000FF00007F00
+      007F00007F00007F00007F00007F00007F00007F00007F007F00007F00007F7F
+      7F7F7F7F7F7F7F7F7F7FBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
+      BFBFBFBFBF0000FF00007F00007F00007F00007F00007F00007F00007F00007F
+      00007F00007F007F00007F00007F7F7F7F7F7F7F7F7F7F7F7FBFBFBFBFBFBFBF
+      BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF0000FF00007F00007F00007F00007F
+      00007F0000FF0000FF00007F00007F00007F00007F007F00007F00007F7F7F7F
+      7F7F7F7F7F7F7F7FBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF0000FF
+      00007F00007F00007F00007F007F00007F7F7F00FF0000FF00007F00007F0000
+      7F00007F007F00007F00007F7F7F7F7F7F7F7F7F7F7F7FBFBFBFBFBFBFBFBFBF
+      BFBFBFBFBFBFBFBFBF0000FF00007F00007F00007F00007F007F00007F7F7F7F
+      7F7F00FF0000FF00007F00007F00007F00007F007F00007F00007F7F7F7F7F7F
+      7F7F7FBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF0000FF00007F00007F0000
+      7F00007F007F00007F7F7F7F7F7FBFBFBF00FF0000FF00007F00007F00007F00
+      007F007F00007F00007F7F7F7F7F7F7F7F7FBFBFBFBFBFBFBFBFBFBFBFBFBFBF
+      BF0000FF0000FF00007F00007F00007F007F00007F7F7F7F7F7FBFBFBFBFBFBF
+      00FF0000FF00007F00007F00007F00007F007F00007F7F7F7F7F7F7F7F7F7F7F
+      7FBFBFBFBFBFBFBFBFBFBFBFBF00BFBFBF00FF00007F00007F00007F007F0000
+      BFBFBFBFBFBFBFBFBFBFBFBFBFBFBF00FF0000FF00007F00007F00007F007F00
+      007F00007F7F7F7F7F7F7F7F7F7F7F7FBFBFBFBFBFBFBFBFBF00BFBFBF00FF00
+      00FF0000FF0000FF00007F00BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF00FF
+      0000FF00007F00007F00007F007F00007F00007F7F7F7F7F7F7F7F7F7F7F7FBF
+      BFBFBFBFBF00BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
+      BFBFBFBFBFBFBFBFBFBFBFBFBF00FF0000FF00007F00007F00007F007F00007F
+      00007F7F7F7F7F7F7F7F7F7F7F7FBFBFBF00BFBFBFBFBFBFBFBFBFBFBFBFBFBF
+      BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF00FF0000
+      FF00007F00007F00007F007F00007F00007F7F7F7F7F7F7F7F7F7F7F7F00BFBF
+      BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
+      BFBFBFBFBFBFBFBFBFBFBF00FF0000FF00007F00007F00007F007F00007F0000
+      7F7F7F7F7F7F7F7F7F00BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
+      BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF00FF0000FF00
+      007F00007F00007F007F00007F00007F7F7F7F7F7F00BFBFBFBFBFBFBFBFBFBF
+      BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
+      BFBFBFBFBFBFBFBFBF00FF0000FF00007F00007F00007F007F00007F7F7F7F7F
+      7F00BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
+      BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF00FF0000FF00007F
+      00007F007F00007F7F7F7F7F7F00BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
+      BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
+      BFBFBFBFBFBFBF00FF0000FF00007F007F00007F7F7F7F7F7F00BFBFBFBFBFBF
+      BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
+      BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF00FF0000FF00007F00BF
+      BFBFBFBFBF00
+    }
+    ParentFont = False
+    TabOrder = 7
+  end
+  object BtnCancel: TBitBtn
+    Cursor = crHandPoint
+    Left = 80
+    Height = 30
+    Top = 256
+    Width = 120
+    Caption = 'Cancelar'
+    Font.CharSet = ANSI_CHARSET
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Glyph.Data = {
+      F6000000424DF600000000000000760000002800000010000000100000000100
+      0400000000008000000000000000000000001000000010000000000000000000
+      BF0000BF000000BFBF00BF000000BF00BF00BFBF0000C0C0C000808080000000
+      FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00777777777777
+      7777777777777777777777777777777777777777777777777777777777777777
+      7777777777777778477777444447777748777744447777777477774447777777
+      7477774474777777747777477744777748777777777744448777777777777777
+      7777777777777777777777777777777777777777777777777777
+    }
+    OnClick = BtnCancelClick
+    ParentFont = False
+    TabOrder = 6
+  end
+  object dsInsereItem: TDataSource
+    DataSet = qryInsereItem
+    Left = 344
+    Top = 8
+  end
+  object qryInsereItem: TZQuery
+    Connection = dmF.ZConnection1
+    SQL.Strings = (
+      'select * from produto order by produtoid;'
+    )
+    Params = <>
+    Left = 232
+    Top = 8
+    object qryInsereItemprodutoid: TLongintField
+      FieldKind = fkData
+      FieldName = 'produtoid'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qryInsereItemcategoriaprodutoid: TLongintField
+      FieldKind = fkData
+      FieldName = 'categoriaprodutoid'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qryInsereItemds_produto: TStringField
+      FieldKind = fkData
+      FieldName = 'ds_produto'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 50
+    end
+    object qryInsereItemobs_produto: TStringField
+      FieldKind = fkData
+      FieldName = 'obs_produto'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 300
+    end
+    object qryInsereItemvl_venda_produto: TFloatField
+      FieldKind = fkData
+      FieldName = 'vl_venda_produto'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      OnGetText = qryInsereItemvl_venda_produtoGetText
+      Precision = 983042
+    end
+    object qryInsereItemdt_cadastro_produto: TDateTimeField
+      FieldKind = fkData
+      FieldName = 'dt_cadastro_produto'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qryInsereItemstatus_produto: TStringField
+      FieldKind = fkData
+      FieldName = 'status_produto'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 10
+    end
+  end
+end

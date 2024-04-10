@@ -26,6 +26,9 @@ inherited CadProdF: TCadProdF
           Top = 24
           OnClick = BtnBuscaClick
         end
+        inherited RadioButton1: TRadioButton
+          Top = 28
+        end
         inherited RadioButton2: TRadioButton
           Height = 24
           Width = 86
@@ -138,13 +141,13 @@ inherited CadProdF: TCadProdF
             FieldName = 'categoriaprodutoid'
           end>
         DataSource = dsCadProd
+        ReadOnly = True
         OnDblClick = DBGrid2DblClick
       end
     end
     inherited tbCadastro: TTabSheet
       ClientHeight = 558
       ClientWidth = 961
-      OnContextPopup = tbCadastroContextPopup
       inherited Panel2: TPanel
         Top = 478
         Width = 961
@@ -348,8 +351,8 @@ inherited CadProdF: TCadProdF
   end
   object dsCadProd: TDataSource[1]
     DataSet = qryCadProd
-    Left = 440
-    Top = 328
+    Left = 640
+    Top = 312
   end
   object qryCadProd: TZQuery[2]
     Connection = dmF.ZConnection1
@@ -359,8 +362,8 @@ inherited CadProdF: TCadProdF
       'select * from produto p order by produtoid;'
     )
     Params = <>
-    Left = 296
-    Top = 328
+    Left = 760
+    Top = 312
     object qryCadProdprodutoid: TLongintField
       FieldKind = fkData
       FieldName = 'produtoid'
@@ -398,6 +401,7 @@ inherited CadProdF: TCadProdF
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = True
+      OnGetText = qryCadProdvl_venda_produtoGetText
       Precision = 983042
     end
     object qryCadProddt_cadastro_produto: TDateTimeField

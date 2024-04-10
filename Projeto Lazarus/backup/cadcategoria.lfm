@@ -67,6 +67,7 @@ inherited CadCategoriaF: TCadCategoriaF
             FieldName = 'ds_categoria_produto'
           end>
         DataSource = DsCatProd
+        ReadOnly = True
         OnDblClick = DBGrid2DblClick
       end
     end

@@ -27,6 +27,8 @@ type
     qryPesqCliente: TZQuery;
     procedure BtnBuscaClick(Sender: TObject);
     procedure DBGrid1DblClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
+    procedure FormShow(Sender: TObject);
   private
 
   public
@@ -49,6 +51,17 @@ procedure TPesqClienteF.DBGrid1DblClick(Sender: TObject);
 begin
   CadOrcamentoF.qryCadorcamentoclienteid.AsInteger := qryPesqClienteclienteid.AsInteger;
   Close;
+end;
+
+procedure TPesqClienteF.FormClose(Sender: TObject; var CloseAction: TCloseAction
+  );
+begin
+  CloseAction := caFree;
+end;
+
+procedure TPesqClienteF.FormShow(Sender: TObject);
+begin
+  qryPesqCliente.Active := True;
 end;
 
 procedure TPesqClienteF.BtnBuscaClick(Sender: TObject);

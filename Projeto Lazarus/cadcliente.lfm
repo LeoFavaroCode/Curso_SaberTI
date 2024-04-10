@@ -88,6 +88,7 @@ inherited CadClienteF: TCadClienteF
             FieldName = 'tipo_cliente'
           end>
         DataSource = dsCadCliente
+        ReadOnly = True
         OnDblClick = DBGrid2DblClick
       end
     end

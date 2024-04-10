@@ -99,6 +99,7 @@ object PesqCatF: TPesqCatF
         FieldName = 'ds_categoria_produto'
       end>
     DataSource = dsPesqCat
+    ReadOnly = True
     TabOrder = 1
     OnDblClick = GridCatDblClick
   end
@@ -109,7 +110,6 @@ object PesqCatF: TPesqCatF
   end
   object qryPesqCat: TZQuery
     Connection = dmF.ZConnection1
-    Active = True
     SQL.Strings = (
       'select * from categoria_produto order by categoriaprodutoid;'
     )

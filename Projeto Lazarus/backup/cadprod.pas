@@ -53,8 +53,6 @@ type
     procedure qryCadProdvl_venda_produtoGetText(Sender: TField;
       var aText: string; DisplayText: Boolean);
     procedure SpeedButton1Click(Sender: TObject);
-    procedure tbCadastroContextPopup(Sender: TObject; MousePos: TPoint;
-      var Handled: Boolean);
   private
 
   public
@@ -124,16 +122,14 @@ begin
    begin
        CadProdF.qryCadProd.Close;
        CadProdF.qryCadProd.SQL.Clear;
-       CadProdF.qryCadProd.SQL.Add('select produtoid, ds_produto, ds_categoria_produto, obs_produto, vl_venda_produto, dt_cadastro_produto, status_produto, p.categoriaprodutoid from produto p ' +
-       'inner join categoria_produto cp on p.categoriaprodutoid = cp.categoriaprodutoid Where produtoid = ' + EdtBuscaProd.Text + ' order by produtoid');
+       CadProdF.qryCadProd.SQL.Add('select * from produto order by produtoid Where produtoid = ' + EdtBuscaProd.Text + ' order by produtoid');
        CadProdF.qryCadProd.Open;
    end
    else if RadioButton2.Checked and valor = True then
    begin
        CadProdF.qryCadProd.Close;
        CadProdF.qryCadProd.SQL.Clear;
-       CadProdF.qryCadProd.SQL.Text := 'select produtoid, ds_produto, ds_categoria_produto, obs_produto, vl_venda_produto, dt_cadastro_produto, status_produto, p.categoriaprodutoid from produto p ' +
-       'inner join categoria_produto cp on p.categoriaprodutoid = cp.categoriaprodutoid WHERE upper(ds_produto) LIKE '
+       CadProdF.qryCadProd.SQL.Text := 'select * from produto order by produtoid WHERE upper(ds_produto) LIKE '
         + QuotedStr(UpperCase('%'+EdtBuscaProd.Text+'%')) + 'order by produtoid';
        CadProdF.qryCadProd.Open;
    end
@@ -215,12 +211,6 @@ begin
   EdtCat.SetFocus;
   PesqCatF := TPesqCatF.Create(Self);
   PesqCatF.ShowModal;
-end;
-
-procedure TCadProdF.tbCadastroContextPopup(Sender: TObject; MousePos: TPoint;
-  var Handled: Boolean);
-begin
-
 end;
 
 end.

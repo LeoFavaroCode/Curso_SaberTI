@@ -7,6 +7,8 @@ object PesqClienteF: TPesqClienteF
   ClientHeight = 570
   ClientWidth = 666
   DesignTimePPI = 120
+  OnClose = FormClose
+  OnShow = FormShow
   Position = poDesktopCenter
   LCLVersion = '3.2.0.0'
   object Panel1: TPanel
@@ -107,6 +109,7 @@ object PesqClienteF: TPesqClienteF
         FieldName = 'cpf_cnpj_cliente'
       end>
     DataSource = dsPesqCliente
+    ReadOnly = True
     TabOrder = 1
     OnDblClick = DBGrid1DblClick
   end
@@ -117,7 +120,6 @@ object PesqClienteF: TPesqClienteF
   end
   object qryPesqCliente: TZQuery
     Connection = dmF.ZConnection1
-    Active = True
     SQL.Strings = (
       'Select * from cliente order by clienteid'
     )
