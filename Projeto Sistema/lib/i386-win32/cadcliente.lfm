@@ -8,12 +8,10 @@ inherited CadClienteF: TCadClienteF
   OnShow = FormShow
   inherited PageControl1: TPageControl
     Width = 949
-    ActivePage = tbPesquisa
     Font.CharSet = ANSI_CHARSET
     Font.Pitch = fpVariable
     Font.Quality = fqDraft
     ParentFont = False
-    TabIndex = 0
     inherited tbPesquisa: TTabSheet
       ClientWidth = 941
       inherited Panel1: TPanel

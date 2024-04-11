@@ -35,10 +35,15 @@ type
     qryInsereItemprodutoid: TLongintField;
     qryInsereItemstatus_produto: TStringField;
     qryInsereItemvl_venda_produto: TFloatField;
+    RadioButton1: TRadioButton;
+    RadioButton2: TRadioButton;
     SpeedButton1: TSpeedButton;
     qryInsereItem: TZQuery;
     procedure BtnCancelClick(Sender: TObject);
-    procedure EdtQuantExit(Sender: TObject);
+    procedure BtnConfirmarClick(Sender: TObject);
+    procedure EdtDescChange(Sender: TObject);
+    procedure EdtDescExit(Sender: TObject);
+    procedure EdtQuantChange(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormShow(Sender: TObject);
     procedure qryInsereItemvl_venda_produtoGetText(Sender: TField;
@@ -75,9 +80,48 @@ begin
   end;
 end;
 
-procedure TInsertItemF.EdtQuantExit(Sender: TObject);
+procedure TInsertItemF.BtnConfirmarClick(Sender: TObject);
 begin
-  EdtValorTot.Text := FloatToStr(StrToFloat(EdtQuant.Text) * qryInsereItemvl_venda_produto.AsFloat);
+
+end;
+
+procedure TInsertItemF.EdtDescChange(Sender: TObject);
+var
+  valor: Boolean;
+begin
+     if EdtDesc.Text = '' then
+   begin
+       valor := False;
+   end
+   else
+   begin
+       valor := True;
+   end;
+
+  If RadioButton1.Checked and valor = True then
+  begin
+      EdtValorTot.Text := FloatToStr(StrToFloat(EdtQuant.Text) * qryInsereItemvl_venda_produto.AsFloat - StrToFloat(EdtDesc.Text));
+  end
+  Else if RadioButton2.Checked and valor = True then
+  begin
+     EdtValorTot.Text := FloatToStr(StrToFloat(EdtQuant.Text) * qryInsereItemvl_venda_produto.AsFloat - StrToFloat(EdtDesc.Text));
+  end;
+end;
+
+procedure TInsertItemF.EdtDescExit(Sender: TObject);
+begin
+  If EdtDesc.text <> '' then
+  begin
+     EdtDesc.Text := FormatFloat('0.00', StrToFloat(EdtDesc.Text));
+  end;
+end;
+
+procedure TInsertItemF.EdtQuantChange(Sender: TObject);
+begin
+  if EdtQuant.Text <> '' then
+  begin
+     EdtValorTot.Text := FloatToStr(StrToFloat(EdtQuant.Text) * qryInsereItemvl_venda_produto.AsFloat);
+  end;
 end;
 
 procedure TInsertItemF.FormShow(Sender: TObject);
