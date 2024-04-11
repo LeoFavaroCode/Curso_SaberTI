@@ -7,7 +7,6 @@ object MenuF: TMenuF
   DesignTimePPI = 120
   Menu = MainMenu1
   OnClose = FormClose
-  OnShow = FormShow
   LCLVersion = '3.2.0.0'
   WindowState = wsMaximized
   object MainMenu1: TMainMenu
@@ -46,6 +45,7 @@ object MenuF: TMenuF
       Caption = 'Relatórios'
       object RelatCliente: TMenuItem
         Caption = 'Cliente'
+        OnClick = RelatClienteClick
       end
       object RelatProdutos: TMenuItem
         Caption = 'Produtos'

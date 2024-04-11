@@ -88,6 +88,7 @@ end;
 procedure TInsertItemF.EdtDescChange(Sender: TObject);
 var
   valor: Boolean;
+  desc_porcent: Double;
 begin
      if EdtDesc.Text = '' then
    begin
@@ -104,7 +105,8 @@ begin
   end
   Else if RadioButton2.Checked and valor = True then
   begin
-     EdtValorTot.Text := FloatToStr(StrToFloat(EdtQuant.Text) * qryInsereItemvl_venda_produto.AsFloat - StrToFloat(EdtDesc.Text));
+     Desc_porcent := StrToFloat(EdtDesc.Text) / 100;
+     EdtValorTot.Text := FloatToStr((StrToFloat(EdtQuant.Text) * qryInsereItemvl_venda_produto.AsFloat) * Desc_porcent);
   end;
 end;
 

@@ -30,13 +30,13 @@ type
     MenuUsuaruio: TMenuItem;
     Separator1: TMenuItem;
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
-    procedure FormShow(Sender: TObject);
     procedure MenuCategoriaClick(Sender: TObject);
     procedure MenuClienteClick(Sender: TObject);
     procedure MenuOrcClick(Sender: TObject);
     procedure MenuProdutoClick(Sender: TObject);
     procedure MenuSairClick(Sender: TObject);
     procedure MenuUsuaruioClick(Sender: TObject);
+    procedure RelatClienteClick(Sender: TObject);
   private
 
   public
@@ -81,6 +81,12 @@ begin
   CadUsuarioF.ShowModal;
 end;
 
+procedure TMenuF.RelatClienteClick(Sender: TObject);
+begin
+  relClientesF := TrelClientesF.Create(Self);
+  relClientesF.ShowModal;
+end;
+
 procedure TMenuF.MenuCategoriaClick(Sender: TObject);
 begin
   CadCategoriaF := TCadCategoriaF.Create(Self);
@@ -93,11 +99,6 @@ begin
   Application.Terminate;
 end;
 
-procedure TMenuF.FormShow(Sender: TObject);
-begin
-  dmF := TdmF.Create(Self);
-  dmF.Visible := False;
-end;
 
 end.
 

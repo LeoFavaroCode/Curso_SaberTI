@@ -105,8 +105,8 @@ begin
   end
   Else if RadioButton2.Checked and valor = True then
   begin
-     Desc_porcent := StrToFloat(EdtDesc.Text)
-     EdtValorTot.Text := FloatToStr(StrToFloat(EdtQuant.Text) * qryInsereItemvl_venda_produto.AsFloat);
+     Desc_porcent := StrToFloat(EdtDesc.Text) / 100;
+     EdtValorTot.Text := FloatToStr((StrToFloat(EdtQuant.Text) * qryInsereItemvl_venda_produto.AsFloat) * Desc_porcent);
   end;
 end;
 

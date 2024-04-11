@@ -45,6 +45,7 @@ object MenuF: TMenuF
       Caption = 'Relatórios'
       object RelatCliente: TMenuItem
         Caption = 'Cliente'
+        OnClick = RelatClienteClick
       end
       object RelatProdutos: TMenuItem
         Caption = 'Produtos'

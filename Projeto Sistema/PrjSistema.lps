@@ -10,7 +10,7 @@
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
         <CursorPos Y="26"/>
-        <UsageCount Value="55"/>
+        <UsageCount Value="57"/>
       </Unit>
       <Unit>
         <Filename Value="cadmodelo.pas"/>
@@ -21,7 +21,7 @@
         <UnitName Value="CadModelo"/>
         <TopLine Value="72"/>
         <CursorPos X="47" Y="34"/>
-        <UsageCount Value="55"/>
+        <UsageCount Value="57"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -32,10 +32,9 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Menu"/>
-        <EditorIndex Value="7"/>
-        <TopLine Value="35"/>
-        <CursorPos X="59" Y="56"/>
-        <UsageCount Value="55"/>
+        <EditorIndex Value="8"/>
+        <CursorPos X="40" Y="9"/>
+        <UsageCount Value="57"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -49,7 +48,7 @@
         <EditorIndex Value="2"/>
         <TopLine Value="79"/>
         <CursorPos Y="96"/>
-        <UsageCount Value="54"/>
+        <UsageCount Value="56"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -60,9 +59,9 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="DataModule"/>
-        <EditorIndex Value="11"/>
+        <EditorIndex Value="12"/>
         <CursorPos X="11" Y="12"/>
-        <UsageCount Value="53"/>
+        <UsageCount Value="55"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -73,10 +72,10 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="CadCategoria"/>
-        <EditorIndex Value="10"/>
+        <EditorIndex Value="11"/>
         <TopLine Value="42"/>
         <CursorPos X="43" Y="54"/>
-        <UsageCount Value="52"/>
+        <UsageCount Value="54"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -90,7 +89,7 @@
         <EditorIndex Value="1"/>
         <TopLine Value="153"/>
         <CursorPos X="33" Y="169"/>
-        <UsageCount Value="52"/>
+        <UsageCount Value="54"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -101,10 +100,10 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="CadProd"/>
-        <EditorIndex Value="8"/>
+        <EditorIndex Value="9"/>
         <TopLine Value="143"/>
-        <CursorPos Y="153"/>
-        <UsageCount Value="52"/>
+        <CursorPos X="81" Y="143"/>
+        <UsageCount Value="54"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -115,10 +114,10 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="PesqCat"/>
-        <EditorIndex Value="9"/>
+        <EditorIndex Value="10"/>
         <TopLine Value="86"/>
         <CursorPos X="3" Y="99"/>
-        <UsageCount Value="37"/>
+        <UsageCount Value="39"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -130,9 +129,8 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="CadOrcamento"/>
         <EditorIndex Value="3"/>
-        <TopLine Value="139"/>
         <CursorPos X="94" Y="9"/>
-        <UsageCount Value="32"/>
+        <UsageCount Value="34"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -144,9 +142,9 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="PesqCliente"/>
         <EditorIndex Value="4"/>
-        <TopLine Value="62"/>
+        <TopLine Value="61"/>
         <CursorPos X="28" Y="52"/>
-        <UsageCount Value="29"/>
+        <UsageCount Value="31"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -157,11 +155,10 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="InsereItem"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="5"/>
-        <TopLine Value="92"/>
-        <CursorPos X="22" Y="108"/>
-        <UsageCount Value="25"/>
+        <TopLine Value="88"/>
+        <CursorPos X="71" Y="98"/>
+        <UsageCount Value="27"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -172,10 +169,10 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="PesqProd"/>
-        <EditorIndex Value="6"/>
+        <EditorIndex Value="7"/>
         <TopLine Value="72"/>
         <CursorPos Y="75"/>
-        <UsageCount Value="23"/>
+        <UsageCount Value="25"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -196,40 +193,22 @@
         <CursorPos X="14" Y="1508"/>
         <UsageCount Value="10"/>
       </Unit>
+      <Unit>
+        <Filename Value="relclientes.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="relClientesF"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="RelClientes"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="6"/>
+        <TopLine Value="38"/>
+        <CursorPos X="3" Y="57"/>
+        <UsageCount Value="22"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit>
     </Units>
     <JumpHistory HistoryIndex="29">
-      <Position>
-        <Filename Value="insereitem.pas"/>
-        <Caret Line="66" Column="3" TopLine="53"/>
-      </Position>
-      <Position>
-        <Filename Value="cadprod.pas"/>
-        <Caret Line="55" Column="50" TopLine="38"/>
-      </Position>
-      <Position>
-        <Filename Value="insereitem.pas"/>
-        <Caret Line="66" Column="3" TopLine="53"/>
-      </Position>
-      <Position>
-        <Filename Value="insereitem.pas"/>
-        <Caret Line="71" Column="9" TopLine="54"/>
-      </Position>
-      <Position>
-        <Filename Value="pesqprod.pas"/>
-        <Caret Line="110" Column="22" TopLine="93"/>
-      </Position>
-      <Position>
-        <Filename Value="pesqprod.pas"/>
-        <Caret Line="121" Column="91" TopLine="103"/>
-      </Position>
-      <Position>
-        <Filename Value="insereitem.pas"/>
-        <Caret Line="79" Column="9" TopLine="56"/>
-      </Position>
-      <Position>
-        <Filename Value="insereitem.pas"/>
-        <Caret Line="74" Column="3" TopLine="65"/>
-      </Position>
       <Position>
         <Filename Value="insereitem.pas"/>
         <Caret Line="71" Column="35" TopLine="56"/>
@@ -317,6 +296,36 @@
       <Position>
         <Filename Value="insereitem.pas"/>
         <Caret Line="113" Column="70" TopLine="94"/>
+      </Position>
+      <Position>
+        <Filename Value="insereitem.pas"/>
+        <Caret Line="109" Column="119" TopLine="92"/>
+      </Position>
+      <Position>
+        <Filename Value="relclientes.pas"/>
+      </Position>
+      <Position>
+        <Filename Value="menu.pas"/>
+        <Caret Line="57" Column="59" TopLine="35"/>
+      </Position>
+      <Position>
+        <Filename Value="relclientes.pas"/>
+      </Position>
+      <Position>
+        <Filename Value="relclientes.pas"/>
+        <Caret Line="9" Column="33" TopLine="11"/>
+      </Position>
+      <Position>
+        <Filename Value="relclientes.pas"/>
+        <Caret Line="44" Column="42" TopLine="23"/>
+      </Position>
+      <Position>
+        <Filename Value="relclientes.pas"/>
+        <Caret Line="50" Column="42" TopLine="27"/>
+      </Position>
+      <Position>
+        <Filename Value="relclientes.pas"/>
+        <Caret Line="51" Column="34" TopLine="33"/>
       </Position>
     </JumpHistory>
     <RunParams>
