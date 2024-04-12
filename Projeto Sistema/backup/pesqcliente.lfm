@@ -109,6 +109,7 @@ object PesqClienteF: TPesqClienteF
         FieldName = 'cpf_cnpj_cliente'
       end>
     DataSource = dsPesqCliente
+    ReadOnly = True
     TabOrder = 1
     OnDblClick = DBGrid1DblClick
   end

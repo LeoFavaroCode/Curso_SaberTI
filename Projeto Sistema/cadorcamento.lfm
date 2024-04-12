@@ -433,6 +433,7 @@ inherited CadOrcamentoF: TCadOrcamentoF
   end
   object qryOrcItem: TZQuery[3]
     Connection = dmF.ZConnection1
+    Active = True
     SQL.Strings = (
       'select * from orcamento_item where orcamentoid = :orcamentoid order by orcamentoitemid;'
     )

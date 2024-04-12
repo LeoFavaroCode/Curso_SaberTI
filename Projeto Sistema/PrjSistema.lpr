@@ -12,7 +12,7 @@ uses
   Interfaces, // this includes the LCL widgetset
   Forms, datetimectrls, printer4lazarus, zcomponent, CadModelo, Menu,
   CadCliente, DataModule, CadCategoria, CadUsuario, CadProd, PesqCat, 
-CadOrcamento, PesqCliente, InsereItem, PesqProd, RelClientes
+CadOrcamento, PesqCliente, InsereItem, PesqProd, RelClientes, RelProd, RelCat
   { you can add units after this };
 
 {$R *.res}
@@ -24,6 +24,8 @@ begin
   Application.CreateForm(TMenuF, MenuF);
   Application.CreateForm(TdmF, dmF);
   Application.CreateForm(TrelClientesF, relClientesF);
+  Application.CreateForm(TRelProdF, RelProdF);
+  Application.CreateForm(TRelCatF, RelCatF);
   Application.Run;
 end.
 

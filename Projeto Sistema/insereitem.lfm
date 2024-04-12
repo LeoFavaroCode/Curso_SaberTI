@@ -1,5 +1,5 @@
 object InsertItemF: TInsertItemF
-  Left = 668
+  Left = 677
   Height = 370
   Top = 326
   Width = 498
@@ -66,14 +66,6 @@ object InsertItemF: TInsertItemF
     Caption = '...'
     OnClick = SpeedButton1Click
   end
-  object EdtQuant: TEdit
-    Left = 112
-    Height = 28
-    Top = 136
-    Width = 100
-    TabOrder = 2
-    OnChange = EdtQuantChange
-  end
   object EdtValorUnit: TDBEdit
     Left = 344
     Height = 28
@@ -86,15 +78,6 @@ object InsertItemF: TInsertItemF
     MaxLength = 0
     TabOrder = 3
   end
-  object EdtDesc: TEdit
-    Left = 368
-    Height = 28
-    Top = 192
-    Width = 76
-    TabOrder = 6
-    OnChange = EdtDescChange
-    OnExit = EdtDescExit
-  end
   object EdtValorTot: TEdit
     Left = 236
     Height = 28
@@ -103,6 +86,7 @@ object InsertItemF: TInsertItemF
     Alignment = taCenter
     ReadOnly = True
     TabOrder = 7
+    OnChange = EdtValorTotChange
   end
   object Label3: TLabel
     Left = 24
@@ -264,6 +248,7 @@ object InsertItemF: TInsertItemF
     Width = 80
     Caption = 'Por valor'
     TabOrder = 4
+    OnChange = RadioButton1Change
   end
   object RadioButton2: TRadioButton
     Left = 120
@@ -272,6 +257,30 @@ object InsertItemF: TInsertItemF
     Width = 136
     Caption = 'Por porcentagem'
     TabOrder = 5
+    OnChange = RadioButton2Change
+  end
+  object EdtQuant: TDBEdit
+    Left = 112
+    Height = 28
+    Top = 136
+    Width = 100
+    DataField = 'qt_produto'
+    DataSource = CadOrcamentoF.dsOrcItem
+    Alignment = taRightJustify
+    MaxLength = 0
+    TabOrder = 2
+    OnChange = EdtQuantChange
+  end
+  object EdtDesc: TMaskEdit
+    Left = 376
+    Height = 28
+    Top = 193
+    Width = 100
+    EnableSets = False
+    MaxLength = 0
+    TabOrder = 6
+    OnExit = EdtDescExit
+    SpaceChar = '_'
   end
   object dsInsereItem: TDataSource
     DataSet = qryInsereItem

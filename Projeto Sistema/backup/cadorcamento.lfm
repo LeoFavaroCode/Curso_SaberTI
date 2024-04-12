@@ -3,6 +3,8 @@ inherited CadOrcamentoF: TCadOrcamentoF
   Caption = 'Orçamento '
   OnShow = FormShow
   inherited PageControl1: TPageControl
+    ActivePage = tbPesquisa
+    TabIndex = 0
     inherited tbPesquisa: TTabSheet
       inherited Panel1: TPanel
         inherited BtnBusca: TBitBtn

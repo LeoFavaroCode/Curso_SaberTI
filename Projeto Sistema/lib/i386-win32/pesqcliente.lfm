@@ -120,6 +120,7 @@ object PesqClienteF: TPesqClienteF
   end
   object qryPesqCliente: TZQuery
     Connection = dmF.ZConnection1
+    Active = True
     SQL.Strings = (
       'Select * from cliente order by clienteid'
     )

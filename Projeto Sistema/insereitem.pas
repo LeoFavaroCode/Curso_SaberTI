@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, DB, Forms, Controls, Graphics, Dialogs, DBCtrls, StdCtrls,
-  Buttons, ZDataset, PesqProd;
+  Buttons, MaskEdit, ZDataset, PesqProd;
 
 type
 
@@ -15,12 +15,12 @@ type
   TInsertItemF = class(TForm)
     BtnConfirmar: TBitBtn;
     BtnCancel: TBitBtn;
+    EdtDesc: TMaskEdit;
+    EdtQuant: TDBEdit;
     EdtValorUnit: TDBEdit;
     dsInsereItem: TDataSource;
     EdtID: TDBEdit;
     DBEdit2: TDBEdit;
-    EdtQuant: TEdit;
-    EdtDesc: TEdit;
     EdtValorTot: TEdit;
     Label1: TLabel;
     Label2: TLabel;
@@ -41,13 +41,15 @@ type
     qryInsereItem: TZQuery;
     procedure BtnCancelClick(Sender: TObject);
     procedure BtnConfirmarClick(Sender: TObject);
-    procedure EdtDescChange(Sender: TObject);
     procedure EdtDescExit(Sender: TObject);
     procedure EdtQuantChange(Sender: TObject);
+    procedure EdtValorTotChange(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormShow(Sender: TObject);
     procedure qryInsereItemvl_venda_produtoGetText(Sender: TField;
       var aText: string; DisplayText: Boolean);
+    procedure RadioButton1Change(Sender: TObject);
+    procedure RadioButton2Change(Sender: TObject);
     procedure SpeedButton1Click(Sender: TObject);
   private
 
@@ -59,6 +61,9 @@ var
   InsertItemF: TInsertItemF;
 
 implementation
+
+Uses
+  CadOrcamento;
 
 {$R *.lfm}
 
@@ -82,13 +87,18 @@ end;
 
 procedure TInsertItemF.BtnConfirmarClick(Sender: TObject);
 begin
+  CadOrcamentoF.qryOrcItemprodutoid.AsInteger := qryInsereItemprodutoid.AsInteger;
+  CadOrcamentoF.qryOrcItemprodutodesc.AsString := qryInsereItemds_produto.AsString;
+  CadOrcamentoF.qryOrcItemqt_produto.AsInteger := CadOrcamentoF.qryOrcItemqt_produto.AsInteger;
+  qryInsereItem.post;
 
 end;
 
-procedure TInsertItemF.EdtDescChange(Sender: TObject);
+procedure TInsertItemF.EdtDescExit(Sender: TObject);
 var
   valor: Boolean;
-  desc_porcent: Double;
+  desc_porcent, valor_final, valor_desconto, desc_valor: Double;
+  varAux: String;
 begin
      if EdtDesc.Text = '' then
    begin
@@ -101,21 +111,22 @@ begin
 
   If RadioButton1.Checked and valor = True then
   begin
-      EdtValorTot.Text := FloatToStr(StrToFloat(EdtQuant.Text) * qryInsereItemvl_venda_produto.AsFloat - StrToFloat(EdtDesc.Text));
+      Desc_valor := 0;
+      Desc_valor := StrToFloat(StringReplace(EdtDesc.Text, '.', ',', [rfReplaceAll]));
+      EdtValorTot.Text := FloatToStr((StrToFloat(EdtQuant.Text) * qryInsereItemvl_venda_produto.AsFloat) - Desc_valor);
   end
   Else if RadioButton2.Checked and valor = True then
   begin
-     Desc_porcent := StrToFloat(EdtDesc.Text) / 100;
-     EdtValorTot.Text := FloatToStr((StrToFloat(EdtQuant.Text) * qryInsereItemvl_venda_produto.AsFloat) * Desc_porcent);
+     Desc_porcent := 0;
+     varAux := '';
+     varAux := StringReplace(EdtDesc.Text, '%', '', [rfReplaceAll]);
+     varAux := StringReplace(varAux, '.', ',', [rfReplaceAll]);
+     Desc_porcent := StrToFloat(varAux);
+     valor_desconto := (Desc_porcent/100) * (qryInsereItemvl_venda_produto.AsFloat * StrToFloat(EdtQuant.Text));
+     valor_final := (qryInsereItemvl_venda_produto.AsFloat * StrToFloat(EdtQuant.Text) - valor_desconto);
+     EdtValorTot.Text := FloatToStr(valor_final);
   end;
-end;
 
-procedure TInsertItemF.EdtDescExit(Sender: TObject);
-begin
-  If EdtDesc.text <> '' then
-  begin
-     EdtDesc.Text := FormatFloat('0.00', StrToFloat(EdtDesc.Text));
-  end;
 end;
 
 procedure TInsertItemF.EdtQuantChange(Sender: TObject);
@@ -124,6 +135,19 @@ begin
   begin
      EdtValorTot.Text := FloatToStr(StrToFloat(EdtQuant.Text) * qryInsereItemvl_venda_produto.AsFloat);
   end;
+end;
+
+procedure TInsertItemF.EdtValorTotChange(Sender: TObject);
+begin
+   EdtValorTot.Text := FormatFloat('0.00', StrToFloat(EdtValorTot.Text));
+
+   If StrToFloat(EdtValorTot.Text) < 0 then
+   begin
+      MessageDlg('Desconto acima do permitido, valor total do produto negativo.', mtWarning,[mbOk],0);
+      EdtValorTot.Clear;
+      EdtDesc.Clear;
+      EdtDesc.SetFocus;
+   end;
 end;
 
 procedure TInsertItemF.FormShow(Sender: TObject);
@@ -139,6 +163,16 @@ begin
     aText := Format('%.2f', [Sender.AsFloat])
   else
     aText := '';
+end;
+
+procedure TInsertItemF.RadioButton1Change(Sender: TObject);
+begin
+  EdtDesc.EditMask := '##.##';
+end;
+
+procedure TInsertItemF.RadioButton2Change(Sender: TObject);
+begin
+  EdtDesc.EditMask := '##.##%';
 end;
 
 procedure TInsertItemF.SpeedButton1Click(Sender: TObject);

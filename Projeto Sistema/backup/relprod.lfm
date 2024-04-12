@@ -1,0 +1,146 @@
+object RelProdF: TRelProdF
+  Left = 716
+  Height = 210
+  Top = 412
+  Width = 491
+  Caption = 'Relatório de Produtos'
+  ClientHeight = 210
+  ClientWidth = 491
+  DesignTimePPI = 120
+  Position = poDesktopCenter
+  LCLVersion = '3.2.0.0'
+  object BtnRelProd: TBitBtn
+    Cursor = crHandPoint
+    Left = 104
+    Height = 38
+    Top = 80
+    Width = 296
+    Caption = 'Imprimir de Relatório de Produtos'
+    Glyph.Data = {
+      EE030000424DEE03000000000000360000002800000012000000110000000100
+      180000000000B8030000C30E0000C30E00000000000000000000BFBFBF000000
+      000000000000BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
+      BFBFBFBF000000000000000000BFBFBF00000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00000000000000000000000000FFFFFFC0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0
+      C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0000000
+      0000000000FFFFFFC0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0
+      C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C00000000000000000FFFFFF
+      C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0
+      C00000FF0000FFC0C0C0C0C0C00000000000000000FFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFF000000000080808000000000000080808080808080808080808080
+      8080808080808080808080808080808080808080808080000000000000808080
+      0000BFBFBFBFBFBF000000000000000000000000000000000000000000000000
+      000000000000000000000000000000000000BFBFBFBFBFBF0000BFBFBFBFBFBF
+      000000000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFF000000000000BFBFBFBFBFBF0000BFBFBFBFBFBFBFBFBF000000FFFF
+      FF000000000000000000000000000000000000000000000000FFFFFF000000BF
+      BFBFBFBFBFBFBFBF0000BFBFBFBFBFBFBFBFBF000000FFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF000000BFBFBFBFBFBFBFBFBF
+      0000BFBFBFBFBFBFBFBFBF000000FFFFFF000000000000000000000000000000
+      000000000000000000FFFFFF000000BFBFBFBFBFBFBFBFBF0000BFBFBFBFBFBF
+      BFBFBF000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFF000000BFBFBFBFBFBFBFBFBF0000BFBFBFBFBFBFBFBFBF000000FFFF
+      FF000000000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF000000BF
+      BFBFBFBFBFBFBFBF0000BFBFBFBFBFBFBFBFBF000000FFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF000000BFBFBFBFBFBFBFBFBF
+      0000BFBFBFBFBFBFBFBFBF000000000000000000000000000000000000000000
+      000000000000000000000000000000BFBFBFBFBFBFBFBFBF0000BFBFBFBFBFBF
+      BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
+      BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF0000
+    }
+    OnClick = BtnRelProdClick
+    TabOrder = 0
+  end
+  object ReportRelProd: TfrReport
+    Dataset = frDBRelProd
+    InitialZoom = pzDefault
+    Options = []
+    PreviewButtons = [pbZoom, pbLoad, pbSave, pbPrint, pbFind, pbHelp, pbExit, pbSettings, pbPageSetup]
+    DataType = dtDataSet
+    Left = 40
+    Top = 24
+  end
+  object frDBRelProd: TfrDBDataSet
+    DataSet = qryRelProd
+    Left = 32
+    Top = 128
+  end
+  object qryRelProd: TZQuery
+    Connection = dmF.ZConnection1
+    SQL.Strings = (
+      'Select * from produto order by produtoid'
+    )
+    Params = <>
+    Left = 432
+    Top = 24
+    object qryRelProdprodutoid: TLongintField
+      FieldKind = fkData
+      FieldName = 'produtoid'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qryRelProdcategoriaprodutoid: TLongintField
+      FieldKind = fkData
+      FieldName = 'categoriaprodutoid'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qryRelProdds_produto: TStringField
+      FieldKind = fkData
+      FieldName = 'ds_produto'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 50
+    end
+    object qryRelProdobs_produto: TStringField
+      FieldKind = fkData
+      FieldName = 'obs_produto'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 300
+    end
+    object qryRelProdvl_venda_produto: TFloatField
+      FieldKind = fkData
+      FieldName = 'vl_venda_produto'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Precision = 983042
+    end
+    object qryRelProddt_cadastro_produto: TDateTimeField
+      FieldKind = fkData
+      FieldName = 'dt_cadastro_produto'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qryRelProdstatus_produto: TStringField
+      FieldKind = fkData
+      FieldName = 'status_produto'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 10
+    end
+  end
+end
