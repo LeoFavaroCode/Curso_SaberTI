@@ -168,8 +168,16 @@
         <Filename Value="relcat.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="RelCatF"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="RelCat"/>
+      </Unit>
+      <Unit>
+        <Filename Value="relorc.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="RelOrcF"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="RelOrc"/>
       </Unit>
     </Units>
   </ProjectOptions>

@@ -53,9 +53,11 @@ object MenuF: TMenuF
       end
       object RelatCategorias: TMenuItem
         Caption = 'Categorias'
+        OnClick = RelatCategoriasClick
       end
       object RelatOrc: TMenuItem
         Caption = 'Orçamentos'
+        OnClick = RelatOrcClick
       end
     end
     object MenuSobre: TMenuItem

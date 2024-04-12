@@ -11,8 +11,9 @@ uses
   {$ENDIF}
   Interfaces, // this includes the LCL widgetset
   Forms, datetimectrls, printer4lazarus, zcomponent, CadModelo, Menu,
-  CadCliente, DataModule, CadCategoria, CadUsuario, CadProd, PesqCat, 
-CadOrcamento, PesqCliente, InsereItem, PesqProd, RelClientes, RelProd, RelCat
+  CadCliente, DataModule, CadCategoria, CadUsuario, CadProd, PesqCat,
+  CadOrcamento, PesqCliente, InsereItem, PesqProd, RelClientes, RelProd, RelCat,
+  RelOrc
   { you can add units after this };
 
 {$R *.res}
@@ -26,6 +27,7 @@ begin
   Application.CreateForm(TrelClientesF, relClientesF);
   Application.CreateForm(TRelProdF, RelProdF);
   Application.CreateForm(TRelCatF, RelCatF);
+  Application.CreateForm(TRelOrcF, RelOrcF);
   Application.Run;
 end.
 

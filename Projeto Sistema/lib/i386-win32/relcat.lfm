@@ -9,7 +9,7 @@ object RelCatF: TRelCatF
   DesignTimePPI = 120
   Position = poDesktopCenter
   LCLVersion = '3.2.0.0'
-  object BtnRelProd: TBitBtn
+  object BtnRelCat: TBitBtn
     Cursor = crHandPoint
     Left = 120
     Height = 38
@@ -50,6 +50,7 @@ object RelCatF: TRelCatF
       BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
       BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF0000
     }
+    OnClick = BtnRelCatClick
     TabOrder = 0
   end
   object ReportRelCat: TfrReport
