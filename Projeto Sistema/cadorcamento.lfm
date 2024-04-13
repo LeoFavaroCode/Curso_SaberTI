@@ -159,7 +159,7 @@ inherited CadOrcamentoF: TCadOrcamentoF
           NumGlyphs = 1
           MaxLength = 10
           TabOrder = 2
-          Text = '  /  /    '
+          Text = '18/02/2023'
           DataField = 'dt_orcamento'
           DataSource = dsCadOrcamento
         end
@@ -176,7 +176,7 @@ inherited CadOrcamentoF: TCadOrcamentoF
           NumGlyphs = 1
           MaxLength = 10
           TabOrder = 3
-          Text = '  /  /    '
+          Text = '19/02/2023'
           DataField = 'dt_validade_orcamento'
           DataSource = dsCadOrcamento
         end
@@ -372,6 +372,7 @@ inherited CadOrcamentoF: TCadOrcamentoF
   object qryCadOrcamento: TZQuery[1]
     Connection = dmF.ZConnection1
     OnNewRecord = qryCadOrcamentoNewRecord
+    Active = True
     SQL.Strings = (
       'select * from orcamento order by orcamentoid'
     )

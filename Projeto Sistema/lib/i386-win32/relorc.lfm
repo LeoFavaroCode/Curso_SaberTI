@@ -73,8 +73,8 @@ object RelOrcF: TRelOrcF
       'inner join cliente c on'
       #9'o.clienteid = c.clienteid'
       'inner join orcamento_item oi on'
-      #9'oi.orcamentoid = o.orcamentoid;'
-      ''
+      #9'oi.orcamentoid = o.orcamentoid'
+      'order by o.orcamentoid;'
     )
     Params = <>
     Left = 456
