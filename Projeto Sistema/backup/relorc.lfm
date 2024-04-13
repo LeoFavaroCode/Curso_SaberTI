@@ -7,6 +7,8 @@ object RelOrcF: TRelOrcF
   ClientHeight = 204
   ClientWidth = 522
   DesignTimePPI = 120
+  OnClose = FormClose
+  OnShow = FormShow
   Position = poDesktopCenter
   LCLVersion = '3.2.0.0'
   object BtnRelOrc: TBitBtn
@@ -50,17 +52,113 @@ object RelOrcF: TRelOrcF
       BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
       BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF0000
     }
+    OnClick = BtnRelOrcClick
     TabOrder = 0
   end
   object qryRelOrc: TZQuery
     Connection = dmF.ZConnection1
     Active = True
     SQL.Strings = (
-      'select * from orcamento order by orcamentoid;'
+      'select'
+      #9'o.orcamentoid,'
+      #9'c.nome_cliente,'
+      #9'oi.produtodesc,'
+      #9'oi.qt_produto,'
+      #9'oi.vl_unitario,'
+      #9'oi.vl_total,'
+      #9'o.vl_total_orcamento,'
+      #9'o.dt_validade_orcamento'
+      'from'
+      #9'orcamento o'
+      'inner join cliente c on'
+      #9'o.clienteid = c.clienteid'
+      'inner join orcamento_item oi on'
+      #9'oi.orcamentoid = o.orcamentoid;'
+      ''
     )
     Params = <>
     Left = 456
     Top = 24
+    object qryRelOrcorcamentoid: TLongintField
+      FieldKind = fkData
+      FieldName = 'orcamentoid'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qryRelOrcnome_cliente: TStringField
+      FieldKind = fkData
+      FieldName = 'nome_cliente'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 100
+    end
+    object qryRelOrcprodutodesc: TStringField
+      FieldKind = fkData
+      FieldName = 'produtodesc'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 50
+    end
+    object qryRelOrcqt_produto: TFloatField
+      FieldKind = fkData
+      FieldName = 'qt_produto'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Precision = 983042
+    end
+    object qryRelOrcvl_unitario: TFloatField
+      FieldKind = fkData
+      FieldName = 'vl_unitario'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      OnGetText = qryRelOrcvl_unitarioGetText
+      Precision = 983042
+    end
+    object qryRelOrcvl_total: TFloatField
+      FieldKind = fkData
+      FieldName = 'vl_total'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      OnGetText = qryRelOrcvl_totalGetText
+      Precision = 983042
+    end
+    object qryRelOrcvl_total_orcamento: TFloatField
+      FieldKind = fkData
+      FieldName = 'vl_total_orcamento'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Precision = 983042
+    end
+    object qryRelOrcdt_validade_orcamento: TDateTimeField
+      FieldKind = fkData
+      FieldName = 'dt_validade_orcamento'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
   end
   object ReportRelOrc: TfrReport
     Dataset = frDBRelOrc

@@ -7,6 +7,7 @@ object relClientesF: TrelClientesF
   ClientHeight = 210
   ClientWidth = 520
   DesignTimePPI = 120
+  OnClose = FormClose
   OnCreate = FormCreate
   OnShow = FormShow
   Position = poDesktopCenter
@@ -71,7 +72,6 @@ object relClientesF: TrelClientesF
   end
   object qryRelCliente: TZQuery
     Connection = dmF.ZConnection1
-    Active = True
     SQL.Strings = (
       'select * from cliente order by clienteid'
     )

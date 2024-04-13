@@ -20,6 +20,7 @@ type
     ReportRelCat: TfrReport;
     qryRelCat: TZQuery;
     procedure BtnRelCatClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
   private
 
   public
@@ -40,6 +41,11 @@ begin
    ReportRelCat.LoadFromFile('RelCat.lrf');
    ReportRelCat.PrepareReport;
    ReportRelCat.ShowReport;
+end;
+
+procedure TRelCatF.FormClose(Sender: TObject; var CloseAction: TCloseAction);
+begin
+   CloseAction := caFree;
 end;
 
 end.

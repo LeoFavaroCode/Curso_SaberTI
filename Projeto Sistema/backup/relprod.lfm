@@ -64,11 +64,12 @@ object RelProdF: TRelProdF
   end
   object frDBRelProd: TfrDBDataSet
     DataSet = qryRelProd
-    Left = 32
+    Left = 40
     Top = 128
   end
   object qryRelProd: TZQuery
     Connection = dmF.ZConnection1
+    Active = True
     SQL.Strings = (
       'Select * from produto order by produtoid'
     )

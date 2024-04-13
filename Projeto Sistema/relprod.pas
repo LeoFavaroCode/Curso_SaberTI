@@ -25,6 +25,7 @@ type
     ReportRelProd: TfrReport;
     qryRelProd: TZQuery;
     procedure BtnRelProdClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
   private
 
   public
@@ -45,6 +46,11 @@ begin
    ReportRelProd.LoadFromFile('RelProd.lrf');
    ReportRelProd.PrepareReport;
    ReportRelProd.ShowReport;
+end;
+
+procedure TRelProdF.FormClose(Sender: TObject; var CloseAction: TCloseAction);
+begin
+    CloseAction := caFree;
 end;
 
 end.

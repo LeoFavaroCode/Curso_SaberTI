@@ -7,6 +7,7 @@ object RelCatF: TRelCatF
   ClientHeight = 216
   ClientWidth = 508
   DesignTimePPI = 120
+  OnClose = FormClose
   Position = poDesktopCenter
   LCLVersion = '3.2.0.0'
   object BtnRelCat: TBitBtn
@@ -69,7 +70,6 @@ object RelCatF: TRelCatF
   end
   object qryRelCat: TZQuery
     Connection = dmF.ZConnection1
-    Active = True
     SQL.Strings = (
       'select * from categoria_produto order by categoriaprodutoid;'
       ''

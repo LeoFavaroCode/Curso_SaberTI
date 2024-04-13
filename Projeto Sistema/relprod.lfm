@@ -7,6 +7,7 @@ object RelProdF: TRelProdF
   ClientHeight = 210
   ClientWidth = 491
   DesignTimePPI = 120
+  OnClose = FormClose
   Position = poDesktopCenter
   LCLVersion = '3.2.0.0'
   object BtnRelProd: TBitBtn
@@ -69,7 +70,6 @@ object RelProdF: TRelProdF
   end
   object qryRelProd: TZQuery
     Connection = dmF.ZConnection1
-    Active = True
     SQL.Strings = (
       'Select * from produto order by produtoid'
     )

@@ -176,6 +176,7 @@
         <Filename Value="relorc.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="RelOrcF"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="RelOrc"/>
       </Unit>

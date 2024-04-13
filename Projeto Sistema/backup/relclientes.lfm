@@ -7,6 +7,7 @@ object relClientesF: TrelClientesF
   ClientHeight = 210
   ClientWidth = 520
   DesignTimePPI = 120
+  OnCreate = FormCreate
   OnShow = FormShow
   Position = poDesktopCenter
   LCLVersion = '3.2.0.0'

@@ -22,6 +22,7 @@ type
     qryRelClientenome_cliente: TStringField;
     qryRelClientetipo_cliente: TStringField;
     procedure BitBtn1Click(Sender: TObject);
+    procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
   private
@@ -50,6 +51,12 @@ begin
    ReportRelCliente.LoadFromFile('RelClientes - Relatório.lrf');
    ReportRelCliente.PrepareReport;
    ReportRelCliente.ShowReport;
+end;
+
+procedure TrelClientesF.FormClose(Sender: TObject; var CloseAction: TCloseAction
+  );
+begin
+  CloseAction := caFree;
 end;
 
 procedure TrelClientesF.FormCreate(Sender: TObject);

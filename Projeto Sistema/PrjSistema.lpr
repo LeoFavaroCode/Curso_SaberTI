@@ -24,10 +24,6 @@ begin
   Application.Initialize;
   Application.CreateForm(TMenuF, MenuF);
   Application.CreateForm(TdmF, dmF);
-  Application.CreateForm(TrelClientesF, relClientesF);
-  Application.CreateForm(TRelProdF, RelProdF);
-  Application.CreateForm(TRelCatF, RelCatF);
-  Application.CreateForm(TRelOrcF, RelOrcF);
   Application.Run;
 end.
 

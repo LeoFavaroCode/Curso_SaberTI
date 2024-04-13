@@ -13,13 +13,13 @@ type
   { TRelCatF }
 
   TRelCatF = class(TForm)
-    BtnRelProd: TBitBtn;
+    BtnRelCat: TBitBtn;
     frDBRelCat: TfrDBDataSet;
     qryRelCatcategoriaprodutoid: TLongintField;
     qryRelCatds_categoria_produto: TStringField;
     ReportRelCat: TfrReport;
     qryRelCat: TZQuery;
-    procedure BtnRelProdClick(Sender: TObject);
+    procedure BtnRelCatClick(Sender: TObject);
   private
 
   public
@@ -35,7 +35,7 @@ implementation
 
 { TRelCatF }
 
-procedure TRelCatF.BtnRelProdClick(Sender: TObject);
+procedure TRelCatF.BtnRelCatClick(Sender: TObject);
 begin
    ReportRelCat.LoadFromFile('RelCat.lrf');
    ReportRelCat.PrepareReport;
