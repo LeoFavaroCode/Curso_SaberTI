@@ -1,0 +1,10 @@
+object SobreF: TSobreF
+  Left = 474
+  Height = 558
+  Top = 185
+  Width = 1160
+  Caption = 'Sobre'
+  DesignTimePPI = 120
+  Position = poDesktopCenter
+  LCLVersion = '3.2.0.0'
+end

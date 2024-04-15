@@ -13,7 +13,7 @@ uses
   Forms, datetimectrls, printer4lazarus, zcomponent, CadModelo, Menu,
   CadCliente, DataModule, CadCategoria, CadUsuario, CadProd, PesqCat,
   CadOrcamento, PesqCliente, InsereItem, PesqProd, RelClientes, RelProd, RelCat,
-  RelOrc
+  RelOrc, Sobre, Login
   { you can add units after this };
 
 {$R *.res}
@@ -22,8 +22,8 @@ begin
   RequireDerivedFormResource:=True;
   Application.Scaled:=True;
   Application.Initialize;
-  Application.CreateForm(TMenuF, MenuF);
   Application.CreateForm(TdmF, dmF);
+  Application.CreateForm(TLoginF, LoginF);
   Application.Run;
 end.
 

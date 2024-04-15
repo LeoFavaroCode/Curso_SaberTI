@@ -11,12 +11,10 @@ inherited CadProdF: TCadProdF
   inherited PageControl1: TPageControl
     Height = 591
     Width = 969
-    ActivePage = tbPesquisa
     Font.CharSet = ANSI_CHARSET
     Font.Pitch = fpVariable
     Font.Quality = fqDraft
     ParentFont = False
-    TabIndex = 0
     inherited tbPesquisa: TTabSheet
       ClientHeight = 558
       ClientWidth = 961

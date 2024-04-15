@@ -180,6 +180,20 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="RelOrc"/>
       </Unit>
+      <Unit>
+        <Filename Value="sobre.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="SobreF"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="Sobre"/>
+      </Unit>
+      <Unit>
+        <Filename Value="login.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="LoginF"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="Login"/>
+      </Unit>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

@@ -1,9 +1,9 @@
 object dmF: TdmF
   OldCreateOrder = False
-  Height = 418
+  Height = 295
   HorizontalOffset = 530
   VerticalOffset = 194
-  Width = 369
+  Width = 214
   PPI = 120
   object ZConnection1: TZConnection
     ControlsCodePage = cCP_UTF8

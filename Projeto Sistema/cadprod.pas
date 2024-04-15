@@ -14,7 +14,6 @@ type
   { TCadProdF }
 
   TCadProdF = class(TCadModeloF)
-    BtnImprimir: TBitBtn;
     EdtCat: TDBEdit;
     EdtStatus: TDBComboBox;
     DbData: TDBDateEdit;

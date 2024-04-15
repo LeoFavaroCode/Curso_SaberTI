@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, DB, Forms, Controls, Graphics, Dialogs, StdCtrls, DBCtrls,
-  Buttons, datamodule, ZDataset, CadModelo;
+  Buttons, MaskEdit, datamodule, ZDataset, CadModelo;
 
 type
 
@@ -17,17 +17,18 @@ type
     EdtTipo: TDBComboBox;
     DBEdit1: TDBEdit;
     EdtNome: TDBEdit;
-    EdtCPF: TDBEdit;
     EdtBuscaCliente: TEdit;
     Label2: TLabel;
     Label3: TLabel;
-    Label4: TLabel;
     Label5: TLabel;
+    EdtCpfCnpj: TMaskEdit;
     qryCadCliente: TZQuery;
     qryCadClienteclienteid: TLongintField;
     qryCadClientecpf_cnpj_cliente: TStringField;
     qryCadClientenome_cliente: TStringField;
     qryCadClientetipo_cliente: TStringField;
+    OpCPF: TRadioButton;
+    OpCNPJ: TRadioButton;
     procedure BtnBuscaClick(Sender: TObject);
     procedure BtnCancelarClick(Sender: TObject);
     procedure BtnEditarClick(Sender: TObject);
@@ -36,6 +37,8 @@ type
     procedure BtnNovoClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormShow(Sender: TObject);
+    procedure OpCNPJChange(Sender: TObject);
+    procedure OpCPFChange(Sender: TObject);
     procedure qryCadClienteNewRecord(DataSet: TDataSet);
   private
 
@@ -56,7 +59,7 @@ procedure TCadClienteF.BtnGravarClick(Sender: TObject);
 begin
   qryCadCliente.Post;
   EdtNome.ReadOnly := True;
-  EdtCPF.ReadOnly := True;
+  EdtCpfCnpj.ReadOnly := True;
   EdtTipo.ReadOnly := True;
   qryCadCliente.Refresh;
   inherited;
@@ -66,7 +69,7 @@ procedure TCadClienteF.BtnNovoClick(Sender: TObject);
 begin
   inherited;
   EdtNome.ReadOnly := False;
-  EdtCPF.ReadOnly := False;
+  EdtCpfCnpj.ReadOnly := False;
   EdtTipo.ReadOnly := False;
   qryCadCliente.Insert;
   If EdtNome.CanFocus then
@@ -76,7 +79,7 @@ end;
 procedure TCadClienteF.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
   EdtNome.ReadOnly := True;
-  EdtCPF.ReadOnly := True;
+  EdtCpfCnpj.ReadOnly := True;
   EdtTipo.ReadOnly := True;
   inherited;
 end;
@@ -85,7 +88,7 @@ procedure TCadClienteF.BtnEditarClick(Sender: TObject);
 begin
   qryCadCliente.edit;
   EdtNome.ReadOnly := False;
-  EdtCPF.ReadOnly := False;
+  EdtCpfCnpj.ReadOnly := False;
   EdtTipo.ReadOnly := False;
   inherited;
   EdtNome.SetFocus;
@@ -98,7 +101,7 @@ begin
       qryCadCliente.Delete;
       PageControl1.ActivePage := tbPesquisa;
       EdtNome.ReadOnly := True;
-      EdtCPF.ReadOnly := True;
+      EdtCpfCnpj.ReadOnly := True;
       EdtTipo.ReadOnly := True;
   end;
 end;
@@ -108,7 +111,7 @@ begin
   inherited;
   qryCadCliente.Cancel;
   EdtNome.ReadOnly := True;
-  EdtCPF.ReadOnly := True;
+  EdtCpfCnpj.ReadOnly := True;
   EdtTipo.ReadOnly := True;
 end;
 
@@ -161,6 +164,16 @@ procedure TCadClienteF.FormShow(Sender: TObject);
 begin
   inherited;
   CadClienteF.qryCadCliente.Active := True;
+end;
+
+procedure TCadClienteF.OpCNPJChange(Sender: TObject);
+begin
+  EdtCpfCnpj.EditMask := '##.###.###/####-##';
+end;
+
+procedure TCadClienteF.OpCPFChange(Sender: TObject);
+begin
+  EdtCpfCnpj.EditMask := '###.###.###-##';
 end;
 
 procedure TCadClienteF.qryCadClienteNewRecord(DataSet: TDataSet);

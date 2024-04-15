@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, Menus, CadCliente, CadCategoria, CadUsuario,CadProd,
-  CadOrcamento, datamodule, relClientes, RelProd, RelCat;
+  CadOrcamento, datamodule, relClientes, RelProd, RelCat, RelOrc;
 
 type
 
@@ -119,6 +119,8 @@ begin
   CloseAction := caFree;
   Application.Terminate;
 end;
+
+
 
 
 end.

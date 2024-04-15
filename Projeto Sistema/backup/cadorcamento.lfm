@@ -7,25 +7,29 @@ inherited CadOrcamentoF: TCadOrcamentoF
     inherited tbPesquisa: TTabSheet
       inherited Panel1: TPanel
         inherited BtnBusca: TBitBtn
-          Left = 392
           Top = 24
           OnClick = BtnBuscaClick
         end
         inherited RadioButton1: TRadioButton
           Top = 26
+          OnChange = RadioButton1Change
         end
         inherited RadioButton2: TRadioButton
           Height = 24
           Top = 26
           Width = 53
           Caption = 'Data'
+          OnChange = RadioButton2Change
         end
-        object EdtBuscaOrc: TEdit[3]
+        object EdtBuscaOrc: TMaskEdit[3]
           Left = 200
           Height = 28
           Top = 24
-          Width = 184
+          Width = 188
+          EnableSets = False
+          MaxLength = 0
           TabOrder = 3
+          SpaceChar = '_'
         end
       end
       inherited Panel3: TPanel
@@ -510,6 +514,7 @@ inherited CadOrcamentoF: TCadOrcamentoF
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = True
+      OnGetText = qryOrcItemvl_unitarioGetText
       Precision = 983042
     end
     object qryOrcItemvl_total: TFloatField
@@ -520,6 +525,7 @@ inherited CadOrcamentoF: TCadOrcamentoF
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = True
+      OnGetText = qryOrcItemvl_totalGetText
       Precision = 983042
     end
   end
