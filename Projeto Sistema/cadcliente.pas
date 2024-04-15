@@ -13,6 +13,7 @@ type
   { TCadClienteF }
 
   TCadClienteF = class(TCadModeloF)
+    EdtCpfCnpj: TDBEdit;
     dsCadCliente: TDataSource;
     EdtTipo: TDBComboBox;
     DBEdit1: TDBEdit;
@@ -21,7 +22,6 @@ type
     Label2: TLabel;
     Label3: TLabel;
     Label5: TLabel;
-    EdtCpfCnpj: TMaskEdit;
     qryCadCliente: TZQuery;
     qryCadClienteclienteid: TLongintField;
     qryCadClientecpf_cnpj_cliente: TStringField;
@@ -163,7 +163,7 @@ end;
 procedure TCadClienteF.FormShow(Sender: TObject);
 begin
   inherited;
-  CadClienteF.qryCadCliente.Active := True;
+  qryCadCliente.Open;
 end;
 
 procedure TCadClienteF.OpCNPJChange(Sender: TObject);

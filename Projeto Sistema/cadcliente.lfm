@@ -94,7 +94,7 @@ inherited CadClienteF: TCadClienteF
       inherited Panel2: TPanel
         Width = 872
         ClientWidth = 872
-        TabOrder = 3
+        TabOrder = 6
         inherited BtnGravar: TBitBtn
           OnClick = BtnGravarClick
         end
@@ -139,7 +139,7 @@ inherited CadClienteF: TCadClienteF
         DataSource = dsCadCliente
         ReadOnly = True
         MaxLength = 100
-        TabOrder = 2
+        TabOrder = 5
       end
       object Label3: TLabel[4]
         Left = 24
@@ -178,22 +178,12 @@ inherited CadClienteF: TCadClienteF
           'Jurídica'
         )
         MaxLength = 0
-        TabOrder = 1
-      end
-      object EdtCpfCnpj: TMaskEdit[7]
-        Left = 280
-        Height = 28
-        Top = 32
-        Width = 296
-        EnableSets = False
-        MaxLength = 0
         TabOrder = 4
-        SpaceChar = '_'
       end
-      object OpCPF: TRadioButton[8]
+      object OpCPF: TRadioButton[7]
         Left = 144
         Height = 24
-        Top = 36
+        Top = 35
         Width = 47
         Caption = 'CPF'
         Font.CharSet = ANSI_CHARSET
@@ -203,13 +193,13 @@ inherited CadClienteF: TCadClienteF
         Font.Quality = fqDraft
         Font.Style = [fsBold]
         ParentFont = False
-        TabOrder = 5
+        TabOrder = 1
         OnChange = OpCPFChange
       end
-      object OpCNPJ: TRadioButton[9]
+      object OpCNPJ: TRadioButton[8]
         Left = 208
         Height = 24
-        Top = 36
+        Top = 35
         Width = 58
         Caption = 'CNPJ'
         Font.CharSet = ANSI_CHARSET
@@ -219,8 +209,18 @@ inherited CadClienteF: TCadClienteF
         Font.Quality = fqDraft
         Font.Style = [fsBold]
         ParentFont = False
-        TabOrder = 6
+        TabOrder = 2
         OnChange = OpCNPJChange
+      end
+      object EdtCpfCnpj: TDBEdit[9]
+        Left = 280
+        Height = 28
+        Top = 32
+        Width = 280
+        DataField = 'cpf_cnpj_cliente'
+        DataSource = dsCadCliente
+        MaxLength = 18
+        TabOrder = 3
       end
     end
   end
@@ -232,6 +232,7 @@ inherited CadClienteF: TCadClienteF
   object qryCadCliente: TZQuery[2]
     Connection = dmF.ZConnection1
     OnNewRecord = qryCadClienteNewRecord
+    Active = True
     SQL.Strings = (
       'select * from cliente order by clienteid;'
     )

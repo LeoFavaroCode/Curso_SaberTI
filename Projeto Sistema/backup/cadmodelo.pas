@@ -32,7 +32,6 @@ type
     procedure BtnCancelarClick(Sender: TObject);
     procedure BtnEditarClick(Sender: TObject);
     procedure BtnGravarClick(Sender: TObject);
-    procedure BtnImprimirClick(Sender: TObject);
     procedure BtnNovoClick(Sender: TObject);
     procedure BtnSairClick(Sender: TObject);
     procedure DBGrid2DblClick(Sender: TObject);
@@ -66,11 +65,6 @@ end;
 procedure TCadModeloF.BtnGravarClick(Sender: TObject);
 begin
     PageControl1.ActivePage := tbPesquisa;
-end;
-
-procedure TCadModeloF.BtnImprimirClick(Sender: TObject);
-begin
-
 end;
 
 procedure TCadModeloF.BtnNovoClick(Sender: TObject);

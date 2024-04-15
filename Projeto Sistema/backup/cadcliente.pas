@@ -13,6 +13,7 @@ type
   { TCadClienteF }
 
   TCadClienteF = class(TCadModeloF)
+    EdtCpfCnpj: TDBEdit;
     dsCadCliente: TDataSource;
     EdtTipo: TDBComboBox;
     DBEdit1: TDBEdit;
@@ -21,7 +22,6 @@ type
     Label2: TLabel;
     Label3: TLabel;
     Label5: TLabel;
-    EdtCpfCnpj: TMaskEdit;
     qryCadCliente: TZQuery;
     qryCadClienteclienteid: TLongintField;
     qryCadClientecpf_cnpj_cliente: TStringField;
@@ -69,7 +69,7 @@ procedure TCadClienteF.BtnNovoClick(Sender: TObject);
 begin
   inherited;
   EdtNome.ReadOnly := False;
-  EdtCPF.ReadOnly := False;
+  EdtCpfCnpj.ReadOnly := False;
   EdtTipo.ReadOnly := False;
   qryCadCliente.Insert;
   If EdtNome.CanFocus then
@@ -79,7 +79,7 @@ end;
 procedure TCadClienteF.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
   EdtNome.ReadOnly := True;
-  EdtCPF.ReadOnly := True;
+  EdtCpfCnpj.ReadOnly := True;
   EdtTipo.ReadOnly := True;
   inherited;
 end;
@@ -88,7 +88,7 @@ procedure TCadClienteF.BtnEditarClick(Sender: TObject);
 begin
   qryCadCliente.edit;
   EdtNome.ReadOnly := False;
-  EdtCPF.ReadOnly := False;
+  EdtCpfCnpj.ReadOnly := False;
   EdtTipo.ReadOnly := False;
   inherited;
   EdtNome.SetFocus;
@@ -101,7 +101,7 @@ begin
       qryCadCliente.Delete;
       PageControl1.ActivePage := tbPesquisa;
       EdtNome.ReadOnly := True;
-      EdtCPF.ReadOnly := True;
+      EdtCpfCnpj.ReadOnly := True;
       EdtTipo.ReadOnly := True;
   end;
 end;
@@ -111,7 +111,7 @@ begin
   inherited;
   qryCadCliente.Cancel;
   EdtNome.ReadOnly := True;
-  EdtCPF.ReadOnly := True;
+  EdtCpfCnpj.ReadOnly := True;
   EdtTipo.ReadOnly := True;
 end;
 
@@ -163,7 +163,7 @@ end;
 procedure TCadClienteF.FormShow(Sender: TObject);
 begin
   inherited;
-  CadClienteF.qryCadCliente.Active := True;
+  qryCadCliente.Open;
 end;
 
 procedure TCadClienteF.OpCNPJChange(Sender: TObject);
