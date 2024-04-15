@@ -15,13 +15,13 @@ type
   TInsertItemF = class(TForm)
     BtnConfirmar: TBitBtn;
     BtnCancel: TBitBtn;
+    EdtValorTot: TEdit;
+    EdtQuant: TEdit;
     EdtDesc: TMaskEdit;
-    EdtQuant: TDBEdit;
     EdtValorUnit: TDBEdit;
     dsInsereItem: TDataSource;
     EdtID: TDBEdit;
     DBEdit2: TDBEdit;
-    EdtValorTot: TEdit;
     Label1: TLabel;
     Label2: TLabel;
     Label3: TLabel;
@@ -89,7 +89,9 @@ procedure TInsertItemF.BtnConfirmarClick(Sender: TObject);
 begin
   CadOrcamentoF.qryOrcItemprodutoid.AsInteger := qryInsereItemprodutoid.AsInteger;
   CadOrcamentoF.qryOrcItemprodutodesc.AsString := qryInsereItemds_produto.AsString;
-  CadOrcamentoF.qryOrcItemqt_produto.AsInteger := CadOrcamentoF.qryOrcItemqt_produto.AsInteger;
+  CadOrcamentoF.qryOrcItemqt_produto.AsFloat := StrToFloat(EdtQuant.Text);
+  CadOrcamentoF.qryOrcItemvl_unitario.AsFloat := qryInsereItemvl_venda_produto.AsFloat;
+  CadOrcamentoF.qryOrcItemvl_total.AsFloat := StrToFloat(EdtValorTot.Text);
   qryInsereItem.post;
 
 end;

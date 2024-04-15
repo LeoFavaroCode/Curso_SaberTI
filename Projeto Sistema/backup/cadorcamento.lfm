@@ -1,5 +1,6 @@
 inherited CadOrcamentoF: TCadOrcamentoF
-  Left = 509
+  Left = 494
+  Top = 229
   Caption = 'Orçamento '
   OnShow = FormShow
   inherited PageControl1: TPageControl
@@ -159,7 +160,7 @@ inherited CadOrcamentoF: TCadOrcamentoF
           NumGlyphs = 1
           MaxLength = 10
           TabOrder = 2
-          Text = '  /  /    '
+          Text = '18/02/2023'
           DataField = 'dt_orcamento'
           DataSource = dsCadOrcamento
         end
@@ -176,7 +177,7 @@ inherited CadOrcamentoF: TCadOrcamentoF
           NumGlyphs = 1
           MaxLength = 10
           TabOrder = 3
-          Text = '  /  /    '
+          Text = '19/02/2023'
           DataField = 'dt_validade_orcamento'
           DataSource = dsCadOrcamento
         end
@@ -228,8 +229,8 @@ inherited CadOrcamentoF: TCadOrcamentoF
           Alignment = taRightJustify
           AutoSize = False
           Font.CharSet = ANSI_CHARSET
-          Font.Height = -30
-          Font.Name = 'Segoe UI'
+          Font.Height = -33
+          Font.Name = 'Arial'
           Font.Pitch = fpVariable
           Font.Quality = fqDraft
           MaxLength = 0
@@ -311,6 +312,7 @@ inherited CadOrcamentoF: TCadOrcamentoF
             3939393939393939393969390000393939393939393939393939393939393969
             00003939393939393939393939393939393939390000
           }
+          OnClick = BtnExcItemClick
           TabOrder = 6
         end
         object SpeedButton1: TSpeedButton
@@ -372,6 +374,7 @@ inherited CadOrcamentoF: TCadOrcamentoF
   object qryCadOrcamento: TZQuery[1]
     Connection = dmF.ZConnection1
     OnNewRecord = qryCadOrcamentoNewRecord
+    Active = True
     SQL.Strings = (
       'select * from orcamento order by orcamentoid'
     )
@@ -433,6 +436,7 @@ inherited CadOrcamentoF: TCadOrcamentoF
   end
   object qryOrcItem: TZQuery[3]
     Connection = dmF.ZConnection1
+    OnNewRecord = qryOrcItemNewRecord
     Active = True
     SQL.Strings = (
       'select * from orcamento_item where orcamentoid = :orcamentoid order by orcamentoitemid;'

@@ -49,6 +49,7 @@ type
     procedure BtnBuscaClick(Sender: TObject);
     procedure BtnCancelarClick(Sender: TObject);
     procedure BtnEditarClick(Sender: TObject);
+    procedure BtnExcItemClick(Sender: TObject);
     procedure BtnExcluirClick(Sender: TObject);
     procedure BtnGravarClick(Sender: TObject);
     procedure BtnNovoClick(Sender: TObject);
@@ -58,6 +59,7 @@ type
     procedure qryCadOrcamentoNewRecord(DataSet: TDataSet);
     procedure qryCadOrcamentovl_total_orcamentoGetText(Sender: TField;
       var aText: string; DisplayText: Boolean);
+    procedure qryOrcItemNewRecord(DataSet: TDataSet);
     procedure SpeedButton1Click(Sender: TObject);
   private
 
@@ -87,6 +89,8 @@ begin
   DataValidade.ReadOnly := False;
   DataCadastro.Text := DateToStr(Date);
   DataValidade.Text := DateToStr(Date);
+  qryOrcItem.ParamByName('orcamentoid').AsInteger := qryCadOrcamento.FieldByName('orcamentoid').AsInteger;
+  qryOrcItem.Open;
   inherited;
 end;
 
@@ -149,6 +153,7 @@ end;
 
 procedure TCadOrcamentoF.BtnAddClick(Sender: TObject);
 begin
+  qryOrcItem.Insert;
   InsertItemF := TInsertItemF.Create(Self);
   InsertItemF.ShowModal;
 end;
@@ -157,7 +162,19 @@ procedure TCadOrcamentoF.BtnEditarClick(Sender: TObject);
 begin
   qryCadOrcamento.Edit;
   DataValidade.ReadOnly := False;
+  qryOrcItem.Close;
+  qryOrcItem.ParamByName('orcamentoid').AsInteger := qryCadOrcamento.FieldByName('orcamentoid').AsInteger;
+  qryOrcItem.Open;
   inherited;
+end;
+
+procedure TCadOrcamentoF.BtnExcItemClick(Sender: TObject);
+begin
+  If  MessageDlg('Deseja excluir o item?', mtWarning,[mbyes,mbno],0)=mryes then
+  begin
+      qryOrcItemorcamentoitemid.Delete;
+      DataValidade.ReadOnly := True;
+  end;
 end;
 
 procedure TCadOrcamentoF.BtnExcluirClick(Sender: TObject);
@@ -179,7 +196,8 @@ end;
 
 procedure TCadOrcamentoF.FormShow(Sender: TObject);
 begin
-  qryCadOrcamento.Active := True;
+  qryCadOrcamento.Open;
+  qryOrcItem.Open;
   inherited;
 end;
 
@@ -200,6 +218,16 @@ begin
   aText := Format('%.2f', [Sender.AsFloat])
 else
   aText := '';
+end;
+
+procedure TCadOrcamentoF.qryOrcItemNewRecord(DataSet: TDataSet);
+begin
+  qryOrcItemorcamentoid.AsInteger := qryCadOrcamentoorcamentoid.AsInteger;
+  dmF.qryGenerica.Close;
+  dmF.qryGenerica.SQL.Clear;
+  dmF.qryGenerica.SQL.Add('select nextval('+ QuotedStr('ORCAMENTO_ITEM_ORCAMENTOITEMID')+') AS CODIGO');
+  dmF.qryGenerica.Open;
+  qryOrcItemorcamentoitemid.AsInteger := dmF.qryGenerica.FieldByName('CODIGO').AsInteger;;
 end;
 
 procedure TCadOrcamentoF.SpeedButton1Click(Sender: TObject);
