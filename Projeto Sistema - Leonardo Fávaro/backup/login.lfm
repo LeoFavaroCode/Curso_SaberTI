@@ -1,0 +1,161 @@
+object LoginF: TLoginF
+  Left = 758
+  Height = 425
+  Top = 286
+  Width = 499
+  Caption = 'Login'
+  ClientHeight = 425
+  ClientWidth = 499
+  DesignTimePPI = 120
+  OnClose = FormClose
+  Position = poDesktopCenter
+  LCLVersion = '3.2.0.0'
+  object Label1: TLabel
+    Left = 224
+    Height = 21
+    Top = 32
+    Width = 49
+    Caption = 'Login'
+    Font.CharSet = ANSI_CHARSET
+    Font.Height = -18
+    Font.Name = 'Arial'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label2: TLabel
+    Left = 64
+    Height = 21
+    Top = 205
+    Width = 55
+    Caption = 'Senha'
+    Font.CharSet = ANSI_CHARSET
+    Font.Height = -18
+    Font.Name = 'Arial'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object BtnConfirma: TButton
+    Cursor = crHandPoint
+    Left = 40
+    Height = 39
+    Top = 288
+    Width = 416
+    Caption = 'Confirmar'
+    Font.CharSet = ANSI_CHARSET
+    Font.Height = -17
+    Font.Name = 'Arial'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 0
+    OnClick = BtnConfirmaClick
+  end
+  object BtnSair: TButton
+    Cursor = crHandPoint
+    Left = 40
+    Height = 39
+    Top = 344
+    Width = 416
+    Caption = 'Sair'
+    Font.CharSet = ANSI_CHARSET
+    Font.Height = -17
+    Font.Name = 'Arial'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 1
+    OnClick = BtnSairClick
+  end
+  object EdtUser: TEdit
+    Left = 133
+    Height = 32
+    Top = 132
+    Width = 304
+    AutoSize = False
+    TabOrder = 2
+  end
+  object EdtSenha: TEdit
+    Left = 133
+    Height = 32
+    Top = 200
+    Width = 304
+    AutoSize = False
+    EchoMode = emPassword
+    PasswordChar = '*'
+    TabOrder = 3
+  end
+  object Label3: TLabel
+    Left = 52
+    Height = 21
+    Top = 136
+    Width = 67
+    Caption = 'Usuário'
+    Font.CharSet = ANSI_CHARSET
+    Font.Height = -18
+    Font.Name = 'Arial'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object qryLogin: TZQuery
+    Connection = dmF.ZConnection1
+    Active = True
+    SQL.Strings = (
+      'select * from usuarios;'
+    )
+    Params = <>
+    Left = 40
+    Top = 16
+    object qryLoginid: TLongintField
+      FieldKind = fkData
+      FieldName = 'id'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qryLoginusuario: TStringField
+      FieldKind = fkData
+      FieldName = 'usuario'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 30
+    end
+    object qryLoginnome_completo: TStringField
+      FieldKind = fkData
+      FieldName = 'nome_completo'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 60
+    end
+    object qryLoginsenha: TStringField
+      FieldKind = fkData
+      FieldName = 'senha'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 50
+    end
+  end
+  object dsLogin: TDataSource
+    DataSet = qryLogin
+    Left = 40
+    Top = 80
+  end
+end

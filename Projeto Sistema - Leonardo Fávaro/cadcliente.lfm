@@ -1,0 +1,281 @@
+inherited CadClienteF: TCadClienteF
+  Left = 532
+  Top = 224
+  Width = 880
+  Caption = 'Cadastro de Cliente'
+  ClientWidth = 880
+  OnClose = FormClose
+  OnShow = FormShow
+  inherited PageControl1: TPageControl
+    Width = 880
+    Font.CharSet = ANSI_CHARSET
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentFont = False
+    inherited tbPesquisa: TTabSheet
+      ClientWidth = 872
+      inherited Panel1: TPanel
+        Width = 872
+        ClientWidth = 872
+        inherited BtnBusca: TBitBtn
+          Cursor = crDefault
+          Left = 648
+          Top = 24
+          OnClick = BtnBuscaClick
+        end
+        inherited RadioButton1: TRadioButton
+          Cursor = crDefault
+          Top = 28
+        end
+        inherited RadioButton2: TRadioButton
+          Cursor = crDefault
+          Height = 24
+          Width = 161
+          Caption = 'Nome / Razão Social'
+        end
+        object EdtBuscaCliente: TEdit[3]
+          Left = 320
+          Height = 28
+          Top = 24
+          Width = 312
+          TabOrder = 3
+        end
+      end
+      inherited Panel3: TPanel
+        Width = 872
+        ClientWidth = 872
+        inherited BtnSair: TBitBtn
+          Cursor = crDefault
+          Left = 733
+          TabOrder = 2
+        end
+        inherited BtnNovo: TBitBtn
+          OnClick = BtnNovoClick
+        end
+        inherited BtnEditar: TBitBtn
+          OnClick = BtnEditarClick
+          TabOrder = 0
+        end
+      end
+      inherited DBGrid2: TDBGrid
+        Width = 872
+        Columns = <        
+          item
+            PickList.Strings = (            )
+            Title.Caption = 'ID'
+            Width = 80
+            FieldName = 'clienteid'
+          end        
+          item
+            PickList.Strings = (            )
+            Title.Caption = 'Nome / Razão Social'
+            Width = 450
+            FieldName = 'nome_cliente'
+          end        
+          item
+            PickList.Strings = (            )
+            Title.Caption = 'CPF / CNPJ'
+            Width = 180
+            FieldName = 'cpf_cnpj_cliente'
+          end        
+          item
+            PickList.Strings = (            )
+            Title.Caption = 'Tipo (F - J)'
+            Width = 120
+            FieldName = 'tipo_cliente'
+          end>
+        DataSource = dsCadCliente
+        ReadOnly = True
+        OnDblClick = DBGrid2DblClick
+      end
+    end
+    inherited tbCadastro: TTabSheet
+      ClientWidth = 872
+      inherited Panel2: TPanel
+        Width = 872
+        ClientWidth = 872
+        TabOrder = 6
+        inherited BtnGravar: TBitBtn
+          OnClick = BtnGravarClick
+        end
+        inherited BtnExcluir: TBitBtn
+          OnClick = BtnExcluirClick
+        end
+        inherited BtnCancelar: TBitBtn
+          Left = 719
+          OnClick = BtnCancelarClick
+        end
+      end
+      object DBEdit1: TDBEdit[1]
+        Left = 56
+        Height = 28
+        Top = 32
+        Width = 56
+        DataField = 'clienteid'
+        DataSource = dsCadCliente
+        ReadOnly = True
+        Alignment = taRightJustify
+        MaxLength = 0
+        TabOrder = 0
+      end
+      object Label2: TLabel[2]
+        Left = 24
+        Height = 20
+        Top = 36
+        Width = 20
+        Caption = 'ID:'
+        Font.CharSet = ANSI_CHARSET
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object EdtNome: TDBEdit[3]
+        Left = 184
+        Height = 28
+        Top = 83
+        Width = 356
+        DataField = 'nome_cliente'
+        DataSource = dsCadCliente
+        ReadOnly = True
+        MaxLength = 100
+        TabOrder = 5
+      end
+      object Label3: TLabel[4]
+        Left = 24
+        Height = 20
+        Top = 86
+        Width = 148
+        Caption = 'Nome / Razão Social:'
+        Font.CharSet = ANSI_CHARSET
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object Label5: TLabel[5]
+        Left = 600
+        Height = 20
+        Top = 34
+        Width = 35
+        Caption = 'Tipo:'
+        Font.CharSet = ANSI_CHARSET
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object EdtTipo: TDBComboBox[6]
+        Left = 648
+        Height = 28
+        Top = 32
+        Width = 125
+        DataField = 'tipo_cliente'
+        DataSource = dsCadCliente
+        ItemHeight = 20
+        Items.Strings = (
+          'Física'
+          'Jurídica'
+        )
+        MaxLength = 0
+        TabOrder = 4
+      end
+      object OpCPF: TRadioButton[7]
+        Left = 144
+        Height = 24
+        Top = 35
+        Width = 47
+        Caption = 'CPF'
+        Font.CharSet = ANSI_CHARSET
+        Font.Height = -15
+        Font.Name = 'Segoe UI'
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        Font.Style = [fsBold]
+        ParentFont = False
+        TabOrder = 1
+        OnChange = OpCPFChange
+      end
+      object OpCNPJ: TRadioButton[8]
+        Left = 208
+        Height = 24
+        Top = 35
+        Width = 58
+        Caption = 'CNPJ'
+        Font.CharSet = ANSI_CHARSET
+        Font.Height = -15
+        Font.Name = 'Segoe UI'
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        Font.Style = [fsBold]
+        ParentFont = False
+        TabOrder = 2
+        OnChange = OpCNPJChange
+      end
+      object EdtCpfCnpj: TDBEdit[9]
+        Left = 280
+        Height = 28
+        Top = 32
+        Width = 280
+        DataField = 'cpf_cnpj_cliente'
+        DataSource = dsCadCliente
+        MaxLength = 18
+        TabOrder = 3
+      end
+    end
+  end
+  object dsCadCliente: TDataSource[1]
+    DataSet = qryCadCliente
+    Left = 440
+    Top = 320
+  end
+  object qryCadCliente: TZQuery[2]
+    Connection = dmF.ZConnection1
+    OnNewRecord = qryCadClienteNewRecord
+    SQL.Strings = (
+      'select * from cliente order by clienteid;'
+    )
+    Params = <>
+    Left = 328
+    Top = 320
+    object qryCadClienteclienteid: TLongintField
+      FieldKind = fkData
+      FieldName = 'clienteid'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qryCadClientetipo_cliente: TStringField
+      FieldKind = fkData
+      FieldName = 'tipo_cliente'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 10
+    end
+    object qryCadClientecpf_cnpj_cliente: TStringField
+      FieldKind = fkData
+      FieldName = 'cpf_cnpj_cliente'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 18
+    end
+    object qryCadClientenome_cliente: TStringField
+      FieldKind = fkData
+      FieldName = 'nome_cliente'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 100
+    end
+  end
+end

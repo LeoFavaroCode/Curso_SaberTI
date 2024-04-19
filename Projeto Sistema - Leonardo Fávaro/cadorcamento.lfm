@@ -1,0 +1,535 @@
+inherited CadOrcamentoF: TCadOrcamentoF
+  Left = 494
+  Top = 229
+  Caption = 'Orçamento '
+  OnShow = FormShow
+  inherited PageControl1: TPageControl
+    inherited tbPesquisa: TTabSheet
+      inherited Panel1: TPanel
+        inherited BtnBusca: TBitBtn
+          Top = 24
+          OnClick = BtnBuscaClick
+        end
+        inherited RadioButton1: TRadioButton
+          Top = 26
+          OnChange = RadioButton1Change
+        end
+        inherited RadioButton2: TRadioButton
+          Height = 24
+          Top = 26
+          Width = 53
+          Caption = 'Data'
+          OnChange = RadioButton2Change
+        end
+        object EdtBuscaOrc: TMaskEdit[3]
+          Left = 200
+          Height = 28
+          Top = 24
+          Width = 188
+          EnableSets = False
+          MaxLength = 0
+          TabOrder = 3
+          SpaceChar = '_'
+        end
+      end
+      inherited Panel3: TPanel
+        inherited BtnSair: TBitBtn
+          OnClick = BtnSairClick
+          TabOrder = 2
+        end
+        inherited BtnNovo: TBitBtn
+          OnClick = BtnNovoClick
+          TabOrder = 0
+        end
+        inherited BtnEditar: TBitBtn
+          OnClick = BtnEditarClick
+          TabOrder = 1
+        end
+      end
+      inherited DBGrid2: TDBGrid
+        Columns = <        
+          item
+            PickList.Strings = (            )
+            Title.Caption = 'ID'
+            Width = 80
+            FieldName = 'orcamentoid'
+          end        
+          item
+            PickList.Strings = (            )
+            Title.Caption = 'Valor total'
+            Width = 110
+            FieldName = 'vl_total_orcamento'
+          end        
+          item
+            PickList.Strings = (            )
+            Title.Caption = 'Data de Cadastro'
+            Width = 140
+            FieldName = 'dt_orcamento'
+          end        
+          item
+            PickList.Strings = (            )
+            Title.Caption = 'Data de Validade'
+            Width = 140
+            FieldName = 'dt_validade_orcamento'
+          end        
+          item
+            PickList.Strings = (            )
+            Title.Caption = 'clienteid'
+            Visible = False
+            FieldName = 'clienteid'
+          end>
+        DataSource = dsCadOrcamento
+        OnDblClick = DBGrid2DblClick
+      end
+    end
+    inherited tbCadastro: TTabSheet
+      inherited Panel2: TPanel
+        inherited BtnGravar: TBitBtn
+          OnClick = BtnGravarClick
+        end
+        inherited BtnExcluir: TBitBtn
+          OnClick = BtnExcluirClick
+        end
+        inherited BtnCancelar: TBitBtn
+          OnClick = BtnCancelarClick
+        end
+      end
+      object Panel4: TPanel[1]
+        Left = 0
+        Height = 112
+        Top = 0
+        Width = 1147
+        Align = alTop
+        ClientHeight = 112
+        ClientWidth = 1147
+        TabOrder = 1
+        object DBEdit1: TDBEdit
+          Left = 64
+          Height = 28
+          Top = 13
+          Width = 48
+          DataField = 'orcamentoid'
+          DataSource = dsCadOrcamento
+          ReadOnly = True
+          Alignment = taRightJustify
+          MaxLength = 0
+          TabOrder = 0
+        end
+        object DBEdit2: TDBEdit
+          Left = 64
+          Height = 28
+          Top = 68
+          Width = 48
+          DataField = 'clienteid'
+          DataSource = dsCadOrcamento
+          ReadOnly = True
+          Alignment = taRightJustify
+          MaxLength = 0
+          TabOrder = 1
+        end
+        object Label1: TLabel
+          Left = 39
+          Height = 20
+          Top = 20
+          Width = 20
+          Caption = 'ID:'
+          Font.CharSet = ANSI_CHARSET
+          Font.Pitch = fpVariable
+          Font.Quality = fqDraft
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object Label2: TLabel
+          Left = 8
+          Height = 20
+          Top = 72
+          Width = 52
+          Caption = 'Cliente:'
+          Font.CharSet = ANSI_CHARSET
+          Font.Pitch = fpVariable
+          Font.Quality = fqDraft
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object DataCadastro: TDBDateEdit
+          Cursor = crHandPoint
+          Left = 336
+          Height = 28
+          Top = 13
+          Width = 129
+          CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
+          ReadOnly = True
+          DateOrder = doDMY
+          ButtonWidth = 29
+          NumGlyphs = 1
+          MaxLength = 10
+          TabOrder = 2
+          Text = '18/02/2023'
+          DataField = 'dt_orcamento'
+          DataSource = dsCadOrcamento
+        end
+        object DataValidade: TDBDateEdit
+          Cursor = crHandPoint
+          Left = 336
+          Height = 28
+          Top = 68
+          Width = 129
+          CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
+          ReadOnly = True
+          DateOrder = doDMY
+          ButtonWidth = 29
+          NumGlyphs = 1
+          MaxLength = 10
+          TabOrder = 3
+          Text = '19/02/2023'
+          DataField = 'dt_validade_orcamento'
+          DataSource = dsCadOrcamento
+        end
+        object Label3: TLabel
+          Left = 208
+          Height = 20
+          Top = 16
+          Width = 124
+          Caption = 'Data de Cadastro:'
+          Font.CharSet = ANSI_CHARSET
+          Font.Pitch = fpVariable
+          Font.Quality = fqDraft
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object Label4: TLabel
+          Left = 211
+          Height = 20
+          Top = 72
+          Width = 121
+          Caption = 'Data de Validade:'
+          Font.CharSet = ANSI_CHARSET
+          Font.Pitch = fpVariable
+          Font.Quality = fqDraft
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object Label5: TLabel
+          Left = 584
+          Height = 23
+          Top = 20
+          Width = 163
+          Caption = 'TOTAL ORÇAMENTO'
+          Font.CharSet = ANSI_CHARSET
+          Font.Height = -17
+          Font.Pitch = fpVariable
+          Font.Quality = fqDraft
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object DBEdit3: TDBEdit
+          Left = 584
+          Height = 43
+          Top = 53
+          Width = 176
+          DataField = 'vl_total_orcamento'
+          DataSource = dsCadOrcamento
+          ReadOnly = True
+          Alignment = taRightJustify
+          AutoSize = False
+          Font.CharSet = ANSI_CHARSET
+          Font.Height = -33
+          Font.Name = 'Arial'
+          Font.Pitch = fpVariable
+          Font.Quality = fqDraft
+          MaxLength = 0
+          ParentFont = False
+          TabOrder = 4
+        end
+        object BtnAdd: TBitBtn
+          Cursor = crHandPoint
+          Left = 872
+          Height = 30
+          Top = 64
+          Width = 108
+          Caption = 'Adicionar'
+          Glyph.Data = {
+            DE000000424DDE0000000000000076000000280000000D0000000D0000000100
+            0400000000006800000000000000000000001000000010000000000000000000
+            BF0000BF000000BFBF00BF000000BF00BF00BFBF0000C0C0C000808080000000
+            FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00777777777777
+            700077777777777770007777700077777000777770C077777000777770C07777
+            7000770000C000077000770CCCCCCC077000770000C000077000777770C07777
+            7000777770C07777700077777000777770007777777777777000777777777777
+            7000
+          }
+          OnClick = BtnAddClick
+          TabOrder = 5
+        end
+        object BtnExcItem: TBitBtn
+          Cursor = crHandPoint
+          Left = 1000
+          Height = 30
+          Top = 64
+          Width = 108
+          Caption = 'Excluir Item'
+          Glyph.Data = {
+            B2050000424DB205000000000000360400002800000012000000130000000100
+            0800000000007C010000C30E0000C30E00000001000000000000000000007B00
+            0000BD000000FF0000007B7B000000FF0000FFFF000000315A0008427300084A
+            730000007B007B007B00084A7B0008527B0021527B00007B7B007B7B7B00004A
+            840008528400105284002963840008528C00085A8C00185A8C0018638C002963
+            8C0008529400185A9400296B9400316B94002973940031739400085A9C001863
+            9C0018739C0029739C0031739C0031849C00005AA5002173A5003973A500297B
+            A500186BAD00106BB500317BB5002984B5004A8CB500086BBD000073BD001073
+            BD001873BD00217BBD004284BD00318CBD004A8CBD005294BD005A9CBD00BDBD
+            BD001073C600007BC600217BC600428CC6004A8CC6005A9CC6000084CE000884
+            CE00398CCE005A9CCE00639CCE001884D6002184D600088CD600108CD6004294
+            D600399CD6004A9CD600529CD6005A9CD6005AA5D60063ADD6001884DE002184
+            DE00188CDE001094DE001894DE003194DE00299CDE004AA5DE005AA5DE004AB5
+            DE00189CE700219CE700429CE7005AA5E7005AADE70063ADE7006BB5E70021A5
+            EF0029A5EF0031A5EF0063B5EF006BBDEF0029ADF70031ADF7006BBDF7000000
+            FF00FF00FF0031B5FF0039B5FF0042B5FF0039BDFF0042BDFF0042C6FF004AC6
+            FF006BC6FF004ACEFF0052CEFF0052D6FF005ADEFF0063E7FF0000FFFF00FFFF
+            FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+            FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+            FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+            FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+            FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+            FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+            FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+            FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+            FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+            FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+            FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+            FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+            FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+            FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+            FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+            FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+            FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00393939393939
+            3939393939393939393939690000396939393939393939393939393939396939
+            0000396969393910101010101010101010693939000039696969000000000000
+            0000000069693939000039396969007879797978797979696939393900003939
+            3969697903030303030379691039393900003939396969697978797979786969
+            1039393900003939393969696903030369696900103939390000393939390069
+            6969797869697900103939390000393939390079036969696903790010393939
+            0000393939390079796969696978790010393939000039393939007903696969
+            6900000010393939000039393939007869697900696979001039393900003939
+            3939006969697900696969693939393900003939396969697978790079003969
+            6939393900003969696969000000000000393939696939390000396969693939
+            3939393939393939393969390000393939393939393939393939393939393969
+            00003939393939393939393939393939393939390000
+          }
+          OnClick = BtnExcItemClick
+          TabOrder = 6
+        end
+        object SpeedButton1: TSpeedButton
+          Cursor = crHandPoint
+          Left = 126
+          Height = 20
+          Top = 72
+          Width = 29
+          Caption = '...'
+          OnClick = SpeedButton1Click
+        end
+      end
+      object DBGrid1: TDBGrid[2]
+        Left = 0
+        Height = 300
+        Top = 112
+        Width = 1147
+        Align = alClient
+        Color = clWindow
+        Columns = <        
+          item
+            Title.Caption = 'ID Orc.'
+            FieldName = 'orcamentoid'
+          end        
+          item
+            Title.Caption = 'ID Item'
+            FieldName = 'orcamentoitemid'
+          end        
+          item
+            Title.Caption = 'Id Produto'
+            FieldName = 'produtoid'
+          end        
+          item
+            Title.Caption = 'Descrição'
+            Width = 300
+            FieldName = 'produtodesc'
+          end        
+          item
+            Title.Caption = 'Quantidade'
+            Width = 120
+            FieldName = 'qt_produto'
+          end        
+          item
+            Title.Caption = 'Valor Unitário'
+            Width = 120
+            FieldName = 'vl_unitario'
+          end        
+          item
+            Title.Caption = 'Valor Total'
+            Width = 120
+            FieldName = 'vl_total'
+          end>
+        DataSource = dsOrcItem
+        ReadOnly = True
+        TabOrder = 2
+      end
+    end
+  end
+  object qryCadOrcamento: TZQuery[1]
+    Connection = dmF.ZConnection1
+    OnNewRecord = qryCadOrcamentoNewRecord
+    SQL.Strings = (
+      'select * from orcamento order by orcamentoid'
+    )
+    Params = <>
+    Left = 896
+    Top = 216
+    object qryCadOrcamentoorcamentoid: TLongintField
+      FieldKind = fkData
+      FieldName = 'orcamentoid'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qryCadOrcamentoclienteid: TLongintField
+      FieldKind = fkData
+      FieldName = 'clienteid'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qryCadOrcamentodt_orcamento: TDateTimeField
+      FieldKind = fkData
+      FieldName = 'dt_orcamento'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qryCadOrcamentodt_validade_orcamento: TDateTimeField
+      FieldKind = fkData
+      FieldName = 'dt_validade_orcamento'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qryCadOrcamentovl_total_orcamento: TFloatField
+      FieldKind = fkData
+      FieldName = 'vl_total_orcamento'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      OnGetText = qryCadOrcamentovl_total_orcamentoGetText
+      Precision = 983042
+    end
+  end
+  object dsCadOrcamento: TDataSource[2]
+    DataSet = qryCadOrcamento
+    Left = 1048
+    Top = 216
+  end
+  object qryOrcItem: TZQuery[3]
+    Connection = dmF.ZConnection1
+    OnNewRecord = qryOrcItemNewRecord
+    SQL.Strings = (
+      'select * from orcamento_item where orcamentoid = :orcamentoid order by orcamentoitemid;'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'orcamentoid'
+        ParamType = ptUnknown
+      end>
+    Left = 896
+    Top = 336
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'orcamentoid'
+        ParamType = ptUnknown
+      end>
+    object qryOrcItemorcamentoid: TLongintField
+      FieldKind = fkData
+      FieldName = 'orcamentoid'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qryOrcItemorcamentoitemid: TLongintField
+      FieldKind = fkData
+      FieldName = 'orcamentoitemid'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qryOrcItemprodutoid: TLongintField
+      FieldKind = fkData
+      FieldName = 'produtoid'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qryOrcItemprodutodesc: TStringField
+      FieldKind = fkData
+      FieldName = 'produtodesc'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 50
+    end
+    object qryOrcItemqt_produto: TFloatField
+      FieldKind = fkData
+      FieldName = 'qt_produto'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Precision = 983042
+    end
+    object qryOrcItemvl_unitario: TFloatField
+      FieldKind = fkData
+      FieldName = 'vl_unitario'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      OnGetText = qryOrcItemvl_unitarioGetText
+      Precision = 983042
+    end
+    object qryOrcItemvl_total: TFloatField
+      FieldKind = fkData
+      FieldName = 'vl_total'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      OnGetText = qryOrcItemvl_totalGetText
+      Precision = 983042
+    end
+  end
+  object dsOrcItem: TDataSource[4]
+    DataSet = qryOrcItem
+    Left = 1048
+    Top = 336
+  end
+end
